@@ -1,0 +1,84 @@
+//
+//  WebViewController.swift
+//  Cobrowse
+//
+
+import UIKit
+import WebKit
+import CobrowseIO
+
+class WebViewController: UIViewController {
+    
+    @IBOutlet weak var sessionButton: UIBarButtonItem!
+    @IBOutlet weak var webView: WKWebView!
+
+    var url: URL?
+    var isRedacted = true
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        SheetPresentationDelegate.subscribe(for: sessionButton)
+        
+        webView.navigationDelegate = self
+        
+        guard let url = url
+            else { return }
+        
+        isRedacted = !url.absoluteString.contains("fraud")
+        
+        webView.load(URLRequest(url: url))
+    }
+
+    @IBAction func sessionButtonWasTapped(_ sender: Any) {
+        session.current?.end()
+    }
+}
+
+// MARK: - CobrowseIORedacted
+
+extension WebViewController: CobrowseIORedacted {
+    
+    func redactedViews() -> [Any] {
+        isRedacted ? [webView!] : []
+    }
+}
+
+// MARK: - WKNavigationDelegate
+
+extension WebViewController: WKNavigationDelegate {
+    
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction) async -> WKNavigationActionPolicy {
+        
+        guard let url = navigationAction.request.url,
+              let scheme = url.scheme
+        else { return .allow }
+
+        switch scheme {
+            case "tel", "sms", "facetime", "mailto":
+                await UIApplication.shared.open(url)
+                return .cancel
+            default: break
+        }
+
+        if navigationAction.navigationType != .other {
+            navigateTo(url)
+            return .cancel
+        }
+
+        return .allow
+    }
+    
+    private func navigateTo(_ url: URL) {
+        let storyboard = UIStoryboard.main
+        
+        guard
+            let navigationController = navigationController,
+            let webViewController: WebViewController = storyboard.viewControllerWith(id: .webViewController)
+        else { return }
+
+        webViewController.url = url
+
+        navigationController.show(webViewController, sender: self)
+    }
+}
