@@ -108,7 +108,7 @@ extension TransactionTableViewController {
               let transaction = selectedTransaction
         else { return }
         
-        var url = URL(string: "https://cobrowseio.eu.ngrok.io")!
+        var url = URL(string: "https://cobrowseio.github.io/cobrowse-sdk-ios-examples")!
         url.append(queryItems: [
             .init(name: "title", value: transaction.title),
             .init(name: "subtitle", value: transaction.subtitle),
