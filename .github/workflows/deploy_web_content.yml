@@ -3,6 +3,8 @@ name: Deploy web content
 on:
   push:
     branches: ["master"]
+    paths: 
+      - 'Cobrowse/WebContent/**'
   workflow_dispatch:
   
 permissions:
