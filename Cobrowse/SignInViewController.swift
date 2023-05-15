@@ -11,6 +11,7 @@ class SignInViewController: UIViewController {
     
     @IBOutlet weak var sessionButton: UIBarButtonItem!
     
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var signInButton: UIButton!
     
@@ -56,6 +57,36 @@ extension SignInViewController: CobrowseIORedacted {
             usernameTextField,
             passwordTextField
         ].compactMap { $0 }
+    }
+}
+
+// MARK: - UITextFieldDelegate
+
+extension SignInViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        guard let text = textField.text, !text.isEmpty
+            else { return false }
+        
+        switch textField {
+            case usernameTextField:
+                passwordTextField.becomeFirstResponder()
+            
+            case passwordTextField:
+                guard signInButton.isEnabled
+                    else { return false }
+            
+                account.isSignedIn = true
+            
+            default: return false
+        }
+        
+        return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        scrollView.scrollRectToVisible(.infinite, animated: true)
     }
 }
 
