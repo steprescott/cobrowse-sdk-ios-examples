@@ -11,6 +11,9 @@ class TransactionTableViewController: UITableViewController {
     @IBOutlet weak var sessionButton: UIBarButtonItem!
     
     var selectedTransaction: Transaction?
+
+    /// Displayed cells are stored so parts of them can be redacted when needed.
+    var displayedCells = Set<TransactionTableViewCell>()
     
     var transactions: [Date: [Transaction]] = [:] {
         didSet { tableView.reloadData() }
@@ -26,6 +29,18 @@ class TransactionTableViewController: UITableViewController {
     @IBAction func sessionButtonWasTapped(_ sender: Any) {
         session.current?.end()
     }
+
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard let toBeInserted = cell as? TransactionTableViewCell
+            else { return }
+        displayedCells.insert(toBeInserted)
+    }
+
+    override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard let toBeRemoved = cell as? TransactionTableViewCell
+            else { return }
+        displayedCells.remove(toBeRemoved)
+    }
 }
 
 // MARK: - CobrowseIORedacted
@@ -34,14 +49,9 @@ extension TransactionTableViewController: CobrowseIORedacted {
     
     func redactedViews() -> [Any] {
         var redacted: [Any] = []
-        
-        for cell in tableView.visibleCells {
-            guard let cell = cell as? TransactionTableViewCell
-                else { return [] }
-
+        for cell in displayedCells {
             redacted += cell.redactedViews()
         }
-
         return redacted
     }
 }
