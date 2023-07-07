@@ -16,7 +16,10 @@ class TransactionTableViewController: UITableViewController {
     var displayedCells = Set<TransactionTableViewCell>()
     
     var transactions: [Date: [Transaction]] = [:] {
-        didSet { tableView.reloadData() }
+        didSet {
+            displayedCells.removeAll()
+            tableView.reloadData()
+        }
     }
     
     override func viewDidLoad() {
@@ -28,18 +31,6 @@ class TransactionTableViewController: UITableViewController {
 
     @IBAction func sessionButtonWasTapped(_ sender: Any) {
         session.current?.end()
-    }
-
-    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        guard let toBeInserted = cell as? TransactionTableViewCell
-            else { return }
-        displayedCells.insert(toBeInserted)
-    }
-
-    override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        guard let toBeRemoved = cell as? TransactionTableViewCell
-            else { return }
-        displayedCells.remove(toBeRemoved)
     }
 }
 
@@ -99,6 +90,20 @@ extension TransactionTableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard let transactionCell = cell as? TransactionTableViewCell
+            else { return }
+
+        displayedCells.insert(transactionCell)
+    }
+
+    override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard let transactionCell = cell as? TransactionTableViewCell
+            else { return }
+
+        displayedCells.remove(transactionCell)
+    }
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
