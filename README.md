@@ -2,7 +2,7 @@
 
 Cobrowse.io is 100% free and easy to try out in your own apps. Please see full documentation at [https://docs.cobrowse.io](https://docs.cobrowse.io).
 
-Try our online demo at the bottom of our homepage at [https://cobrowse.io/demo](https://cobrowse.io/demo).
+You can try our online demo at [https://cobrowse.io/demo](https://cobrowse.io/demo).
 
 ## Building
 
