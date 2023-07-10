@@ -12,7 +12,7 @@ This example project uses Swift Package Manager to pull in the Cobrowse iOS SDK 
 
 With the Cobrowse target selected run the project.
 
-If building to device please update the Team ID, bundle ID. If manually provisioning please set them in the Signing & Capabilities tab of both the main App target and the Extension target.
+If building to device please update the team ID and bundle ID. If manually provisioning please set them in the Signing & Capabilities tab of both the main App target and the Extension target.
 
 *Note full device mode will only work on a real device. Full device mode is **not** supported in the simulator.*
 
