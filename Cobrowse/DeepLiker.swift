@@ -28,6 +28,7 @@ enum DeepLinker {
             case "data": return updateCustomData(using: components)
             case "s": return startSession(using: components)
             case "code": return startSession(using: components)
+            case "demo": return setupForDemo(using: components)
             default: return false
         }
     }
@@ -35,6 +36,7 @@ enum DeepLinker {
 
 extension DeepLinker {
     
+    @discardableResult
     private static func updateAPI(using components: URLComponents) -> Bool {
         
         let api = components.path.trimmingPrefix("/api/")
@@ -48,6 +50,7 @@ extension DeepLinker {
         return true
     }
     
+    @discardableResult
     private static func updateLicense(using components: URLComponents) -> Bool {
         
         guard let license = components.path.split(separator: "/").last
@@ -62,6 +65,7 @@ extension DeepLinker {
         return true
     }
     
+    @discardableResult
     private static func updateCustomData(using components: URLComponents) -> Bool {
         
         guard let data = components.queryItems?.reduce(into: [String : NSObject](), { partialResult, item in
@@ -77,6 +81,7 @@ extension DeepLinker {
         return true
     }
     
+    @discardableResult
     private static func startSession(using components: URLComponents) -> Bool {
         
         if let id = components.queryItems?.first(where: { $0.name == "id" })?.value {
@@ -88,6 +93,7 @@ extension DeepLinker {
         return false
     }
     
+    @discardableResult
     private static func startSession(with id: String) -> Bool {
         
         let cobrowse = CobrowseIO.instance()
@@ -95,6 +101,41 @@ extension DeepLinker {
         cobrowse.stop()
         cobrowse.start()
         cobrowse.getSession(id)
+        
+        return true
+    }
+    
+    @discardableResult
+    private static func setupForDemo(using components: URLComponents) -> Bool {
+        
+        let cobrowse = CobrowseIO.instance()
+        
+        let demoID = components.path.trimmingPrefix("/demo/")
+        cobrowse.customData = ["demo_id" : String(demoID)] as [String : NSObject]
+        
+        if var queryItems = components.queryItems {
+            
+            cobrowse.stop()
+            
+            if let api = queryItems.pop("api") {
+                cobrowse.api = api
+            }
+            
+            if let license = queryItems.pop("license") {
+                cobrowse.license = license
+            }
+
+            var components = components
+            components.queryItems = queryItems
+            
+            updateCustomData(using: components)
+            
+            cobrowse.start()
+        }
+
+        if !account.isSignedIn {
+            account.isSignedIn = true
+        }
         
         return true
     }

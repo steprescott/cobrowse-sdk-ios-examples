@@ -21,3 +21,17 @@ extension Array where Element == Transaction {
         }
     }
 }
+
+extension Array where Element == URLQueryItem {
+    
+    mutating func pop(_ name: String) -> String? {
+        guard let index = self.firstIndex(where: { $0.name == name })
+            else { return nil }
+        
+        let item = self[index]
+        self.remove(at: index)
+        
+        return item.value
+    }
+}
+
