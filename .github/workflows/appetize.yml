@@ -1,0 +1,38 @@
+name: Publish to Appetize.io
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: macos-12
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v2
+      - name: Get latest commit information
+        run: |
+          echo "GITHUB_SHA_SHORT=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+          echo "GITHUB_COMMIT_MESSAGE=$(git show -s --format=%s)" >> $GITHUB_ENV
+      - name: Find SDK version
+        run: |
+          echo "COBROWSE_VERSION=$(cat Cobrowse.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved | grep -A 4 'cobrowse-sdk-ios-binary' | awk '/version/ {print $3}' | tr -d '"')" >> $GITHUB_ENV
+      - name: Print Xcode version
+        run: xcodebuild -version
+      - name: Build the app
+        run: xcodebuild -project Cobrowse.xcodeproj -scheme Cobrowse -sdk iphonesimulator -destination "generic/platform=iOS Simulator" -derivedDataPath "./build" build | xcpretty
+      - name: Create app archive
+        run: tar -czf Cobrowse.app.tar.gz build/Build/Products/Debug-iphonesimulator/Cobrowse.app
+      - name: Upload app archive to Appetize.io
+        env:
+          APPETIZE_API_TOKEN: ${{ secrets.AppetizeApiToken }}
+          APPETIZE_APP_PUBLIC_KEY: ${{ secrets.AppetizeAppPublicKey }}
+          GITHUB_SHA_SHORT: ${{ env.GITHUB_SHA_SHORT }}
+          GITHUB_COMMIT_MESSAGE: ${{ env.GITHUB_COMMIT_MESSAGE }}
+          COBROWSE_VERSION: ${{ env.COBROWSE_VERSION }}
+        run: |
+          curl --fail -X POST \
+            https://$APPETIZE_API_TOKEN@api.appetize.io/v1/apps/$APPETIZE_APP_PUBLIC_KEY \
+            -F "file=@Cobrowse.app.tar.gz" \
+            -F "platform=ios" \
+            -F "note=• Commit: $GITHUB_SHA_SHORT • Based on: $COBROWSE_VERSION • Message: \"$GITHUB_COMMIT_MESSAGE\""

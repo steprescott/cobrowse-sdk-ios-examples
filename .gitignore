@@ -14,5 +14,5 @@ Packages/
 Package.pins
 .swiftpm
 
-.build/
+build/
 .DS_Store
