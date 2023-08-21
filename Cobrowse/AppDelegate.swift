@@ -18,13 +18,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let cobrowse = CobrowseIO.instance()
         
         cobrowse.license = "trial"
-        cobrowse.start()
-        cobrowse.delegate = session
         
         cobrowse.customData = [
             kCBIOUserEmailKey: "ios@demo.com",
             kCBIODeviceNameKey: "iOS Demo"
         ] as [String : NSObject]
+        
+        cobrowse.webviewRedactedViews = [
+            "#title",
+            "#amount",
+            "#subtitle",
+            "#map"
+        ]
+        
+        cobrowse.delegate = session
+        
+        cobrowse.start()
         
         return true
     }

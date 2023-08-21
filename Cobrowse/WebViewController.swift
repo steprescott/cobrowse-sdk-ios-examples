@@ -13,7 +13,6 @@ class WebViewController: UIViewController {
     @IBOutlet weak var webView: WKWebView!
 
     var url: URL?
-    var isRedacted = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,22 +24,11 @@ class WebViewController: UIViewController {
         guard let url = url
             else { return }
         
-        isRedacted = !url.absoluteString.contains("fraud")
-        
         webView.load(URLRequest(url: url))
     }
 
     @IBAction func sessionButtonWasTapped(_ sender: Any) {
         session.current?.end()
-    }
-}
-
-// MARK: - CobrowseIORedacted
-
-extension WebViewController: CobrowseIORedacted {
-    
-    func redactedViews() -> [Any] {
-        isRedacted ? [webView!] : []
     }
 }
 
