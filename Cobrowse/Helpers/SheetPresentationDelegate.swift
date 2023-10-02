@@ -5,14 +5,16 @@
 
 import UIKit
 
+import Combine
+
 let sheetPresentationDelegate = SheetPresentationDelegate()
 
 class SheetPresentationDelegate: NSObject {
     
     @Published var identifier: String?
     
-    static func subscribe(for item: UIBarButtonItem) {
-        
+    static func subscribe(for item: UIBarButtonItem, store bag: inout Set<AnyCancellable>) {
+
         sheetPresentationDelegate.$identifier.sink { identifier in
             guard identifier != Detent.small,
                   let session = session.current,

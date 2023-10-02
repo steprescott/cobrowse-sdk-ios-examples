@@ -7,7 +7,6 @@ import Combine
 import Foundation
 
 let account = Account()
-var bag = Set<AnyCancellable>()
 
 class Account {
     

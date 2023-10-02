@@ -4,6 +4,8 @@
 //
 
 import UIKit
+import Combine
+
 import CobrowseIO
 
 class AccountViewController: UIViewController {
@@ -14,6 +16,8 @@ class AccountViewController: UIViewController {
     
     @IBOutlet weak var codeStackView: UIStackView!
     @IBOutlet weak var codeLabel: UILabel!
+    
+    private var bag = Set<AnyCancellable>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,8 +34,9 @@ class AccountViewController: UIViewController {
     }
     
     @IBAction func codeButtonWasTapped(_ sender: Any) {
-        CobrowseIO.instance().createSession { [self] error, session in
+        CobrowseIO.instance().createSession { [weak self] error, session in
             guard
+                let self = self,
                 let session = session,
                 let code = session.code()
             else { return }
@@ -62,7 +67,9 @@ extension AccountViewController: CobrowseIORedacted {
 extension AccountViewController {
     
     private func subscribeToSession() {
-        session.$current.sink { [self] session in
+        session.$current.sink { [weak self] session in
+            guard let self = self else { return }
+            
             codeStackView.isHidden = session?.isActive() ?? false
             sessionButton.isHidden = !codeStackView.isHidden
             

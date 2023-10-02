@@ -4,6 +4,7 @@
 //
 
 import UIKit
+
 import CobrowseIO
 
 class TransactionTableViewCell: UITableViewCell {

@@ -5,6 +5,7 @@
 
 import UIKit
 import Combine
+
 import CobrowseIO
 
 class SignInViewController: UIViewController {
@@ -20,6 +21,8 @@ class SignInViewController: UIViewController {
     
     @Published var username = ""
     @Published var password = ""
+    
+    private var bag = Set<AnyCancellable>()
     
     var isSignInButtonEnabled: AnyPublisher<Bool, Never> {
         Publishers.CombineLatest(
@@ -96,11 +99,11 @@ extension SignInViewController {
     
     private func subscribeToFormUpdates() {
         usernameTextField.textPublisher
-            .sink { [self] in username = $0 }
+            .sink { [weak self] in self?.username = $0 }
             .store(in: &bag)
         
         passwordTextField.textPublisher
-            .sink { [self] in password = $0 }
+            .sink { [weak self] in self?.password = $0 }
             .store(in: &bag)
         
         isSignInButtonEnabled
@@ -109,11 +112,10 @@ extension SignInViewController {
     }
     
     private func subscribeToSession() {
-        session.$current.sink { [self] session in
-            guard let session = session
-                else { sessionButton.isHidden = true; return }
+        session.$current.sink { [weak self] session in
+            guard let self = self else { return }
             
-            sessionButton.isHidden = !session.isActive()
+            sessionButton.isHidden = session?.isActive() != true
         }
         .store(in: &bag)
     }
