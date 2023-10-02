@@ -22,6 +22,8 @@ jobs:
       - name: Find SDK version
         run: |
           echo "COBROWSE_VERSION=$(cat Cobrowse.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved | grep -A 4 'cobrowse-sdk-ios-binary' | awk '/version/ {print $3}' | tr -d '"')" >> $GITHUB_ENV
+      - name: Set Xcode version
+        run: sudo xcode-select -s /Applications/Xcode_15.app/Contents/Developer
       - name: Print Xcode version
         run: xcodebuild -version
       - name: Build the app
