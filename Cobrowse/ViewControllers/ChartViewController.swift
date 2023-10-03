@@ -6,7 +6,7 @@
 import UIKit
 import Combine
 
-import Charts
+import DGCharts
 import CobrowseIO
 
 class ChartViewController: UIViewController {

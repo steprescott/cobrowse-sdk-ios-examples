@@ -4,7 +4,7 @@
 //
 
 import UIKit
-import Charts
+import DGCharts
 
 extension Dictionary where Key == Transaction.Category, Value == [Transaction] {
     

@@ -56,7 +56,7 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yYn-6e-LhT" customClass="PieChartView" customModule="Charts">
+                                    <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yYn-6e-LhT" customClass="PieChartView" customModule="DGCharts">
                                         <rect key="frame" x="8" y="178.66666666666666" width="377" height="383.33333333333337"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="xtf-FM-WgV">
@@ -305,7 +305,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9FB-lS-JKf">
-                                        <rect key="frame" x="10" y="45.000000000000007" width="375.33333333333331" height="123.66666666666669"/>
+                                        <rect key="frame" x="10" y="45.000000000000007" width="375.33333333333331" height="123.66666666666666"/>
                                         <color key="tintColor" red="0.34509804840000002" green="0.050980389119999997" blue="0.96078431610000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="120" id="fJq-8w-5Zh"/>
