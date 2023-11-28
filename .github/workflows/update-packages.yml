@@ -1,0 +1,40 @@
+name: Update Swift Packages and create a pull request if necessary
+
+on: workflow_dispatch
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    # Remove the Package.resolved file and don't use any cached packages to cause all packages to update
+    - name: Update packages
+      run: |
+        rm Cobrowse.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved
+        xcodebuild -resolvePackageDependencies -clonedSourcePackagesDirPath ./packages
+
+    # If SDKs were updated, commit the changes and open a new pull request
+    - name: Create a new pull request
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        FILES_TO_COMMIT: Cobrowse.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved
+        NEW_BRANCH_NAME: feature/update_packages_${{ github.run_id }}
+      run: |
+        if [[ `git status --porcelain $FILES_TO_COMMIT` ]]; then
+          git config --local user.name "Cobrowse.io Bot"
+          git config --local user.email "github@cobrowse.io"
+          git checkout -b $NEW_BRANCH_NAME
+          git add $FILES_TO_COMMIT
+          git commit -m "feat: update swift packages"
+          git push origin $NEW_BRANCH_NAME
+          gh pr create -B master -H $NEW_BRANCH_NAME --title 'Update Swift Packages' --body ''
+        else
+          echo "No changes to commit"
+        fi
