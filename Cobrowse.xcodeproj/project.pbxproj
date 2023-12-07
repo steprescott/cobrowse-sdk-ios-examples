@@ -33,6 +33,8 @@
 		4A81871A2ABDFD5A00C90B9E /* DispatchQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8187192ABDFD5A00C90B9E /* DispatchQueue.swift */; };
 		4A81871D2ABDFE9500C90B9E /* CobrowseIO in Frameworks */ = {isa = PBXBuildFile; productRef = 4A81871C2ABDFE9500C90B9E /* CobrowseIO */; };
 		4A81871F2ABDFE9500C90B9E /* CobrowseIOAppExtension in Frameworks */ = {isa = PBXBuildFile; productRef = 4A81871E2ABDFE9500C90B9E /* CobrowseIOAppExtension */; };
+		4A84E15E2B22251300C2789A /* UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A84E15D2B22251300C2789A /* UIWindow.swift */; };
+		4A84E1602B22252800C2789A /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A84E15F2B22252800C2789A /* UINavigationController.swift */; };
 		4A90DD342ABC632200152802 /* AgentPresentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A90DD332ABC632200152802 /* AgentPresentViewController.swift */; };
 		4A90DD382ABC78AD00152802 /* CodeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A90DD372ABC78AD00152802 /* CodeTextField.swift */; };
 		4AC0136029E5989000461FA9 /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC0135F29E5989000461FA9 /* Identifiers.swift */; };
@@ -98,6 +100,8 @@
 		4A5AFEA829EEAB75007CABEB /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		4A5AFEAA29F16507007CABEB /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		4A8187192ABDFD5A00C90B9E /* DispatchQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueue.swift; sourceTree = "<group>"; };
+		4A84E15D2B22251300C2789A /* UIWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindow.swift; sourceTree = "<group>"; };
+		4A84E15F2B22252800C2789A /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
 		4A90DD332ABC632200152802 /* AgentPresentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentPresentViewController.swift; sourceTree = "<group>"; };
 		4A90DD372ABC78AD00152802 /* CodeTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeTextField.swift; sourceTree = "<group>"; };
 		4AC0135F29E5989000461FA9 /* Identifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiers.swift; sourceTree = "<group>"; };
@@ -146,19 +150,21 @@
 			isa = PBXGroup;
 			children = (
 				4A1D470129FAAC1C00109053 /* Array.swift */,
+				4A0C5ED52ABDF8EB002B4F5E /* Character.swift */,
 				4A1D46FA29FAA9A600109053 /* Date.swift */,
 				4A1D46FF29FAABFB00109053 /* Dictionary.swift */,
+				4A8187192ABDFD5A00C90B9E /* DispatchQueue.swift */,
+				4A1D47232A03C0E800109053 /* Locale.Currency.swift */,
 				4A1D471F2A03BFBF00109053 /* Publisher.swift */,
 				4A1D470529FAB1DD00109053 /* RawRepresentable.swift */,
+				4A84E15F2B22252800C2789A /* UINavigationController.swift */,
 				4A1D46F629FAA95C00109053 /* UISheetPresentationController.swift */,
 				4A1D470729FAB4AD00109053 /* UIStoryboard.swift */,
 				4A1D470929FAB82300109053 /* UITableView.swift */,
 				4A1D47212A03BFDF00109053 /* UITextField.swift */,
-				4A1D46F829FAA98500109053 /* UIViewController.swift */,
-				4A1D47232A03C0E800109053 /* Locale.Currency.swift */,
 				4A0C5ED32ABDF8B9002B4F5E /* UIView.swift */,
-				4A0C5ED52ABDF8EB002B4F5E /* Character.swift */,
-				4A8187192ABDFD5A00C90B9E /* DispatchQueue.swift */,
+				4A1D46F829FAA98500109053 /* UIViewController.swift */,
+				4A84E15D2B22251300C2789A /* UIWindow.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -175,8 +181,8 @@
 		4A8187202ABDFEE600C90B9E /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				4AD918E729F17CCE0078193A /* Session.swift */,
 				4AC0136729E5BA5D00461FA9 /* Account.swift */,
+				4AD918E729F17CCE0078193A /* Session.swift */,
 				4AC0136129E59DBF00461FA9 /* Transaction.swift */,
 			);
 			path = Models;
@@ -209,8 +215,8 @@
 		4A90DD362ABC788F00152802 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				4A369B8829E57EFF002A51D6 /* TransactionTableViewCell.swift */,
 				4A90DD372ABC78AD00152802 /* CodeTextField.swift */,
+				4A369B8829E57EFF002A51D6 /* TransactionTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -417,6 +423,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A84E15E2B22251300C2789A /* UIWindow.swift in Sources */,
 				4A1D46F929FAA98500109053 /* UIViewController.swift in Sources */,
 				4A1D46FB29FAA9A600109053 /* Date.swift in Sources */,
 				4A1D47222A03BFDF00109053 /* UITextField.swift in Sources */,
@@ -425,6 +432,7 @@
 				4AC0136229E59DBF00461FA9 /* Transaction.swift in Sources */,
 				4A5AFEA929EEAB75007CABEB /* WebViewController.swift in Sources */,
 				4A5AFEAB29F16507007CABEB /* AccountViewController.swift in Sources */,
+				4A84E1602B22252800C2789A /* UINavigationController.swift in Sources */,
 				4AEEDB3B29DF0743009B7208 /* ChartViewController.swift in Sources */,
 				4AC0136629E5B35F00461FA9 /* Formatters.swift in Sources */,
 				4AEEDB3729DF0743009B7208 /* AppDelegate.swift in Sources */,

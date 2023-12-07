@@ -31,6 +31,8 @@ class TransactionTableViewController: UITableViewController {
         
         SheetPresentationDelegate.subscribe(for: sessionButton, store: &bag)
         subscribeToTransactions() 
+        
+        applyiOS17UISheetPresentationControllerFixIfNeeded()
     }
 
     @IBAction func sessionButtonWasTapped(_ sender: Any) {
@@ -136,5 +138,22 @@ extension TransactionTableViewController {
         ])
         
         webViewController.url = url
+    }
+}
+
+// MARK: - iOS 17 fix
+extension TransactionTableViewController {
+    
+    /// In iOS 17 the UISheetPresentationController stops panning gestures triggering.
+    /// Removing the _handleExteriorPan gesture allows for the chart to be interacted with.
+    private func applyiOS17UISheetPresentationControllerFixIfNeeded() {
+        
+        if ProcessInfo.processInfo.operatingSystemVersion.majorVersion >= 17 {
+            if let keyWindow = UIWindow.keyWindow {
+                keyWindow.gestureRecognizers = keyWindow.gestureRecognizers?.filter { gesture in
+                    !(gesture is UIPanGestureRecognizer) || gesture.view != keyWindow
+                }
+            }
+        }
     }
 }
