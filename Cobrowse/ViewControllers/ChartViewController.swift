@@ -60,6 +60,22 @@ extension ChartViewController: CobrowseIORedacted {
     }
 }
 
+// MARK: - CobrowseIOUredacted
+
+extension ChartViewController: CobrowseIOUnredacted {
+    
+    func unredactedViews() -> [Any] {
+        
+        guard session.isRedactionByDefaultEnabled
+            else { return [] }
+        
+        return [
+            spentLabel!,
+            chartView!
+        ]
+    }
+}
+
 // MARK: - Subscriptions
 
 extension ChartViewController {

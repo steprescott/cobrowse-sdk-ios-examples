@@ -33,8 +33,10 @@
 		4A81871A2ABDFD5A00C90B9E /* DispatchQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8187192ABDFD5A00C90B9E /* DispatchQueue.swift */; };
 		4A81871D2ABDFE9500C90B9E /* CobrowseIO in Frameworks */ = {isa = PBXBuildFile; productRef = 4A81871C2ABDFE9500C90B9E /* CobrowseIO */; };
 		4A81871F2ABDFE9500C90B9E /* CobrowseIOAppExtension in Frameworks */ = {isa = PBXBuildFile; productRef = 4A81871E2ABDFE9500C90B9E /* CobrowseIOAppExtension */; };
-		4A84E15E2B22251300C2789A /* UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A84E15D2B22251300C2789A /* UIWindow.swift */; };
-		4A84E1602B22252800C2789A /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A84E15F2B22252800C2789A /* UINavigationController.swift */; };
+		4A84E15A2B2222E300C2789A /* UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A84E1592B2222E300C2789A /* UIWindow.swift */; };
+		4A84E15C2B2222F000C2789A /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A84E15B2B2222F000C2789A /* UINavigationController.swift */; };
+		4A84E1622B2229A300C2789A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A84E1612B2229A300C2789A /* SettingsViewController.swift */; };
+		4A84E1642B222E9B00C2789A /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A84E1632B222E9B00C2789A /* UserDefault.swift */; };
 		4A90DD342ABC632200152802 /* AgentPresentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A90DD332ABC632200152802 /* AgentPresentViewController.swift */; };
 		4A90DD382ABC78AD00152802 /* CodeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A90DD372ABC78AD00152802 /* CodeTextField.swift */; };
 		4AC0136029E5989000461FA9 /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC0135F29E5989000461FA9 /* Identifiers.swift */; };
@@ -100,8 +102,10 @@
 		4A5AFEA829EEAB75007CABEB /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		4A5AFEAA29F16507007CABEB /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		4A8187192ABDFD5A00C90B9E /* DispatchQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueue.swift; sourceTree = "<group>"; };
-		4A84E15D2B22251300C2789A /* UIWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindow.swift; sourceTree = "<group>"; };
-		4A84E15F2B22252800C2789A /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
+		4A84E1592B2222E300C2789A /* UIWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindow.swift; sourceTree = "<group>"; };
+		4A84E15B2B2222F000C2789A /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
+		4A84E1612B2229A300C2789A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		4A84E1632B222E9B00C2789A /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
 		4A90DD332ABC632200152802 /* AgentPresentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentPresentViewController.swift; sourceTree = "<group>"; };
 		4A90DD372ABC78AD00152802 /* CodeTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeTextField.swift; sourceTree = "<group>"; };
 		4AC0135F29E5989000461FA9 /* Identifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiers.swift; sourceTree = "<group>"; };
@@ -157,14 +161,14 @@
 				4A1D47232A03C0E800109053 /* Locale.Currency.swift */,
 				4A1D471F2A03BFBF00109053 /* Publisher.swift */,
 				4A1D470529FAB1DD00109053 /* RawRepresentable.swift */,
-				4A84E15F2B22252800C2789A /* UINavigationController.swift */,
+				4A84E15B2B2222F000C2789A /* UINavigationController.swift */,
 				4A1D46F629FAA95C00109053 /* UISheetPresentationController.swift */,
 				4A1D470729FAB4AD00109053 /* UIStoryboard.swift */,
 				4A1D470929FAB82300109053 /* UITableView.swift */,
 				4A1D47212A03BFDF00109053 /* UITextField.swift */,
 				4A0C5ED32ABDF8B9002B4F5E /* UIView.swift */,
 				4A1D46F829FAA98500109053 /* UIViewController.swift */,
-				4A84E15D2B22251300C2789A /* UIWindow.swift */,
+				4A84E1592B2222E300C2789A /* UIWindow.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -195,6 +199,7 @@
 				4AC0136529E5B35F00461FA9 /* Formatters.swift */,
 				4AC0135F29E5989000461FA9 /* Identifiers.swift */,
 				4A1D470329FAAEFD00109053 /* SheetPresentationDelegate.swift */,
+				4A84E1632B222E9B00C2789A /* UserDefault.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -205,6 +210,7 @@
 				4A5AFEAA29F16507007CABEB /* AccountViewController.swift */,
 				4A90DD332ABC632200152802 /* AgentPresentViewController.swift */,
 				4AEEDB3A29DF0743009B7208 /* ChartViewController.swift */,
+				4A84E1612B2229A300C2789A /* SettingsViewController.swift */,
 				4A5AFEA629ED9FCB007CABEB /* SignInViewController.swift */,
 				4A369B8A29E57F7A002A51D6 /* TransactionTableViewController.swift */,
 				4A5AFEA829EEAB75007CABEB /* WebViewController.swift */,
@@ -423,8 +429,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A84E15E2B22251300C2789A /* UIWindow.swift in Sources */,
+				4A84E15A2B2222E300C2789A /* UIWindow.swift in Sources */,
 				4A1D46F929FAA98500109053 /* UIViewController.swift in Sources */,
+				4A84E1622B2229A300C2789A /* SettingsViewController.swift in Sources */,
 				4A1D46FB29FAA9A600109053 /* Date.swift in Sources */,
 				4A1D47222A03BFDF00109053 /* UITextField.swift in Sources */,
 				4A1D46F729FAA95C00109053 /* UISheetPresentationController.swift in Sources */,
@@ -432,8 +439,9 @@
 				4AC0136229E59DBF00461FA9 /* Transaction.swift in Sources */,
 				4A5AFEA929EEAB75007CABEB /* WebViewController.swift in Sources */,
 				4A5AFEAB29F16507007CABEB /* AccountViewController.swift in Sources */,
-				4A84E1602B22252800C2789A /* UINavigationController.swift in Sources */,
+				4A84E15C2B2222F000C2789A /* UINavigationController.swift in Sources */,
 				4AEEDB3B29DF0743009B7208 /* ChartViewController.swift in Sources */,
+				4A84E1642B222E9B00C2789A /* UserDefault.swift in Sources */,
 				4AC0136629E5B35F00461FA9 /* Formatters.swift in Sources */,
 				4AEEDB3729DF0743009B7208 /* AppDelegate.swift in Sources */,
 				4A1D470229FAAC1C00109053 /* Array.swift in Sources */,

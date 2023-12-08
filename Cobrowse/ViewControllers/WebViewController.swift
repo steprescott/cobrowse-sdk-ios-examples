@@ -73,3 +73,15 @@ extension WebViewController: WKNavigationDelegate {
         navigationController.show(webViewController, sender: self)
     }
 }
+
+extension WebViewController: CobrowseIOUnredacted {
+    func unredactedViews() -> [Any] {
+        
+        guard session.isRedactionByDefaultEnabled
+            else { return [] }
+        
+        return [
+            view!
+        ]
+    }
+}

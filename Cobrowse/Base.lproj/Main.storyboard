@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8pv-yA-Iqa">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8pv-yA-Iqa">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -260,6 +260,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Account" id="qK8-LJ-afw">
+                        <barButtonItem key="leftBarButtonItem" image="gearshape" catalog="system" style="done" id="IV7-ZH-ofd">
+                            <color key="tintColor" red="0.34509804840000002" green="0.050980389119999997" blue="0.96078431610000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <segue destination="BfR-S6-nvG" kind="show" id="eKI-H0-d5z"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem title="Item" image="xmark" catalog="system" id="Q4D-YJ-AmH">
                                 <color key="tintColor" red="0.34509804840000002" green="0.050980389119999997" blue="0.96078431610000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -285,7 +291,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zPI-GI-jIf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1825" y="-665"/>
+            <point key="canvasLocation" x="1824" y="-982"/>
         </scene>
         <!--Agent Present-->
         <scene sceneID="fjP-Ad-77T">
@@ -431,7 +437,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sEs-J7-an6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2653" y="-665"/>
+            <point key="canvasLocation" x="2653" y="-1321"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wfR-9q-QxI">
@@ -449,7 +455,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gBA-vp-bDp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="949" y="-665"/>
+            <point key="canvasLocation" x="949" y="-982"/>
         </scene>
         <!--Transactions-->
         <scene sceneID="B1l-Uc-ofF">
@@ -759,9 +765,79 @@
             </objects>
             <point key="canvasLocation" x="21" y="770"/>
         </scene>
+        <!--Settings-->
+        <scene sceneID="BYu-vF-oei">
+            <objects>
+                <viewController id="BfR-S6-nvG" customClass="SettingsViewController" customModule="Cobrowse" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="V2P-y3-rOz">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="rnr-cj-lv7">
+                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9mZ-I3-PFC">
+                                        <rect key="frame" x="10" y="10" width="373" height="27"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Redaction by default" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhM-uS-E7b">
+                                                <rect key="frame" x="0.0" y="0.0" width="324" height="27"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aLV-XI-mwz">
+                                                <rect key="frame" x="324" y="0.0" width="51" height="27"/>
+                                                <connections>
+                                                    <action selector="redactionByDefaultSwitchDidChange:" destination="BfR-S6-nvG" eventType="valueChanged" id="3cI-QK-fCJ"/>
+                                                </connections>
+                                            </switch>
+                                        </subviews>
+                                    </stackView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HdH-n1-bha">
+                                        <rect key="frame" x="10" y="37" width="373" height="668"/>
+                                    </view>
+                                </subviews>
+                                <edgeInsets key="layoutMargins" top="10" left="10" bottom="10" right="10"/>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="yqC-3G-SUL"/>
+                        <color key="backgroundColor" red="0.97254901959999995" green="0.96862745100000003" blue="0.99607843139999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="rnr-cj-lv7" firstAttribute="width" secondItem="yqC-3G-SUL" secondAttribute="width" id="dDq-xw-f8F"/>
+                            <constraint firstItem="rnr-cj-lv7" firstAttribute="centerX" secondItem="yqC-3G-SUL" secondAttribute="centerX" id="efv-P8-lRd"/>
+                            <constraint firstItem="rnr-cj-lv7" firstAttribute="height" secondItem="yqC-3G-SUL" secondAttribute="height" id="yzp-TJ-0Cm"/>
+                            <constraint firstItem="rnr-cj-lv7" firstAttribute="centerY" secondItem="yqC-3G-SUL" secondAttribute="centerY" id="zZ0-X2-cip"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Settings" id="NY9-rg-h4a">
+                        <rightBarButtonItems>
+                            <barButtonItem title="Item" image="xmark" catalog="system" id="o4B-KX-0JC">
+                                <color key="tintColor" red="0.34509804840000002" green="0.050980389119999997" blue="0.96078431610000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <connections>
+                                    <action selector="closeButtonWasTapped:" destination="BfR-S6-nvG" id="xet-7o-xuX"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="rectangle.badge.xmark" catalog="system" style="done" id="IoN-Eo-hrc">
+                                <color key="tintColor" red="0.34509804840000002" green="0.050980389119999997" blue="0.96078431610000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <connections>
+                                    <action selector="sessionButtonWasTapped:" destination="BfR-S6-nvG" id="jvy-5x-xJy"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="redactionByDefaultSwitch" destination="aLV-XI-mwz" id="a2u-FX-Iap"/>
+                        <outlet property="sessionButton" destination="IoN-Eo-hrc" id="fEF-c5-dMe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1cC-Ni-gy3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2653" y="-642"/>
+        </scene>
     </scenes>
     <resources>
         <image name="basket.fill" catalog="system" width="128" height="108"/>
+        <image name="gearshape" catalog="system" width="128" height="123"/>
         <image name="person.crop.circle" catalog="system" width="128" height="123"/>
         <image name="person.crop.circle.fill" catalog="system" width="128" height="123"/>
         <image name="rectangle.badge.xmark" catalog="system" width="128" height="97"/>
