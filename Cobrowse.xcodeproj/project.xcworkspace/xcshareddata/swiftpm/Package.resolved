@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/danielgindi/Charts.git",
       "state" : {
-        "revision" : "0a229f8c914b0ec93798cee058cf75b339297513",
-        "version" : "5.0.0"
+        "revision" : "dd9c72e3d7e751e769971092a6bd72d39198ae63",
+        "version" : "5.1.0"
       }
     },
     {
@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/cobrowseio/cobrowse-sdk-ios-binary.git",
       "state" : {
-        "revision" : "5c4fadd457d877249c238fb9f8496963e5fd4261",
-        "version" : "2.29.5"
+        "revision" : "c710f290e67f08c7589b89f9efee042189934282",
+        "version" : "2.29.7"
       }
     }
   ],
