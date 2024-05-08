@@ -23,10 +23,11 @@ struct Demo {
     private static let demo = Demo()
     private init() { }
     
-    static func check() {
+    @discardableResult
+    static func check() -> Bool {
         
         guard let demoID = demo.id
-            else { return }
+            else { return false }
         
         let cobrowse = CobrowseIO.instance()
         
@@ -37,9 +38,16 @@ struct Demo {
         
         cobrowse.customData = [
             kCBIOUserEmailKey: "ios@example.com",
-            kCBIODeviceNameKey: demo.deviceName
+            kCBIODeviceNameKey: demo.deviceName,
+            "demo_id": demoID
         ] as [String : NSObject]
         
         cobrowse.start()
+        
+        if !account.isSignedIn {
+            account.isSignedIn = true
+        }
+        
+        return true
     }
 }
