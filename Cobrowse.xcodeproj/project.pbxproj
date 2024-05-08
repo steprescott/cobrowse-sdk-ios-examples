@@ -26,6 +26,7 @@
 		4A2B3A972A0DA657009FB31A /* DeepLiker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2B3A962A0DA657009FB31A /* DeepLiker.swift */; };
 		4A369B8929E57EFF002A51D6 /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A369B8829E57EFF002A51D6 /* TransactionTableViewCell.swift */; };
 		4A369B8B29E57F7A002A51D6 /* TransactionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A369B8A29E57F7A002A51D6 /* TransactionTableViewController.swift */; };
+		4A472BDB2BEB7D9B0038B6E6 /* Demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A472BDA2BEB7D9B0038B6E6 /* Demo.swift */; };
 		4A5829E62ACC304800FB21F6 /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 4A5829E52ACC304800FB21F6 /* DGCharts */; };
 		4A5AFEA729ED9FCB007CABEB /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5AFEA629ED9FCB007CABEB /* SignInViewController.swift */; };
 		4A5AFEA929EEAB75007CABEB /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5AFEA829EEAB75007CABEB /* WebViewController.swift */; };
@@ -98,6 +99,7 @@
 		4A2B3A962A0DA657009FB31A /* DeepLiker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeepLiker.swift; sourceTree = "<group>"; };
 		4A369B8829E57EFF002A51D6 /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
 		4A369B8A29E57F7A002A51D6 /* TransactionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewController.swift; sourceTree = "<group>"; };
+		4A472BDA2BEB7D9B0038B6E6 /* Demo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Demo.swift; sourceTree = "<group>"; };
 		4A5AFEA629ED9FCB007CABEB /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		4A5AFEA829EEAB75007CABEB /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		4A5AFEAA29F16507007CABEB /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				4AC0135F29E5989000461FA9 /* Identifiers.swift */,
 				4A1D470329FAAEFD00109053 /* SheetPresentationDelegate.swift */,
 				4A84E1632B222E9B00C2789A /* UserDefault.swift */,
+				4A472BDA2BEB7D9B0038B6E6 /* Demo.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -440,6 +443,7 @@
 				4A5AFEA929EEAB75007CABEB /* WebViewController.swift in Sources */,
 				4A5AFEAB29F16507007CABEB /* AccountViewController.swift in Sources */,
 				4A84E15C2B2222F000C2789A /* UINavigationController.swift in Sources */,
+				4A472BDB2BEB7D9B0038B6E6 /* Demo.swift in Sources */,
 				4AEEDB3B29DF0743009B7208 /* ChartViewController.swift in Sources */,
 				4A84E1642B222E9B00C2789A /* UserDefault.swift in Sources */,
 				4AC0136629E5B35F00461FA9 /* Formatters.swift in Sources */,

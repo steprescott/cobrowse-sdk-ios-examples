@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         cobrowse.license = "trial"
         
         cobrowse.customData = [
-            kCBIOUserEmailKey: "ios@demo.com",
+            kCBIOUserEmailKey: "ios@example.com",
             kCBIODeviceNameKey: "iOS Demo"
         ] as [String : NSObject]
         
@@ -35,6 +35,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         cobrowse.delegate = session
         
         cobrowse.start()
+        
+        Demo.check()
         
         return true
     }
