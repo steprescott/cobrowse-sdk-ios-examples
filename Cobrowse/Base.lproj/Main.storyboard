@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8pv-yA-Iqa">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8pv-yA-Iqa">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -56,7 +56,7 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yYn-6e-LhT" customClass="PieChartView" customModule="DGCharts">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yYn-6e-LhT" customClass="PieChartView" customModule="DGCharts">
                                         <rect key="frame" x="8" y="178.66666666666666" width="377" height="383.33333333333337"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="xtf-FM-WgV">
@@ -128,8 +128,10 @@
                     <connections>
                         <outlet property="balanceLabel" destination="bCM-vP-jCs" id="EGp-hC-nEa"/>
                         <outlet property="chartView" destination="yYn-6e-LhT" id="gku-P5-t1s"/>
+                        <outlet property="profileButton" destination="PZI-fA-rOn" id="MB9-zm-ZhQ"/>
                         <outlet property="sessionButton" destination="l2X-jg-LO1" id="60z-H2-klX"/>
                         <outlet property="spentLabel" destination="qZQ-Gi-lWH" id="Kto-xL-Xe5"/>
+                        <outlet property="stackView" destination="J1F-GP-Mib" id="Bo9-gk-uX9"/>
                         <segue destination="vRP-W7-cqK" kind="presentation" identifier="Transactions" modalPresentationStyle="pageSheet" id="U6V-LA-cpA"/>
                         <segue destination="NXr-gw-AJR" kind="presentation" identifier="SignIn" animates="NO" modalPresentationStyle="fullScreen" id="2kH-O5-fze"/>
                     </connections>

@@ -10,8 +10,12 @@ import DGCharts
 import CobrowseIO
 
 class ChartViewController: UIViewController {
+
+    @IBOutlet weak var stackView: UIStackView!
     
+    @IBOutlet weak var profileButton: UIBarButtonItem!
     @IBOutlet weak var sessionButton: UIBarButtonItem!
+    
     @IBOutlet weak var balanceLabel: UILabel!
     @IBOutlet weak var chartView: PieChartView!
     @IBOutlet weak var spentLabel: UILabel!
@@ -28,19 +32,21 @@ class ChartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        balanceLabel.text = account.total.currencyString
+        profileButton.isHidden = true
+        stackView.alpha = 0.0
         
-        subscribeToSession()
-        subscribeToTransactions()
-        subscribeToSignedInState()
+        balanceLabel.text = account.total.currencyString
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if !account.isSignedIn {
-            performSegue(to: .signIn)
-        }
+        guard bag.isEmpty
+            else { return }
+        
+        subscribeToSession()
+        subscribeToTransactions()
+        subscribeToSignedInState()
     }
     
     @IBAction func sessionButtonWasTapped(_ sender: Any) {
@@ -103,26 +109,31 @@ extension ChartViewController {
     
     private func subscribeToSignedInState() {
         account.$isSignedIn
-            .dropFirst()
             .sink { [weak self] isSignedIn in
                 guard let self = self else { return }
                 
                 if isSignedIn {
+                    
+                    profileButton.isHidden = false
+                    
                     dismiss(animated: true) {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                             UIView.animate(withDuration: 0.25) { [weak self] in
                                 guard let self = self else { return }
                                 
-                                chartView.alpha = 1.0
+                                stackView.alpha = 1.0
                             }
                         }
                         
                         self.performSegue(to: .transactions)
                     }
                 } else {
-                    dismiss(animated: false) {
-                        self.performSegue(to: .signIn)
-                        self.chartView.alpha = 0.0
+                    dismiss(animated: false) { [weak self] in
+                        guard let self = self else { return }
+                        
+                        performSegue(to: .signIn)
+                        stackView.alpha = 0.0
+                        profileButton.isHidden = true
                     }
                 }
             }
