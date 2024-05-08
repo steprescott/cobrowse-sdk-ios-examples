@@ -16,8 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        Demo.setup()
-        
         let cobrowse = CobrowseIO.instance()
         
         cobrowse.license = "trial"
@@ -35,6 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ]
         
         cobrowse.delegate = session
+        
+        Demo.setup() // Check if launching from https://cobrowse.io/demo
         
         cobrowse.start()
         
