@@ -33,6 +33,7 @@ struct Demo {
         
         cobrowse.license = demo.license
         cobrowse.api = demo.api
+        cobrowse.capabilities = ["drawing", "keypress", "laser", "pointer"]
         
         cobrowse.customData = [
             kCBIODeviceNameKey: demo.deviceName,
