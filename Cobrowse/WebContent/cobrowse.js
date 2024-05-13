@@ -5,7 +5,8 @@ e=document.getElementsByTagName(t)[0];e.parentNode.insertBefore(s,e);s.onload=fu
 
 CobrowseIO.trustedOrigins = [
     'https://cobrowse.io',
-    'https://demo.cbrws.io'
+    'https://demo.cbrws.io',
+    'https://cobrowseio.eu.ngrok.io'
 ];   
 
 (async () => {
