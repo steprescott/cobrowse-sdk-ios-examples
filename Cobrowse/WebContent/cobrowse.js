@@ -4,11 +4,7 @@ e=document.getElementsByTagName(t)[0];e.parentNode.insertBefore(s,e);s.onload=fu
 {r(w[c]);};}return p;}};});})(window,'script','CobrowseIO');
 
 CobrowseIO.trustedOrigins = [
-    'https://cobrowse.io',
-    'https://demo.cbrws.io',
-    'https://cobrowseio.eu.ngrok.io',
-    'https://serve.eu.ngrok.io',
-    'http://localhost:3000'
+    'https://cobrowse-sdk-js-examples.cbrws.io'
 ];   
 
 (async () => {
