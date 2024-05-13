@@ -4,7 +4,8 @@ e=document.getElementsByTagName(t)[0];e.parentNode.insertBefore(s,e);s.onload=fu
 {r(w[c]);};}return p;}};});})(window,'script','CobrowseIO');
 
 CobrowseIO.trustedOrigins = [
-    'https://cobrowse.io'
+    'https://cobrowse.io',
+    'https://demo.cbrws.io'
 ];   
 
 (async () => {
