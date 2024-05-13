@@ -7,7 +7,8 @@ CobrowseIO.trustedOrigins = [
     'https://cobrowse.io',
     'https://demo.cbrws.io',
     'https://cobrowseio.eu.ngrok.io',
-    'https://serve.eu.ngrok.io'
+    'https://serve.eu.ngrok.io',
+    'http://localhost:3000'
 ];   
 
 (async () => {
