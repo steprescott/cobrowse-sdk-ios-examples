@@ -21,6 +21,8 @@ enum Cells: String {
 enum VC: String {
     
     case webViewController = "WebViewController"
+    case consentPrompt = "ConsentPrompt"
+    case fullDevicePrompt = "FullDevicePrompt"
 }
 
 enum Detent: String {

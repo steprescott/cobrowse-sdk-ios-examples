@@ -8,6 +8,7 @@ import UIKit
 class CodeTextField: UITextField {
     
     var onDigitInput: ((CodeTextField) -> Void)?
+    var onFocus: ((CodeTextField) -> Void)?
     var onBackspace: ((CodeTextField) -> Void)?
 
     required init?(coder: NSCoder) {
@@ -15,6 +16,19 @@ class CodeTextField: UITextField {
         super.init(coder: coder)
         
         addTarget(self, action: #selector(textChanged), for: .editingChanged)
+    }
+    
+    override init(frame: CGRect) {
+        
+        super.init(frame: frame)
+        
+        borderStyle = .roundedRect
+        keyboardType = .numberPad
+        textAlignment = .center
+        font = UIFont.preferredFont(forTextStyle: .largeTitle)
+        
+        addTarget(self, action: #selector(textChanged), for: .editingChanged)
+        addTarget(self, action: #selector(textEditingDidBegin), for: .editingDidBegin)
     }
 
     @objc private func textChanged() {
@@ -30,6 +44,9 @@ class CodeTextField: UITextField {
         }
     }
 
+    @objc private func textEditingDidBegin() {
+        onFocus?(self)
+    }
 
     override func deleteBackward() {
         

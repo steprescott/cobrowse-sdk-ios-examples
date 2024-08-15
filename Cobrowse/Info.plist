@@ -4,15 +4,12 @@
 <dict>
 	<key>CBIOBroadcastExtension</key>
 	<string>io.cobrowse.demo.broadcast-extension</string>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>
 	</array>
-	<key>UIApplicationSceneManifest</key>
-	<dict>
-		<key>UISceneConfigurations</key>
-		<dict/>
-	</dict>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
 	<key>CFBundleDisplayName</key>

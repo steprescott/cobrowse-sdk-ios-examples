@@ -4,12 +4,12 @@
 //
 
 import Foundation
-
 import CobrowseIO
 
-class Session: NSObject, CobrowseIODelegate {
+class Session: NSObject, ObservableObject, CobrowseIODelegate {
     
     @Published var current: CBIOSession?
+    @Published var controlState: Session.Control.State = .hidden
     
     @UserDefault(key: "isRedactionByDefaultEnabled", defaultValue: false)
     var isRedactionByDefaultEnabled: Bool
@@ -22,12 +22,19 @@ class Session: NSObject, CobrowseIODelegate {
         current = nil
     }
     
-    func cobrowseRedactedViews(for vc: UIViewController) -> [UIView] {
-        
-        guard isRedactionByDefaultEnabled,
-              let keyWindow = UIWindow.keyWindow
-            else { return [] }
-        
-        return keyWindow.rootViews
+    func cobrowseShowSessionControls(_ session: CBIOSession) {
+        controlState = .visible
+    }
+    
+    func cobrowseHideSessionControls(_ session: CBIOSession) {
+        controlState = .hidden
+    }
+}
+
+extension Session {
+    enum Control {
+        enum State {
+            case visible, hidden
+        }
     }
 }

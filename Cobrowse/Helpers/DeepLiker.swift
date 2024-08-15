@@ -12,10 +12,18 @@ enum DeepLinker {
         guard let components = URLComponents(url: url, resolvingAgainstBaseURL: true)
             else { return false }
         
+        #if APPCLIP
+        
+        return setupForAppClip(using: components)
+        
+        #else
+        
         guard components.path.isEmpty, let id = components.fragment
             else { return handleAction(with: components) }
         
         return startSession(with: id)
+        
+        #endif
     }
     
     private static func handleAction(with components: URLComponents) -> Bool {
@@ -139,4 +147,20 @@ extension DeepLinker {
         
         return true
     }
+    
+    
+    #if APPCLIP
+    @discardableResult
+    private static func setupForAppClip(using components: URLComponents) -> Bool {
+        let cobrowse = CobrowseIO.instance()
+        
+        cobrowse.stop()
+        cobrowse.license = "rE6HC6EDX6g2_w"
+        cobrowse.start()
+        
+        account.isSignedIn = true
+        
+        return true
+    }
+    #endif
 }

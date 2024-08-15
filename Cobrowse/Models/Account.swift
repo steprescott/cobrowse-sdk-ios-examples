@@ -6,11 +6,9 @@
 import Combine
 import Foundation
 
-let account = Account()
-
-class Account {
+class Account: ObservableObject {
     
-    let total = 2495.34
+    let balance = 2495.34
     
     @Published var isSignedIn = false
     @Published var transactions: [Transaction] = []
@@ -39,10 +37,9 @@ class Account {
         return [
             Transaction.generate(1, for: [.childcare], between: startOfMonth...currentDate),
             Transaction.generate(2, for: [.groceries], between: startOfMonth...currentDate),
-            Transaction.generate(1, for: [.utilities], between: startOfMonth...currentDate),
+            Transaction.generate(1, for: [.utilities], between: startOfMonth...currentDate)
         ]
         .flatMap { $0 }
         .sorted { $0.date > $1.date }
     }
 }
-

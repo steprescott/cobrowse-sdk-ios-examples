@@ -7,7 +7,7 @@ import Foundation
 
 extension Array where Element == Transaction {
     
-    var recentTrnsactions: [Transaction] {
+    var recentTransactions: [Transaction] {
         let date = sorted { $0.date > $1.date }.first!.date.startOfMonth
         
         return filter { transaction in

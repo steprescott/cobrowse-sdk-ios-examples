@@ -3,19 +3,24 @@
 //  Cobrowse
 //
 
-import UIKit
+import Foundation
 
-struct Transaction {
+struct Transaction: Identifiable, Hashable {
     
+    let id = UUID()
     let title: String
     let subtitle: String
     let amount: Double
     let date: Date
     let category: Category
     
-    enum Category: String, CaseIterable {
+    enum Category: String, CaseIterable, Identifiable {
         
         case childcare, groceries, leisure, utilities
+        
+        var id: String {
+            self.rawValue
+        }
     }
 }
 
@@ -45,24 +50,6 @@ extension Transaction {
 }
 
 extension Transaction.Category {
-    
-    var icon: UIImage {
-        switch self {
-            case .childcare: return UIImage(systemName: "figure.and.child.holdinghands")!
-            case .groceries: return UIImage(systemName: "cart")!
-            case .leisure: return UIImage(systemName: "theatermask.and.paintbrush")!
-            case .utilities: return UIImage(systemName: "lightbulb.2")!
-        }
-    }
-    
-    var color: UIColor {
-        switch self {
-            case .childcare: return UIColor(red: 82/255, green: 161/255, blue: 136/255, alpha: 1)
-            case .groceries: return UIColor(red: 82/255, green: 135/255, blue: 161/255, alpha: 1)
-            case .leisure: return UIColor(red: 92/255, green: 82/255, blue: 161/255, alpha: 1)
-            case .utilities: return UIColor(red: 150/255, green: 161/255, blue: 82/255, alpha: 1)
-        }
-    }
     
     var title: String {
         switch self {

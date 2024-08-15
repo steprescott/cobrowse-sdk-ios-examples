@@ -32,10 +32,9 @@ class ChartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        balanceLabel.text = account.balance.currencyString
         profileButton.isHidden = true
         stackView.alpha = 0.0
-        
-        balanceLabel.text = account.total.currencyString
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -102,7 +101,7 @@ extension ChartViewController {
             .sink { [weak self] transactions in
                 guard let self = self else { return }
                 
-                recentTransactions = transactions.recentTrnsactions
+                recentTransactions = transactions.recentTransactions
             }
             .store(in: &bag)
     }
