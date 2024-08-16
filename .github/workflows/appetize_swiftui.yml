@@ -31,7 +31,7 @@ jobs:
       - name: Build the app
         run: xcodebuild -project Cobrowse.xcodeproj -scheme "Cobrowse - SwiftUI" -sdk iphonesimulator -destination "generic/platform=iOS Simulator" -derivedDataPath "./build" build | xcpretty
       - name: Create app archive
-        run: tar -czf Cobrowse.app.tar.gz build/Build/Products/Debug-iphonesimulator/Cobrowse.app
+        run: tar -czf Cobrowse.app.tar.gz "build/Build/Products/Debug-iphonesimulator/Cobrowse - SwiftUI.app"
       - name: Upload app archive to Appetize.io
         env:
           APPETIZE_API_TOKEN: ${{ secrets.AppetizeApiToken }}
