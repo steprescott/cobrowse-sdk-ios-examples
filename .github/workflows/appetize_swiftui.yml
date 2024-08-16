@@ -1,4 +1,4 @@
-name: Publish to Appetize.io
+name: Publish to Appetize.io - SwiftUI
 
 on:
   workflow_dispatch:
