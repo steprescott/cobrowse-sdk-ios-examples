@@ -15,8 +15,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/cobrowseio/cobrowse-sdk-ios-binary.git",
       "state" : {
-        "revision" : "f95a3309cfd9a56c4fd4ca9e004c2b5e0aae4d53",
-        "version" : "2.33.0"
+        "revision" : "7ec27884deaf4edd75b8309ebd718245f7f4e9a9",
+        "version" : "2.33.1"
       }
     }
   ],
