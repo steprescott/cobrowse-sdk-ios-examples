@@ -10,9 +10,5 @@
 	<array>
 		<string>remote-notification</string>
 	</array>
-	<key>UIUserInterfaceStyle</key>
-	<string>Light</string>
-	<key>CFBundleDisplayName</key>
-	<string>Cobrowse</string>
 </dict>
 </plist>

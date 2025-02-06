@@ -7,7 +7,7 @@ import UIKit
 import Combine
 import ReplayKit
 
-import CobrowseIO
+import CobrowseSDK
 
 class FullDeviceConsentPromptViewController: UIViewController {
     
@@ -25,7 +25,7 @@ class FullDeviceConsentPromptViewController: UIViewController {
     }
 
     @IBAction func denyButtonWasTapped(_ sender: Any) {
-        session.current?.setFullDeviceState(kCBIOFullDeviceStateRejected)
+        session.current?.setFullDevice(kCBIOFullDeviceStateRejected)
         dismiss(animated: true)
     }
 }
@@ -40,7 +40,7 @@ extension FullDeviceConsentPromptViewController {
             
             guard
                 let self = self,
-                let session = session, session.fullDeviceState() != kCBIOFullDeviceStateRequested
+                let session = session, session.fullDevice() != kCBIOFullDeviceStateRequested
             else { return }
             
             dismiss(animated: true)

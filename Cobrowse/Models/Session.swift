@@ -4,7 +4,7 @@
 //
 
 import Foundation
-import CobrowseIO
+import CobrowseSDK
 
 class Session: NSObject, ObservableObject, CobrowseIODelegate {
     

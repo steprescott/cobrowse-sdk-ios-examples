@@ -6,7 +6,7 @@
 import UIKit
 import Combine
 
-import CobrowseIO
+import CobrowseSDK
 
 class TransactionTableViewController: UITableViewController {
 
@@ -134,10 +134,21 @@ extension TransactionTableViewController {
             .init(name: "title", value: transaction.title),
             .init(name: "subtitle", value: transaction.subtitle),
             .init(name: "amount", value: transaction.amount.currencyString),
-            .init(name: "category", value: transaction.category.rawValue)
+            .init(name: "category", value: transaction.category.rawValue),
+            .init(name: "theme", value: CobrowseIO.theme)
         ])
         
         webViewController.url = url
+    }
+}
+
+fileprivate extension CobrowseIO {
+    
+    static var theme: String {
+        switch UIScreen.main.traitCollection.userInterfaceStyle {
+            case .dark : return "dark"
+            default: return "light"
+        }
     }
 }
 

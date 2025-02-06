@@ -4,7 +4,7 @@
 //
 
 import SwiftUI
-import CobrowseIO
+import CobrowseSDK
 
 let session = Session()
 let account = Account()
@@ -23,9 +23,9 @@ struct Cobrowse: App {
                     cobrowse.license = "trial"
                     
                     cobrowse.customData = [
-                        kCBIOUserEmailKey: "ios@example.com",
-                        kCBIODeviceNameKey: "iOS Demo"
-                    ] as [String : NSObject]
+                        CBIOUserEmailKey: "ios@example.com",
+                        CBIODeviceNameKey: "iOS Demo"
+                    ]
                     
                     cobrowse.webviewRedactedViews = [
                         "#title",

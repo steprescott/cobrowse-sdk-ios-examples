@@ -3,7 +3,7 @@
 //  Cobrowse
 //
 
-import CobrowseIO
+import CobrowseSDK
 
 enum DeepLinker {
     
@@ -76,11 +76,11 @@ extension DeepLinker {
     @discardableResult
     private static func updateCustomData(using components: URLComponents) -> Bool {
         
-        guard let data = components.queryItems?.reduce(into: [String : NSObject](), { partialResult, item in
+        guard let data = components.queryItems?.reduce(into: [String : String](), { partialResult, item in
             guard let value = item.value
                 else { return }
             
-            partialResult[item.name] = value as NSObject
+            partialResult[item.name] = value as String
         })
         else { return false }
         
@@ -119,7 +119,7 @@ extension DeepLinker {
         let cobrowse = CobrowseIO.instance()
         
         let demoID = components.path.trimmingPrefix("/demo/")
-        cobrowse.customData = ["demo_id" : String(demoID)] as [String : NSObject]
+        cobrowse.customData = ["demo_id" : String(demoID)]
         
         if var queryItems = components.queryItems {
             

@@ -24,19 +24,19 @@ extension Transaction.List {
                         Text(transaction.title)
                             .font(.body)
                             .foregroundStyle(Color.Cobrowse.text)
-                            .redacted()
+                            .cobrowseRedacted()
                         
                         Text(transaction.subtitle)
                             .font(.caption2)
                             .foregroundStyle(Color.Cobrowse.text)
-                            .redacted()
+                            .cobrowseRedacted()
                     }
                     Spacer()
                     if let amount = transaction.amount.currencyString {
                         Text(amount)
                             .fontWeight(.bold)
                             .foregroundStyle(Color.Cobrowse.primary)
-                            .redacted()
+                            .cobrowseRedacted()
                     }
                 }
             }

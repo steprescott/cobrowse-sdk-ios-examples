@@ -3,6 +3,6 @@
 //  Broadcast Extension
 //
 
-import CobrowseIOAppExtension
+import CobrowseSDK
 
 class SampleHandler: CobrowseIOReplayKitExtension { }

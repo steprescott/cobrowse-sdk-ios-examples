@@ -5,7 +5,7 @@
 
 import UIKit
 import Combine
-import CobrowseIO
+import CobrowseSDK
 
 let account = Account()
 let session = Session()
@@ -25,9 +25,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         cobrowse.license = "trial"
         
         cobrowse.customData = [
-            kCBIOUserEmailKey: "ios@example.com",
-            kCBIODeviceNameKey: "iOS Demo"
-        ] as [String : NSObject]
+            CBIOUserEmailKey: "ios@example.com",
+            CBIODeviceNameKey: "iOS Demo"
+        ]
         
         cobrowse.webviewRedactedViews = [
             "#title",

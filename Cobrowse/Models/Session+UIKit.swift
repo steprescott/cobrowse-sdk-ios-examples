@@ -4,7 +4,7 @@
 //
 
 import UIKit
-import CobrowseIO
+import CobrowseSDK
 
 extension Session {
 

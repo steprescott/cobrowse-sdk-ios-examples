@@ -5,7 +5,7 @@
 
 import SwiftUI
 
-import CobrowseIO
+import CobrowseSDK
 
 struct AgentPresentView: View {
     

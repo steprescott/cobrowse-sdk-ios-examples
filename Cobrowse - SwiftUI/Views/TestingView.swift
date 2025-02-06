@@ -4,7 +4,7 @@
 //
 
 import SwiftUI
-import CobrowseIO
+import CobrowseSDK
 
 struct TestingView: View {
 
@@ -18,12 +18,12 @@ struct TestingView: View {
         ScrollView {
             VStack(spacing:10) {
                 Text(text)
-//                    .redacted()
+//                    .cobrowseRedacted()
                 
                 HStack(spacing: 3) {
                     Text("Hello")
                     Text(text)
-//                        .redacted()
+//                        .cobrowseRedacted()
                 }
                 
                 Button {
@@ -32,14 +32,14 @@ struct TestingView: View {
                     HStack {
                         Image(systemName: "globe")
                         Text("Button")
-//                            .redacted()
+//                            .cobrowseRedacted()
                     }
                 }
                 Button("\(isAnimating ? "Stop" : "Start") animating") {
                     isAnimating.toggle()
                 }
                 .buttonStyle(.borderedProminent)
-//                .redacted()
+//                .cobrowseRedacted()
                 
                 NavigationLink(destination: TestingView()) {
                     Text("Navigation link")
@@ -51,7 +51,7 @@ struct TestingView: View {
                     SecureField("Password", text: $password)
                         .textFieldStyle(.roundedBorder)
                         .keyboardType(.numberPad)
-//                        .redacted()
+//                        .cobrowseRedacted()
                 }
                 .padding(.horizontal, 40)
                 
@@ -61,7 +61,7 @@ struct TestingView: View {
                     .padding()
                     .background(Color.yellow)
                     .opacity(0.6)
-//                    .redacted()
+//                    .cobrowseRedacted()
                     .padding(40)
                     .scaleEffect(isAnimating ? 0.5 : 1.0)
                     .rotationEffect(isAnimating ? .degrees(180) : .zero)

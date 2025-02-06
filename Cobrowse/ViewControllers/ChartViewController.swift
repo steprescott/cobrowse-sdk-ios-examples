@@ -7,7 +7,7 @@ import UIKit
 import Combine
 
 import DGCharts
-import CobrowseIO
+import CobrowseSDK
 
 class ChartViewController: UIViewController {
 
@@ -32,6 +32,7 @@ class ChartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        chartView.holeColor = UIColor(named: "Background")
         balanceLabel.text = account.balance.currencyString
         profileButton.isHidden = true
         stackView.alpha = 0.0

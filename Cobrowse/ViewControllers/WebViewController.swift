@@ -7,7 +7,7 @@ import UIKit
 import Combine
 import WebKit
 
-import CobrowseIO
+import CobrowseSDK
 
 class WebViewController: UIViewController {
     

@@ -1,5 +1,5 @@
 {
-  "originHash" : "7a1a6cf20fdf5748550fae37eed4091ee8512ddfc6f9561e4043e632898af27c",
+  "originHash" : "1c46e4f1da7e659a9809414c9c1763726b7bf0ff9983c23ebff18d86fc02dfef",
   "pins" : [
     {
       "identity" : "charts",
@@ -13,10 +13,10 @@
     {
       "identity" : "cobrowse-sdk-ios-binary",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/cobrowseio/cobrowse-sdk-ios-binary.git",
+      "location" : "https://github.com/cobrowseio/cobrowse-sdk-ios-binary",
       "state" : {
-        "revision" : "5c82d5037a901723c62fa18b9d1285d063ff3815",
-        "version" : "2.33.2"
+        "revision" : "490b20cf06dfeb6480a9de2ab029d9a38eb6e6be",
+        "version" : "3.1.0"
       }
     }
   ],

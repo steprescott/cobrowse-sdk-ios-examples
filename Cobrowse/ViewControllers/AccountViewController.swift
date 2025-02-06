@@ -6,7 +6,7 @@
 import UIKit
 import Combine
 
-import CobrowseIO
+import CobrowseSDK
 
 class AccountViewController: UIViewController {
 

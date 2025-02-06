@@ -4,7 +4,7 @@
 
 import Foundation
 
-import CobrowseIO
+import CobrowseSDK
 
 struct Demo {
     
@@ -36,9 +36,9 @@ struct Demo {
         cobrowse.capabilities = ["drawing", "keypress", "laser", "pointer"]
         
         cobrowse.customData = [
-            kCBIODeviceNameKey: demo.deviceName,
+            CBIODeviceNameKey: demo.deviceName,
             "demo_id": demoID
-        ] as [String : NSObject]
+        ]
         
         account.isSignedIn = true
         

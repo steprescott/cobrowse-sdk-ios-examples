@@ -46,14 +46,14 @@ struct SignIn: View {
                         .multilineTextAlignment(.center)
                         .focused($focusField, equals: .username)
                         .onSubmit { signIn() }
-                        .redacted()
+                        .cobrowseRedacted()
                     
                     SecureField("Password", text: $password)
                         .textFieldStyle(.roundedBorder)
                         .multilineTextAlignment(.center)
                         .focused($focusField, equals: .password)
                         .onSubmit { signIn() }
-                        .redacted()
+                        .cobrowseRedacted()
                 }
                 .padding(.horizontal, 16)
                 .frame(maxWidth: 500)
