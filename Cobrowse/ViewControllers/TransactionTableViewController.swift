@@ -44,8 +44,8 @@ class TransactionTableViewController: UITableViewController {
 
 extension TransactionTableViewController: CobrowseIORedacted {
     
-    func redactedViews() -> [Any] {
-        var redacted: [Any] = []
+    func redactedViews() -> [UIView] {
+        var redacted: [UIView] = []
         for cell in displayedCells {
             redacted += cell.redactedViews()
         }

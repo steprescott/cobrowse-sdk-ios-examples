@@ -55,7 +55,7 @@ class SignInViewController: UIViewController {
 
 extension SignInViewController: CobrowseIORedacted {
     
-    func redactedViews() -> [Any] {
+    func redactedViews() -> [UIView] {
         [
             usernameTextField,
             passwordTextField

@@ -52,8 +52,8 @@ extension Session {
             Your acceptance confirms your consent to these terms and the permissions granted for remote actions.
             """)
         
-        consentPrompt.onDeny = { session in session?.setRemoteControl(kCBIORemoteControlStateRejected) }
-        consentPrompt.onAllow = { session in session?.setRemoteControl(kCBIORemoteControlStateOn) }
+        consentPrompt.onDeny = { session in session?.setRemoteControl(.rejected) }
+        consentPrompt.onAllow = { session in session?.setRemoteControl(.on) }
         
         consentPrompt.configureSheet()
         

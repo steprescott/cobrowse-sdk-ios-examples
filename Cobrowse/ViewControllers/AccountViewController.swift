@@ -57,7 +57,7 @@ class AccountViewController: UIViewController {
 
 extension AccountViewController: CobrowseIORedacted {
     
-    func redactedViews() -> [Any] {
+    func redactedViews() -> [UIView] {
         redactedLabels
     }
 }

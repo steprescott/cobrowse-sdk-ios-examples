@@ -25,7 +25,7 @@ class FullDeviceConsentPromptViewController: UIViewController {
     }
 
     @IBAction func denyButtonWasTapped(_ sender: Any) {
-        session.current?.setFullDevice(kCBIOFullDeviceStateRejected)
+        session.current?.setFullDevice(.rejected)
         dismiss(animated: true)
     }
 }
@@ -40,7 +40,7 @@ extension FullDeviceConsentPromptViewController {
             
             guard
                 let self = self,
-                let session = session, session.fullDevice() != kCBIOFullDeviceStateRequested
+                let session = session, session.fullDevice() != .requested
             else { return }
             
             dismiss(animated: true)

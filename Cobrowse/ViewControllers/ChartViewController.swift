@@ -58,7 +58,7 @@ class ChartViewController: UIViewController {
 
 extension ChartViewController: CobrowseIORedacted {
     
-    func redactedViews() -> [Any] {
+    func redactedViews() -> [UIView] {
         [
             balanceLabel!,
             spentLabel!
@@ -70,7 +70,7 @@ extension ChartViewController: CobrowseIORedacted {
 
 extension ChartViewController: CobrowseIOUnredacted {
     
-    func unredactedViews() -> [Any] {
+    func unredactedViews() -> [UIView] {
         
         guard session.isRedactionByDefaultEnabled
             else { return [] }

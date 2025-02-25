@@ -19,7 +19,7 @@ class TransactionTableViewCell: UITableViewCell {
 
 extension TransactionTableViewCell: CobrowseIORedacted {
     
-    func redactedViews() -> [Any] {
+    func redactedViews() -> [UIView] {
         [
             titleLabel,
             subtitleLabel,
