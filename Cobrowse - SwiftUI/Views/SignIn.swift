@@ -67,11 +67,11 @@ struct SignIn: View {
                         .fontWeight(.semibold)
                         .frame(minWidth: 120)
                         .foregroundColor(Color(invalidField == nil ? "CBSecondary" : "Text"))
-                        .accessibilityIdentifier("SIGN_IN_BUTTON")
                 }
                 .buttonStyle(.borderedProminent)
                 .disabled(invalidField != nil)
                 .padding(.top, 16)
+                .accessibilityIdentifier("SIGN_IN_BUTTON")
                 
                 Spacer()
             }

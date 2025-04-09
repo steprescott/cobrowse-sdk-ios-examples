@@ -65,8 +65,11 @@ struct AgentPresentView: View {
             .toolbar {                
                 ToolbarItem(placement: .topBarTrailing) {
                     Button { isPresented = false }
-                label: { Image(systemName: "xmark") }
+                    label: {
+                        Image(systemName: "xmark")
+                    }
                     .tint(Color("CBPrimary"))
+                    .accessibilityIdentifier("CLOSE_BUTTON")
                 }
             }
             .sessionToolbar()

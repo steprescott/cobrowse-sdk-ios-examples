@@ -41,6 +41,7 @@ struct AccountView: View {
                             }
                         .buttonStyle(.borderedProminent)
                         .tint(Color("CBPrimary"))
+                        .accessibilityIdentifier("SESSION_CODE_BUTTON")
                         
                         NavigationLink(destination: AgentPresentView(isPresented: $isPresented)) {
                             Text("Agent Present Mode")
@@ -49,6 +50,7 @@ struct AccountView: View {
                         }
                         .buttonStyle(.borderedProminent)
                         .tint(Color("CBSecondary"))
+                        .accessibilityIdentifier("AGENT_PRESENT_BUTTON")
                     }
                     
                     Button("Logout") {
@@ -56,6 +58,7 @@ struct AccountView: View {
                     }
                     .tint(Color("CBPrimary"))
                     .padding(.top, 8)
+                    .accessibilityIdentifier("LOGOUT_BUTTON")
 
                 }
                 .padding(.bottom, 20)
@@ -66,8 +69,11 @@ struct AccountView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button { isPresented = false }
-                        label: { Image(systemName: "xmark") }
+                    label: {
+                        Image(systemName: "xmark")
+                    }
                     .tint(Color("CBPrimary"))
+                    .accessibilityIdentifier("CLOSE_BUTTON")
                 }
             }
             .sessionToolbar()
