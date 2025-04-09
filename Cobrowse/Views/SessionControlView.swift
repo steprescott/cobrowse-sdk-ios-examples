@@ -10,7 +10,7 @@ class SessionControlView: UIView {
     init() {
         super.init(frame: .zero)
         
-        backgroundColor = UIColor(named: "Primary")
+        backgroundColor = UIColor(named: "CBPrimary")
         translatesAutoresizingMaskIntoConstraints = false
     }
     
