@@ -16,7 +16,7 @@ extension Session.Control {
             if session.controlState == .visible {
                 Color.clear
                     .overlay(alignment: .top) {
-                        Color.Cobrowse.controlBar
+                        Color("ControlBar")
                             .ignoresSafeArea(edges: .top)
                             .frame(height: 0)
                             .offset(y: -5)

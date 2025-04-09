@@ -20,7 +20,7 @@ struct AccountView: View {
                 
                 AccountView.Heading()
                 
-                Color.Cobrowse.background.ignoresSafeArea()
+                Color("Background").ignoresSafeArea()
                 
                 VStack {
                     
@@ -29,40 +29,44 @@ struct AccountView: View {
                             let string = "\(code.prefix(3)) - \(code.suffix(3))"
                             Text(string)
                                 .font(.largeTitle)
-                                .foregroundStyle(Color.Cobrowse.text)
+                                .foregroundStyle(Color("Text"))
                         }
                         
                         Button { CobrowseIO.instance().createSession() }
                             label: {
                                 Text("Get session code")
                                     .frame(minWidth: 200)
+                                    .foregroundColor(Color("Secondary"))
                             }
                         .buttonStyle(.borderedProminent)
+                        .tint(Color("Primary"))
                         
                         NavigationLink(destination: AgentPresentView(isPresented: $isPresented)) {
                             Text("Agent Present Mode")
                                 .frame(minWidth: 200)
-                                .foregroundColor(Color.Cobrowse.primary)
+                                .foregroundColor(Color("Primary"))
                         }
                         .buttonStyle(.borderedProminent)
-                        .tint(Color.Cobrowse.secondary)
+                        .tint(Color("Secondary"))
                     }
                     
                     Button("Logout") {
                         account.isSignedIn = false
                     }
+                    .tint(Color("Primary"))
                     .padding(.top, 8)
 
                 }
                 .padding(.bottom, 20)
             }
-            .background { Color.Cobrowse.background.ignoresSafeArea() }
+            .background { Color("Background").ignoresSafeArea() }
             .navigationTitle("Account")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button { isPresented = false }
                         label: { Image(systemName: "xmark") }
+                    .tint(Color("Primary"))
                 }
             }
             .sessionToolbar()
@@ -85,7 +89,7 @@ extension AccountView {
                     .resizable()
                     .aspectRatio(1, contentMode: .fit)
                     .frame(height: 120)
-                    .foregroundColor(Color.Cobrowse.primary)
+                    .foregroundColor(Color("Primary"))
                 
                 Details(
                     name: "Frank Spencer",
@@ -106,11 +110,11 @@ extension AccountView.Heading {
             VStack(spacing: 2) {
                 Text(name)
                     .font(.largeTitle)
-                    .foregroundStyle(Color.Cobrowse.text)
+                    .foregroundStyle(Color("Text"))
                 
                 Text(verbatim: email)
                     .font(.title2)
-                    .foregroundStyle(Color.Cobrowse.text)
+                    .foregroundStyle(Color("Text"))
             }
         }
     }

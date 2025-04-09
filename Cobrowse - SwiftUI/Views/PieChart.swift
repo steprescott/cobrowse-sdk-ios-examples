@@ -41,18 +41,18 @@ struct PieChart: View {
             VStack {
                 Text("Spent")
                     .font(.subheadline)
-                    .foregroundStyle(Color.Cobrowse.text)
+                    .foregroundStyle(Color("Text"))
                 
                 if let totalSpent = recentTransactions.totalSpent.currencyString {
                     Text(totalSpent)
                         .font(.title)
-                        .foregroundStyle(Color.Cobrowse.primary)
                         .cobrowseRedacted()
+                        .foregroundStyle(Color("Primary"))
                 }
                 
                 Text("This month")
                     .font(.subheadline)
-                    .foregroundStyle(Color.Cobrowse.text)
+                    .foregroundStyle(Color("Text"))
             }
         })
         .chartLegend(.hidden)

@@ -34,11 +34,11 @@ struct SignIn: View {
                         .aspectRatio(1, contentMode: .fit)
                         .frame(maxWidth: 200)
                         .padding()
-                        .foregroundColor(.Cobrowse.primary)
+                        .foregroundColor(Color("Primary"))
                 }
                 
                 Text("Please enter your details")
-                    .foregroundStyle(Color.Cobrowse.text)
+                    .foregroundStyle(Color("Text"))
                 
                 VStack(spacing: 4) {
                     TextField("Username", text: $username)
@@ -71,7 +71,7 @@ struct SignIn: View {
                 
                 Spacer()
             }
-            .background { Color.Cobrowse.background.ignoresSafeArea() }
+            .background { Color("Background").ignoresSafeArea() }
             .sessionToolbar()
         }
 

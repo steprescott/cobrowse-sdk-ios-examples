@@ -39,7 +39,7 @@ struct Dashboard: View {
                     Spacer()
                     
                     if shouldPresentTransactionsSheet {
-                        Color.Cobrowse.background
+                        Color("Background")
                             .sheet(isPresented: $shouldPresentTransactionsSheet) {
                                 NavigationStack(path: $navigation.path) {
                                     Transaction.List(transactions: account.transactions)
@@ -56,14 +56,14 @@ struct Dashboard: View {
                                 }
                             }
                     } else {
-                        Color.Cobrowse.background
+                        Color("Background")
                             .sheet(isPresented: $isPresentingAccountSheet) {
                                 AccountView(isPresented: $isPresentingAccountSheet)
                             }
                     }
                 }
                 .background {
-                    Color.Cobrowse.background
+                    Color("Background")
                 }
             }
             .ignoresSafeArea()
@@ -72,6 +72,7 @@ struct Dashboard: View {
             ToolbarItem(placement: .topBarTrailing) {
                 Button { isPresentingAccountSheet = true }
                     label: { Image(systemName: "person.crop.circle") }
+                .tint(Color("Primary"))
             }
         }
         .sessionToolbar()
@@ -89,13 +90,13 @@ extension Dashboard {
             VStack(spacing: 6) {
                 Text("Balance")
                     .font(.title3)
-                    .foregroundStyle(Color.Cobrowse.text)
+                    .foregroundStyle(Color("Text"))
                     .cobrowseRedacted()
                 
                 if let accountBalance = account.balance.currencyString {
                     Text(accountBalance)
                         .font(.title)
-                        .foregroundStyle(Color.Cobrowse.primary)
+                        .foregroundStyle(Color("Primary"))
                         .cobrowseRedacted()
                 }
             }

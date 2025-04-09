@@ -21,18 +21,18 @@ struct AgentPresentView: View {
                 if let session = session.current, session.isActive() {
                     Text("You are now presenting")
                         .font(.title2)
-                        .foregroundStyle(Color.Cobrowse.text)
+                        .foregroundStyle(Color("Text"))
                     
                     Image(systemName: "rectangle.inset.filled.and.person.filled")
                         .font(.system(size: 120, weight: .thin))
-                        .foregroundColor(.Cobrowse.primary)
+                        .foregroundColor(Color("Primary"))
                     
-                    Color.Cobrowse.background
+                    Color("Background")
                 } else {
                     VStack(spacing: 16) {
                         Text("Please enter your present code")
                             .font(.title2)
-                            .foregroundStyle(Color.Cobrowse.text)
+                            .foregroundStyle(Color("Text"))
                         
                         CodeInput(code: $code)
                             .shake($shouldShake) {
@@ -54,18 +54,19 @@ struct AgentPresentView: View {
                                 }
                             })
                         
-                        Color.Cobrowse.background
+                        Color("Background")
                     }
                 }
             }
             .padding(.top, 30)
-            .background { Color.Cobrowse.background.ignoresSafeArea() }
+            .background { Color("Background").ignoresSafeArea() }
             .navigationTitle("Agent Present")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {                
                 ToolbarItem(placement: .topBarTrailing) {
                     Button { isPresented = false }
                 label: { Image(systemName: "xmark") }
+                    .tint(Color("Primary"))
                 }
             }
             .sessionToolbar()

@@ -57,7 +57,6 @@
 		4A163DAE2BD95EE5004F8658 /* Transaction+SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A163D572BD95E94004F8658 /* Transaction+SwiftUI.swift */; };
 		4A163DCC2BD95EFE004F8658 /* CBIOSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A163DAF2BD95EFE004F8658 /* CBIOSession.swift */; };
 		4A163DCD2BD95EFE004F8658 /* CobrowseIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A163DB02BD95EFE004F8658 /* CobrowseIO.swift */; };
-		4A163DCE2BD95EFE004F8658 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A163DB12BD95EFE004F8658 /* Color.swift */; };
 		4A163DCF2BD95EFE004F8658 /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A163DB32BD95EFE004F8658 /* Navigation.swift */; };
 		4A163DD02BD95EFE004F8658 /* Transaction+Detent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A163DB42BD95EFE004F8658 /* Transaction+Detent.swift */; };
 		4A163DD12BD95EFE004F8658 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A163DB62BD95EFE004F8658 /* Preview Assets.xcassets */; };
@@ -303,7 +302,6 @@
 		4A163DA92BD95EAA004F8658 /* SampleHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleHandler.swift; sourceTree = "<group>"; };
 		4A163DAF2BD95EFE004F8658 /* CBIOSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBIOSession.swift; sourceTree = "<group>"; };
 		4A163DB02BD95EFE004F8658 /* CobrowseIO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CobrowseIO.swift; sourceTree = "<group>"; };
-		4A163DB12BD95EFE004F8658 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		4A163DB32BD95EFE004F8658 /* Navigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
 		4A163DB42BD95EFE004F8658 /* Transaction+Detent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Transaction+Detent.swift"; sourceTree = "<group>"; };
 		4A163DB62BD95EFE004F8658 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -522,7 +520,6 @@
 			children = (
 				4A163DAF2BD95EFE004F8658 /* CBIOSession.swift */,
 				4A163DB02BD95EFE004F8658 /* CobrowseIO.swift */,
-				4A163DB12BD95EFE004F8658 /* Color.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -967,7 +964,6 @@
 				4A163DCC2BD95EFE004F8658 /* CBIOSession.swift in Sources */,
 				4A163DCF2BD95EFE004F8658 /* Navigation.swift in Sources */,
 				4A163E2F2BD96287004F8658 /* Transaction.swift in Sources */,
-				4A163DCE2BD95EFE004F8658 /* Color.swift in Sources */,
 				4A163DD32BD95EFE004F8658 /* SessionToolBar.swift in Sources */,
 				4A5FD1952C6E45EE00D03DC1 /* AgentPresentView.swift in Sources */,
 				4A5FD1A02C6E45EE00D03DC1 /* Transaction+List.swift in Sources */,
