@@ -46,8 +46,9 @@ struct PieChart: View {
                 if let totalSpent = recentTransactions.totalSpent.currencyString {
                     Text(totalSpent)
                         .font(.title)
-                        .cobrowseRedacted()
                         .foregroundStyle(Color("CBPrimary"))
+                        .accessibilityIdentifier("TOTAL_SPENT")
+                        .cobrowseRedacted()
                 }
                 
                 Text("This month")

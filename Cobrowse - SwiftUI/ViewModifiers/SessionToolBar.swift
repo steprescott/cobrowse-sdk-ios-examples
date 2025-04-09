@@ -22,7 +22,7 @@ struct SessionToolbar: ViewModifier {
                                 Image(systemName: "rectangle.badge.xmark")
                             }
                             .tint(Color("CBPrimary"))
-                            .cobrowseSelector(tag: "Button")
+                            .accessibilityIdentifier("SESSION_END_BUTTON")
                         }
                     }
                 }

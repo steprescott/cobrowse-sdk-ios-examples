@@ -46,6 +46,7 @@ struct SignIn: View {
                         .multilineTextAlignment(.center)
                         .focused($focusField, equals: .username)
                         .onSubmit { signIn() }
+                        .accessibilityIdentifier("INPUT_USERNAME")
                         .cobrowseRedacted()
                     
                     SecureField("Password", text: $password)
@@ -53,6 +54,7 @@ struct SignIn: View {
                         .multilineTextAlignment(.center)
                         .focused($focusField, equals: .password)
                         .onSubmit { signIn() }
+                        .accessibilityIdentifier("INPUT_PASSWORD")
                         .cobrowseRedacted()
                 }
                 .padding(.horizontal, 16)
@@ -65,6 +67,7 @@ struct SignIn: View {
                         .fontWeight(.semibold)
                         .frame(minWidth: 120)
                         .foregroundColor(Color(invalidField == nil ? "CBSecondary" : "Text"))
+                        .accessibilityIdentifier("SIGN_IN_BUTTON")
                 }
                 .buttonStyle(.borderedProminent)
                 .disabled(invalidField != nil)

@@ -20,7 +20,8 @@ struct AccountView: View {
                 
                 AccountView.Heading()
                 
-                Color("Background").ignoresSafeArea()
+                Color("Background")
+                    .ignoresSafeArea()
                 
                 VStack {
                     
@@ -90,6 +91,7 @@ extension AccountView {
                     .aspectRatio(1, contentMode: .fit)
                     .frame(height: 120)
                     .foregroundColor(Color("CBPrimary"))
+                    .accessibilityIdentifier("ACCOUNT_PROFILE_IMAGE")
                 
                 Details(
                     name: "Frank Spencer",
@@ -111,10 +113,12 @@ extension AccountView.Heading {
                 Text(name)
                     .font(.largeTitle)
                     .foregroundStyle(Color("Text"))
+                    .accessibilityIdentifier("ACCOUNT_NAME")
                 
                 Text(verbatim: email)
                     .font(.title2)
                     .foregroundStyle(Color("Text"))
+                    .accessibilityIdentifier("ACCOUNT_EMAIL")
             }
         }
     }

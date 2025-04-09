@@ -71,8 +71,11 @@ struct Dashboard: View {
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 Button { isPresentingAccountSheet = true }
-                    label: { Image(systemName: "person.crop.circle") }
+                label: {
+                    Image(systemName: "person.crop.circle")
+                }
                 .tint(Color("CBPrimary"))
+                .accessibilityIdentifier("ACCOUNT_BUTTON")
             }
         }
         .sessionToolbar()
@@ -97,6 +100,7 @@ extension Dashboard {
                     Text(accountBalance)
                         .font(.title)
                         .foregroundStyle(Color("CBPrimary"))
+                        .accessibilityIdentifier("ACCOUNT_BALANCE")
                         .cobrowseRedacted()
                 }
             }
