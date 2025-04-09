@@ -83,7 +83,6 @@
 		4A163E142BD95FA8004F8658 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A163D3E2BD95E94004F8658 /* Dictionary.swift */; };
 		4A163E152BD95FA8004F8658 /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A163D4E2BD95E94004F8658 /* Formatters.swift */; };
 		4A163E162BD95FA8004F8658 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A163D542BD95E94004F8658 /* Session.swift */; };
-		4A163E172BD95FA8004F8658 /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A163D442BD95E94004F8658 /* UINavigationController.swift */; };
 		4A163E182BD95FA8004F8658 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A163D3B2BD95E94004F8658 /* Array.swift */; };
 		4A163E192BD95FA8004F8658 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A163D472BD95E94004F8658 /* UITableView.swift */; };
 		4A163E1A2BD95FA8004F8658 /* DispatchQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A163D3F2BD95E94004F8658 /* DispatchQueue.swift */; };
@@ -117,7 +116,6 @@
 		4A163E3B2BD96308004F8658 /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A163D512BD95E94004F8658 /* UserDefault.swift */; };
 		4A163E3C2BD9632D004F8658 /* CodeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A163D642BD95E94004F8658 /* CodeTextField.swift */; };
 		4A163E3F2BD96388004F8658 /* SampleHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A163DA92BD95EAA004F8658 /* SampleHandler.swift */; };
-		4A3B82702CA4A10400EE3C70 /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A163D442BD95E94004F8658 /* UINavigationController.swift */; };
 		4A5FD1692C6E42D100D03DC1 /* SessionControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5FD1682C6E42D100D03DC1 /* SessionControlView.swift */; };
 		4A5FD16A2C6E42D600D03DC1 /* SessionControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5FD1682C6E42D100D03DC1 /* SessionControlView.swift */; };
 		4A5FD16F2C6E431600D03DC1 /* Demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5FD16E2C6E431600D03DC1 /* Demo.swift */; };
@@ -149,7 +147,8 @@
 		4A77B5C92C52EE5B0059D87F /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 4A163D742BD95E94004F8658 /* PrivacyInfo.xcprivacy */; };
 		4A77B5D22C52F1650059D87F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A163D6D2BD95E94004F8658 /* Assets.xcassets */; };
 		4A77B5D32C52F1F00059D87F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A163D712BD95E94004F8658 /* LaunchScreen.storyboard */; };
-		4A84E15C2B2222F000C2789A /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A84E15B2B2222F000C2789A /* UINavigationController.swift */; };
+		4A886DBB2DA68E59000C7063 /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A886DBA2DA68E59000C7063 /* UINavigationController.swift */; };
+		4A886DBC2DA68E59000C7063 /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A886DBA2DA68E59000C7063 /* UINavigationController.swift */; };
 		4AC7E51C29F94CEF00722B29 /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AC7E51B29F94CEF00722B29 /* ReplayKit.framework */; };
 		4AC85E0F2C19D491001338EF /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 4AC85E0E2C19D491001338EF /* DGCharts */; };
 		4AE2BAAC2C9D1D0200FF6ED0 /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AC7E51B29F94CEF00722B29 /* ReplayKit.framework */; };
@@ -256,7 +255,6 @@
 		4A163D412BD95E94004F8658 /* Locale.Currency+UIKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Locale.Currency+UIKit.swift"; sourceTree = "<group>"; };
 		4A163D422BD95E94004F8658 /* Publisher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Publisher.swift; sourceTree = "<group>"; };
 		4A163D432BD95E94004F8658 /* RawRepresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RawRepresentable.swift; sourceTree = "<group>"; };
-		4A163D442BD95E94004F8658 /* UINavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
 		4A163D452BD95E94004F8658 /* UISheetPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISheetPresentationController.swift; sourceTree = "<group>"; };
 		4A163D462BD95E94004F8658 /* UIStoryboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStoryboard.swift; sourceTree = "<group>"; };
 		4A163D472BD95E94004F8658 /* UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
@@ -339,7 +337,7 @@
 		4A6DD5052B10F2400083EE2C /* Broadcast Extension - SwiftUI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Broadcast Extension - SwiftUI.entitlements"; sourceTree = "<group>"; };
 		4A8187192ABDFD5A00C90B9E /* DispatchQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueue.swift; sourceTree = "<group>"; };
 		4A84E1592B2222E300C2789A /* UIWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindow.swift; sourceTree = "<group>"; };
-		4A84E15B2B2222F000C2789A /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
+		4A886DBA2DA68E59000C7063 /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
 		4AC7E51929F94CEF00722B29 /* Broadcast Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Broadcast Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AC7E51B29F94CEF00722B29 /* ReplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReplayKit.framework; path = System/Library/Frameworks/ReplayKit.framework; sourceTree = SDKROOT; };
 		4AEEDB3329DF0743009B7208 /* Cobrowse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cobrowse.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -407,10 +405,9 @@
 				4A163D412BD95E94004F8658 /* Locale.Currency+UIKit.swift */,
 				4A163D422BD95E94004F8658 /* Publisher.swift */,
 				4A163D432BD95E94004F8658 /* RawRepresentable.swift */,
-				4A84E15B2B2222F000C2789A /* UINavigationController.swift */,
 				4A1D47212A03BFDF00109053 /* UITextField.swift */,
 				4A84E1592B2222E300C2789A /* UIWindow.swift */,
-				4A163D442BD95E94004F8658 /* UINavigationController.swift */,
+				4A886DBA2DA68E59000C7063 /* UINavigationController.swift */,
 				4A163D452BD95E94004F8658 /* UISheetPresentationController.swift */,
 				4A163D462BD95E94004F8658 /* UIStoryboard.swift */,
 				4A163D472BD95E94004F8658 /* UITableView.swift */,
@@ -762,7 +759,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1530;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 1630;
 				TargetAttributes = {
 					4A163DEA2BD95F67004F8658 = {
 						CreatedOnToolsVersion = 15.3;
@@ -889,6 +886,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A163E042BD95F96004F8658 /* AppDelegate.swift in Sources */,
+				4A886DBB2DA68E59000C7063 /* UINavigationController.swift in Sources */,
 				4A163E052BD95FA8004F8658 /* UISheetPresentationController.swift in Sources */,
 				4A163E062BD95FA8004F8658 /* UIView.swift in Sources */,
 				4A163E072BD95FA8004F8658 /* UIWindow.swift in Sources */,
@@ -919,7 +917,6 @@
 				4A163E152BD95FA8004F8658 /* Formatters.swift in Sources */,
 				4A5FD16A2C6E42D600D03DC1 /* SessionControlView.swift in Sources */,
 				4A163E162BD95FA8004F8658 /* Session.swift in Sources */,
-				4A163E172BD95FA8004F8658 /* UINavigationController.swift in Sources */,
 				4A163E182BD95FA8004F8658 /* Array.swift in Sources */,
 				4A163E192BD95FA8004F8658 /* UITableView.swift in Sources */,
 				4A163E1A2BD95FA8004F8658 /* DispatchQueue.swift in Sources */,
@@ -997,13 +994,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A163D9A2BD95E94004F8658 /* WebViewController.swift in Sources */,
+				4A886DBC2DA68E59000C7063 /* UINavigationController.swift in Sources */,
 				4A163D812BD95E94004F8658 /* UIStoryboard.swift in Sources */,
 				4A163D7D2BD95E94004F8658 /* Publisher.swift in Sources */,
 				4A163D942BD95E94004F8658 /* ChartViewController.swift in Sources */,
 				4A163D952BD95E94004F8658 /* ConsentPromptViewController.swift in Sources */,
 				4A163D932BD95E94004F8658 /* AgentPresentViewController.swift in Sources */,
 				4A163DA12BD95E94004F8658 /* AppDelegate.swift in Sources */,
-				4A84E15C2B2222F000C2789A /* UINavigationController.swift in Sources */,
 				4A163D762BD95E94004F8658 /* Array.swift in Sources */,
 				4A163D992BD95E94004F8658 /* TransactionTableViewController.swift in Sources */,
 				4A163D7E2BD95E94004F8658 /* RawRepresentable.swift in Sources */,
@@ -1023,7 +1020,6 @@
 				4A163D8B2BD95E94004F8658 /* UserDefault.swift in Sources */,
 				4A163D882BD95E94004F8658 /* Formatters.swift in Sources */,
 				4A163D922BD95E94004F8658 /* AccountViewController.swift in Sources */,
-				4A3B82702CA4A10400EE3C70 /* UINavigationController.swift in Sources */,
 				4A163D8F2BD95E94004F8658 /* Transaction.swift in Sources */,
 				4A163D7A2BD95E94004F8658 /* DispatchQueue.swift in Sources */,
 				4A5FD1692C6E42D100D03DC1 /* SessionControlView.swift in Sources */,
@@ -1089,7 +1085,6 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 5;
-				DEVELOPMENT_TEAM = GAY49KQFRH;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Cobrowse App Clip/Info.plist";
@@ -1125,7 +1120,6 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 5;
-				DEVELOPMENT_TEAM = GAY49KQFRH;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Cobrowse App Clip/Info.plist";
@@ -1155,14 +1149,12 @@
 		4A4CEC182B067954004BD263 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Cobrowse - SwiftUI/Cobrowse.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Cobrowse - SwiftUI/Preview Content\"";
-				DEVELOPMENT_TEAM = GAY49KQFRH;
 				ENABLE_PREVIEWS = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1179,7 +1171,7 @@
 					"@executable_path/Frameworks",
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = io.cobrowse.demo.swiftui;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
@@ -1192,14 +1184,12 @@
 		4A4CEC192B067954004BD263 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Cobrowse - SwiftUI/Cobrowse.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Cobrowse - SwiftUI/Preview Content\"";
-				DEVELOPMENT_TEAM = GAY49KQFRH;
 				ENABLE_PREVIEWS = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1216,7 +1206,7 @@
 					"@executable_path/Frameworks",
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = io.cobrowse.demo.swiftui;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1231,7 +1221,6 @@
 				CODE_SIGN_ENTITLEMENTS = "Broadcast Extension - SwiftUI/Broadcast Extension - SwiftUI.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = GAY49KQFRH;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Broadcast Extension - SwiftUI/Info.plist";
@@ -1244,7 +1233,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.cobrowse.demo.swiftui.broadcast-extension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1261,7 +1250,6 @@
 				CODE_SIGN_ENTITLEMENTS = "Broadcast Extension - SwiftUI/Broadcast Extension - SwiftUI.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = GAY49KQFRH;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Broadcast Extension - SwiftUI/Info.plist";
@@ -1274,7 +1262,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.cobrowse.demo.swiftui.broadcast-extension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1291,7 +1279,6 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 5;
-				DEVELOPMENT_TEAM = GAY49KQFRH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Broadcast Extension/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Cobrowse;
@@ -1302,7 +1289,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.cobrowse.demo.broadcast-extension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1320,7 +1307,6 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 5;
-				DEVELOPMENT_TEAM = GAY49KQFRH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Broadcast Extension/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Cobrowse;
@@ -1331,7 +1317,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.cobrowse.demo.broadcast-extension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1377,6 +1363,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = GAY49KQFRH;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -1439,6 +1426,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = GAY49KQFRH;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -1463,14 +1451,12 @@
 		4AEEDB4829DF0744009B7208 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Cobrowse/Cobrowse.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 5;
-				DEVELOPMENT_TEAM = GAY49KQFRH;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cobrowse/Info.plist;
@@ -1500,14 +1486,12 @@
 		4AEEDB4929DF0744009B7208 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Cobrowse/Cobrowse.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 5;
-				DEVELOPMENT_TEAM = GAY49KQFRH;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cobrowse/Info.plist;

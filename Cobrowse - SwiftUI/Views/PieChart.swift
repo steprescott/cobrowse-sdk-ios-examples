@@ -47,7 +47,7 @@ struct PieChart: View {
                     Text(totalSpent)
                         .font(.title)
                         .cobrowseRedacted()
-                        .foregroundStyle(Color("Primary"))
+                        .foregroundStyle(Color("CBPrimary"))
                 }
                 
                 Text("This month")

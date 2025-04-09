@@ -34,7 +34,7 @@ struct SignIn: View {
                         .aspectRatio(1, contentMode: .fit)
                         .frame(maxWidth: 200)
                         .padding()
-                        .foregroundColor(Color("Primary"))
+                        .foregroundColor(Color("CBPrimary"))
                 }
                 
                 Text("Please enter your details")
@@ -64,6 +64,7 @@ struct SignIn: View {
                     Text("Sign in")
                         .fontWeight(.semibold)
                         .frame(minWidth: 120)
+                        .foregroundColor(Color(invalidField == nil ? "CBSecondary" : "Text"))
                 }
                 .buttonStyle(.borderedProminent)
                 .disabled(invalidField != nil)

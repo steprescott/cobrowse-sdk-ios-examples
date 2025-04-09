@@ -25,7 +25,7 @@ struct AgentPresentView: View {
                     
                     Image(systemName: "rectangle.inset.filled.and.person.filled")
                         .font(.system(size: 120, weight: .thin))
-                        .foregroundColor(Color("Primary"))
+                        .foregroundColor(Color("CBPrimary"))
                     
                     Color("Background")
                 } else {
@@ -66,7 +66,7 @@ struct AgentPresentView: View {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button { isPresented = false }
                 label: { Image(systemName: "xmark") }
-                    .tint(Color("Primary"))
+                    .tint(Color("CBPrimary"))
                 }
             }
             .sessionToolbar()

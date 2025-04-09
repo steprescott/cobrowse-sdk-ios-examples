@@ -21,7 +21,7 @@ struct SessionToolbar: ViewModifier {
                             Button(action: { session.end() }) {
                                 Image(systemName: "rectangle.badge.xmark")
                             }
-                            .tint(Color("Primary"))
+                            .tint(Color("CBPrimary"))
                             .cobrowseSelector(tag: "Button")
                         }
                     }

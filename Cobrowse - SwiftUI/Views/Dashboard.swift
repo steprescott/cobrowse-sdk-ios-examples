@@ -72,7 +72,7 @@ struct Dashboard: View {
             ToolbarItem(placement: .topBarTrailing) {
                 Button { isPresentingAccountSheet = true }
                     label: { Image(systemName: "person.crop.circle") }
-                .tint(Color("Primary"))
+                .tint(Color("CBPrimary"))
             }
         }
         .sessionToolbar()
@@ -96,7 +96,7 @@ extension Dashboard {
                 if let accountBalance = account.balance.currencyString {
                     Text(accountBalance)
                         .font(.title)
-                        .foregroundStyle(Color("Primary"))
+                        .foregroundStyle(Color("CBPrimary"))
                         .cobrowseRedacted()
                 }
             }

@@ -36,24 +36,24 @@ struct AccountView: View {
                             label: {
                                 Text("Get session code")
                                     .frame(minWidth: 200)
-                                    .foregroundColor(Color("Secondary"))
+                                    .foregroundColor(Color("CBSecondary"))
                             }
                         .buttonStyle(.borderedProminent)
-                        .tint(Color("Primary"))
+                        .tint(Color("CBPrimary"))
                         
                         NavigationLink(destination: AgentPresentView(isPresented: $isPresented)) {
                             Text("Agent Present Mode")
                                 .frame(minWidth: 200)
-                                .foregroundColor(Color("Primary"))
+                                .foregroundColor(Color("CBPrimary"))
                         }
                         .buttonStyle(.borderedProminent)
-                        .tint(Color("Secondary"))
+                        .tint(Color("CBSecondary"))
                     }
                     
                     Button("Logout") {
                         account.isSignedIn = false
                     }
-                    .tint(Color("Primary"))
+                    .tint(Color("CBPrimary"))
                     .padding(.top, 8)
 
                 }
@@ -66,7 +66,7 @@ struct AccountView: View {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button { isPresented = false }
                         label: { Image(systemName: "xmark") }
-                    .tint(Color("Primary"))
+                    .tint(Color("CBPrimary"))
                 }
             }
             .sessionToolbar()
@@ -89,7 +89,7 @@ extension AccountView {
                     .resizable()
                     .aspectRatio(1, contentMode: .fit)
                     .frame(height: 120)
-                    .foregroundColor(Color("Primary"))
+                    .foregroundColor(Color("CBPrimary"))
                 
                 Details(
                     name: "Frank Spencer",
