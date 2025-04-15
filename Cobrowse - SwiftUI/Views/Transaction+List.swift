@@ -9,6 +9,8 @@ extension Transaction {
     
     struct List: View {
         
+        @ObservedObject private var navigation = Navigation()
+        
         @EnvironmentObject private var account: Account
         
         private let transactions: [Transaction]
@@ -19,22 +21,26 @@ extension Transaction {
         }
         
         var body: some View {
-            SwiftUI.List {
-                ForEach(transactionsByMonth, id: \.key) { (date, transactions) in
-                    Section(header: Text(date.string!)) {
-                        ForEach(transactions) { transaction in
-                            Item(for: transaction)
+            NavigationStack(path: $navigation.path) {
+                SwiftUI.List {
+                    ForEach(transactionsByMonth, id: \.key) { (date, transactions) in
+                        Section(header: Text(date.string!)) {
+                            ForEach(transactions) { transaction in
+                                Item(for: transaction)
+                                    .cobrowseSelector(tag: "Item")
+                            }
                         }
                     }
                 }
+                .listStyle(.plain)
+                .navigationTitle("Transactions")
+                .navigationBarTitleDisplayMode(.inline)
+                .navigationDestination(for: Transaction.self, destination: { transaction in
+                    Transaction.Detail(for: transaction)
+                })
             }
-            .listStyle(.plain)
-            .navigationTitle("Transactions")
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationDestination(for: Transaction.self, destination: { transaction in
-                Transaction.Detail(for: transaction)
-            })
-            .sessionToolbar(trackDetent: true) 
+            .sessionToolbar(trackDetent: true)
+            .environmentObject(navigation)
         }
         
         init(transactions: [Transaction]) {

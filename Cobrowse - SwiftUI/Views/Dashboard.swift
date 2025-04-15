@@ -14,7 +14,6 @@ struct Dashboard: View {
     
     @EnvironmentObject private var account: Account
     
-    @ObservedObject private var navigation = Navigation()
     
     private let offset = 65.0
     
@@ -41,9 +40,8 @@ struct Dashboard: View {
                     if shouldPresentTransactionsSheet {
                         Color("Background")
                             .sheet(isPresented: $shouldPresentTransactionsSheet) {
-                                NavigationStack(path: $navigation.path) {
-                                    Transaction.List(transactions: account.transactions)
-                                }
+                                
+                                Transaction.List(transactions: account.transactions)
                                 .presentationDetents([.fraction(0.40), .large])
                                 .presentationBackgroundInteraction(.enabled(upThrough: .fraction(0.40)))
                                 .interactiveDismissDisabled()
@@ -79,7 +77,6 @@ struct Dashboard: View {
             }
         }
         .sessionToolbar()
-        .environmentObject(navigation)
         .environmentObject(transactionDetent)
     }
 }
