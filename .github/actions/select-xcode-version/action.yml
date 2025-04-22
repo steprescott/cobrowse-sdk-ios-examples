@@ -1,0 +1,13 @@
+name: Select Xcode version
+description: Select the Xcode version to be used to compile the apps
+
+runs:
+  using: "composite"
+  steps:
+    - name: Select Xcode version
+      env:
+        XCODE_SELECTED_PATH: "/Applications/Xcode_16.0.app"
+      shell: bash
+      run: |
+        sudo xcode-select --switch ${XCODE_SELECTED_PATH}
+        xcodebuild -version
