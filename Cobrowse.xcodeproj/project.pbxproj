@@ -729,7 +729,6 @@
 				4AEEDB2F29DF0743009B7208 /* Sources */,
 				4AEEDB3029DF0743009B7208 /* Frameworks */,
 				4AEEDB3129DF0743009B7208 /* Resources */,
-				4AC7E53829F96B0000722B29 /* Cobrowse.io */,
 				4AF1CD5F29FA61B300261E25 /* Embed Foundation Extensions */,
 				4A163E032BD95F68004F8658 /* Embed App Clips */,
 				4AD30CCB2CF5EAB7002DD63E /* Embed Frameworks */,
@@ -852,30 +851,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		4AC7E53829F96B0000722B29 /* Cobrowse.io */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = Cobrowse.io;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /usr/bin/ruby;
-			shellScript = "
-";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4A163DE72BD95F67004F8658 /* Sources */ = {
@@ -1579,7 +1554,7 @@
 			repositoryURL = "https://github.com/cobrowseio/cobrowse-sdk-ios-binary";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 3.1.0;
+				minimumVersion = 3.0.0;
 			};
 		};
 		4AF1CD6829FA68A700261E25 /* XCRemoteSwiftPackageReference "Charts" */ = {
