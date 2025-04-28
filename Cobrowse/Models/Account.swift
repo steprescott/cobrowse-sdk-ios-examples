@@ -10,7 +10,7 @@ class Account: ObservableObject {
     
     let balance = 2495.34
     
-    @Published var isSignedIn = false
+    @Published var isSignedIn = true
     @Published var transactions: [Transaction] = []
     
     init() {
