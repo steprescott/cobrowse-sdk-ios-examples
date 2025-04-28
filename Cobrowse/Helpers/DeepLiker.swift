@@ -7,6 +7,7 @@ import CobrowseSDK
 
 enum DeepLinker {
     
+    @discardableResult
     static func handle(_ url: URL) -> Bool {
         
         guard let components = URLComponents(url: url, resolvingAgainstBaseURL: true)

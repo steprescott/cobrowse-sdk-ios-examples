@@ -116,6 +116,8 @@
 		4A163E3B2BD96308004F8658 /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A163D512BD95E94004F8658 /* UserDefault.swift */; };
 		4A163E3C2BD9632D004F8658 /* CodeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A163D642BD95E94004F8658 /* CodeTextField.swift */; };
 		4A163E3F2BD96388004F8658 /* SampleHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A163DA92BD95EAA004F8658 /* SampleHandler.swift */; };
+		4A5E9EBB2DBF9DB000CB4BD1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5E9EBA2DBF9DB000CB4BD1 /* SceneDelegate.swift */; };
+		4A5E9EBC2DBF9DB000CB4BD1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5E9EBA2DBF9DB000CB4BD1 /* SceneDelegate.swift */; };
 		4A5FD1692C6E42D100D03DC1 /* SessionControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5FD1682C6E42D100D03DC1 /* SessionControlView.swift */; };
 		4A5FD16A2C6E42D600D03DC1 /* SessionControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5FD1682C6E42D100D03DC1 /* SessionControlView.swift */; };
 		4A5FD16F2C6E431600D03DC1 /* Demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5FD16E2C6E431600D03DC1 /* Demo.swift */; };
@@ -312,6 +314,7 @@
 		4A1D471F2A03BFBF00109053 /* Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Publisher.swift; sourceTree = "<group>"; };
 		4A1D47212A03BFDF00109053 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		4A4CEC0D2B067954004BD263 /* Cobrowse - SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cobrowse - SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A5E9EBA2DBF9DB000CB4BD1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		4A5FD1682C6E42D100D03DC1 /* SessionControlView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionControlView.swift; sourceTree = "<group>"; };
 		4A5FD16E2C6E431600D03DC1 /* Demo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Demo.swift; sourceTree = "<group>"; };
 		4A5FD1842C6E45EE00D03DC1 /* AccountView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
@@ -484,6 +487,7 @@
 			isa = PBXGroup;
 			children = (
 				4A163D6C2BD95E94004F8658 /* AppDelegate.swift */,
+				4A5E9EBA2DBF9DB000CB4BD1 /* SceneDelegate.swift */,
 				4A163D4C2BD95E94004F8658 /* Extensions */,
 				4A163D522BD95E94004F8658 /* Helpers */,
 				4A163D592BD95E94004F8658 /* Models */,
@@ -893,6 +897,7 @@
 				4A163E192BD95FA8004F8658 /* UITableView.swift in Sources */,
 				4A163E1A2BD95FA8004F8658 /* DispatchQueue.swift in Sources */,
 				4A163E1B2BD95FA8004F8658 /* RawRepresentable.swift in Sources */,
+				4A5E9EBB2DBF9DB000CB4BD1 /* SceneDelegate.swift in Sources */,
 				4A163E1C2BD95FA8004F8658 /* Account.swift in Sources */,
 				4A163E1D2BD95FA8004F8658 /* UserDefault.swift in Sources */,
 				4A5FD1702C6E431600D03DC1 /* Demo.swift in Sources */,
@@ -1000,6 +1005,7 @@
 				4A163D972BD95E94004F8658 /* SettingsViewController.swift in Sources */,
 				4A163D8D2BD95E94004F8658 /* Session.swift in Sources */,
 				4A163D9B2BD95E94004F8658 /* CodeTextField.swift in Sources */,
+				4A5E9EBC2DBF9DB000CB4BD1 /* SceneDelegate.swift in Sources */,
 				4A163D852BD95E94004F8658 /* UIViewController.swift in Sources */,
 				4A163D892BD95E94004F8658 /* Identifiers.swift in Sources */,
 				4A5FD16F2C6E431600D03DC1 /* Demo.swift in Sources */,

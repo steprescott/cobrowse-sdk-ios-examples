@@ -48,11 +48,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
-    
-    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
-        guard let url = userActivity.webpageURL
-            else { return false }
-        
-        return DeepLinker.handle(url)
-    }
 }
