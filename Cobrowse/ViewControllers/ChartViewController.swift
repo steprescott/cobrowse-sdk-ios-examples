@@ -50,7 +50,7 @@ class ChartViewController: UIViewController {
     }
     
     @IBAction func sessionButtonWasTapped(_ sender: Any) {
-        session.current?.end()
+        cobrowseSession.current?.end()
     }
 }
 
@@ -72,7 +72,7 @@ extension ChartViewController: CobrowseIOUnredacted {
     
     func unredactedViews() -> [UIView] {
         
-        guard session.isRedactionByDefaultEnabled
+        guard cobrowseSession.isRedactionByDefaultEnabled
             else { return [] }
         
         return [
@@ -87,7 +87,7 @@ extension ChartViewController: CobrowseIOUnredacted {
 extension ChartViewController {
     
     private func subscribeToSession() {
-        session.$current
+        cobrowseSession.$current
             .sink { [weak self] session in
                 guard let self = self else { return }
                 

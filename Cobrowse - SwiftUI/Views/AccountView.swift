@@ -9,7 +9,7 @@ import CobrowseSDK
 
 struct AccountView: View {
     
-    @EnvironmentObject private var session: Session
+    @EnvironmentObject private var cobrowseSession: CobrowseSession
     @EnvironmentObject private var account: Account
     
     @Binding var isPresented: Bool
@@ -25,8 +25,8 @@ struct AccountView: View {
                 
                 VStack {
                     
-                    if !(session.current?.isActive() ?? false) {
-                        if let code = session.current?.code() {
+                    if !(cobrowseSession.current?.isActive() ?? false) {
+                        if let code = cobrowseSession.current?.code() {
                             let string = "\(code.prefix(3)) - \(code.suffix(3))"
                             Text(string)
                                 .font(.largeTitle)
@@ -79,10 +79,10 @@ struct AccountView: View {
             .sessionToolbar()
         }
         .onDisappear {
-            guard let current = session.current, !current.isActive()
+            guard let current = cobrowseSession.current, !current.isActive()
             else { return }
             
-            session.current = nil
+            cobrowseSession.current = nil
         }
     }
 }

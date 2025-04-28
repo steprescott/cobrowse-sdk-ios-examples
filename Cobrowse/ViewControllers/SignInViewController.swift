@@ -43,7 +43,7 @@ class SignInViewController: UIViewController {
     }
     
     @IBAction func sessionButtonWasTapped(_ sender: Any) {
-        session.current?.end()
+        cobrowseSession.current?.end()
     }
     
     @IBAction func signInButtonWasTapped(_ sender: Any) {
@@ -112,7 +112,7 @@ extension SignInViewController {
     }
     
     private func subscribeToSession() {
-        session.$current.sink { [weak self] session in
+        cobrowseSession.$current.sink { [weak self] session in
             guard let self = self else { return }
             
             sessionButton.isHidden = session?.isActive() != true

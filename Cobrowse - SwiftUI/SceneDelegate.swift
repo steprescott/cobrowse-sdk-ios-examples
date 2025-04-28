@@ -21,8 +21,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, ObservableObject {
         guard let windowScene = windowScene
             else { return }
 
-        let controlView = Session.Control.View()
-            .environmentObject(session)
+        let controlView = CobrowseSession.Control.View()
+            .environmentObject(cobrowseSession)
         
         let controlViewController = UIHostingController(rootView: controlView)
         controlViewController.view.backgroundColor = .clear

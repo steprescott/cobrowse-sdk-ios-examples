@@ -17,7 +17,7 @@ class SheetPresentationDelegate: NSObject {
 
         sheetPresentationDelegate.$identifier.sink { identifier in
             guard identifier != Detent.small,
-                  let session = session.current,
+                  let session = cobrowseSession.current,
                   session.isActive()
             else { item.isHidden = true; return }
 
@@ -25,8 +25,8 @@ class SheetPresentationDelegate: NSObject {
         }
         .store(in: &bag)
         
-        session.$current.sink { session in
-            guard let session = session,
+        cobrowseSession.$current.sink { session in
+            guard let session,
                   session.isActive(),
                   let identifier = sheetPresentationDelegate.identifier,
                   identifier != Detent.small

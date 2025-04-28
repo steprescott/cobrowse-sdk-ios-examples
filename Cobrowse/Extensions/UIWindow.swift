@@ -48,7 +48,7 @@ extension UIWindow {
 
 extension UIWindow {
     
-    func subscribe(to session: Session, using bag: inout Set<AnyCancellable>, for view: SessionControlView) {
+    func subscribe(to session: CobrowseSession, using bag: inout Set<AnyCancellable>, for view: SessionControlView) {
         
         guard let height = windowScene?.statusBarManager?.statusBarFrame.height
             else { return }

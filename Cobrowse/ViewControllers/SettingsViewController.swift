@@ -21,11 +21,11 @@ class SettingsViewController: UIViewController {
         
         subscribeToSession()
         
-        redactionByDefaultSwitch.isOn = session.isRedactionByDefaultEnabled
+        redactionByDefaultSwitch.isOn = cobrowseSession.isRedactionByDefaultEnabled
     }
     
     @IBAction func sessionButtonWasTapped(_ sender: Any) {
-        session.current?.end()
+        cobrowseSession.current?.end()
     }
     
     @IBAction func closeButtonWasTapped(_ sender: Any) {
@@ -33,7 +33,7 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func redactionByDefaultSwitchDidChange(_ sender: Any) {
-        session.isRedactionByDefaultEnabled = redactionByDefaultSwitch.isOn
+        cobrowseSession.isRedactionByDefaultEnabled = redactionByDefaultSwitch.isOn
     }
 }
 
@@ -42,7 +42,7 @@ class SettingsViewController: UIViewController {
 extension SettingsViewController {
     
     private func subscribeToSession() {
-        session.$current.sink { [weak self] session in
+        cobrowseSession.$current.sink { [weak self] session in
             guard let self = self else { return }
             
             sessionButton.isHidden = !(session?.isActive() ?? false)

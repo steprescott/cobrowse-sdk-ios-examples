@@ -7,7 +7,7 @@ import SwiftUI
 
 struct SessionToolbar: ViewModifier {
     
-    @EnvironmentObject private var session: Session
+    @EnvironmentObject private var cobrowseSession: CobrowseSession
     @EnvironmentObject private var transactionDetent: Transaction.Detent.State
     
     fileprivate var trackDetent = false
@@ -15,7 +15,7 @@ struct SessionToolbar: ViewModifier {
     func body(content: Content) -> some View {
         content
             .toolbar {
-                if let session = session.current, session.isActive() {
+                if let session = cobrowseSession.current, session.isActive() {
                     if !trackDetent || transactionDetent.is(.large) {
                         ToolbarItem(placement: .topBarTrailing) {
                             Button(action: { session.end() }) {

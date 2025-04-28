@@ -4,19 +4,15 @@
 //
 
 import UIKit
-import Combine
 import CobrowseSDK
 
 let account = Account()
-let session = Session()
+let cobrowseSession = CobrowseSession()
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    
-    private var sessionControlView = SessionControlView()
-    private var bag = Set<AnyCancellable>()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
@@ -36,16 +32,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             "#map"
         ]
         
-        cobrowse.delegate = session
+        cobrowse.delegate = cobrowseSession
         
         Demo.setup() // Check if launching from https://cobrowse.io/demo
         
         cobrowse.start()
-        
-        if let window = window {
-            window.subscribe(to: session, using: &bag, for: sessionControlView)
-        }
-        
+
         return true
     }
 }

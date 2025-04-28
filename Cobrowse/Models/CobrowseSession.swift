@@ -6,10 +6,10 @@
 import Foundation
 import CobrowseSDK
 
-class Session: NSObject, ObservableObject, CobrowseIODelegate {
+class CobrowseSession: NSObject, ObservableObject, CobrowseIODelegate {
     
     @Published var current: CBIOSession?
-    @Published var controlState: Session.Control.State = .hidden
+    @Published var controlState: CobrowseSession.Control.State = .hidden
     
     @UserDefault(key: "isRedactionByDefaultEnabled", defaultValue: false)
     var isRedactionByDefaultEnabled: Bool
@@ -31,7 +31,7 @@ class Session: NSObject, ObservableObject, CobrowseIODelegate {
     }
 }
 
-extension Session {
+extension CobrowseSession {
     enum Control {
         enum State {
             case visible, hidden

@@ -9,7 +9,7 @@ import CobrowseSDK
 
 struct AgentPresentView: View {
     
-    @EnvironmentObject private var session: Session
+    @EnvironmentObject private var cobrowseSession: CobrowseSession
     
     @Binding var isPresented: Bool
     
@@ -18,7 +18,7 @@ struct AgentPresentView: View {
     
     var body: some View {
             VStack(spacing: 16) {
-                if let session = session.current, session.isActive() {
+                if let session = cobrowseSession.current, session.isActive() {
                     Text("You are now presenting")
                         .font(.title2)
                         .foregroundStyle(Color("Text"))

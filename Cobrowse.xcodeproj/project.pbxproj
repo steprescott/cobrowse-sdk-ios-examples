@@ -29,7 +29,7 @@
 		4A163D8A2BD95E94004F8658 /* SheetPresentationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A163D502BD95E94004F8658 /* SheetPresentationDelegate.swift */; };
 		4A163D8B2BD95E94004F8658 /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A163D512BD95E94004F8658 /* UserDefault.swift */; };
 		4A163D8C2BD95E94004F8658 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A163D532BD95E94004F8658 /* Account.swift */; };
-		4A163D8D2BD95E94004F8658 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A163D542BD95E94004F8658 /* Session.swift */; };
+		4A163D8D2BD95E94004F8658 /* CobrowseSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A163D542BD95E94004F8658 /* CobrowseSession.swift */; };
 		4A163D8E2BD95E94004F8658 /* Session+UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A163D552BD95E94004F8658 /* Session+UIKit.swift */; };
 		4A163D8F2BD95E94004F8658 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A163D562BD95E94004F8658 /* Transaction.swift */; };
 		4A163D912BD95E94004F8658 /* Transaction+UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A163D582BD95E94004F8658 /* Transaction+UIKit.swift */; };
@@ -82,7 +82,7 @@
 		4A163E132BD95FA8004F8658 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A163D3D2BD95E94004F8658 /* Date.swift */; };
 		4A163E142BD95FA8004F8658 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A163D3E2BD95E94004F8658 /* Dictionary.swift */; };
 		4A163E152BD95FA8004F8658 /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A163D4E2BD95E94004F8658 /* Formatters.swift */; };
-		4A163E162BD95FA8004F8658 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A163D542BD95E94004F8658 /* Session.swift */; };
+		4A163E162BD95FA8004F8658 /* CobrowseSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A163D542BD95E94004F8658 /* CobrowseSession.swift */; };
 		4A163E182BD95FA8004F8658 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A163D3B2BD95E94004F8658 /* Array.swift */; };
 		4A163E192BD95FA8004F8658 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A163D472BD95E94004F8658 /* UITableView.swift */; };
 		4A163E1A2BD95FA8004F8658 /* DispatchQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A163D3F2BD95E94004F8658 /* DispatchQueue.swift */; };
@@ -105,7 +105,7 @@
 		4A163E2E2BD96106004F8658 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A163D732BD95E94004F8658 /* Main.storyboard */; };
 		4A163E2F2BD96287004F8658 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A163D562BD95E94004F8658 /* Transaction.swift */; };
 		4A163E302BD9628F004F8658 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A163D532BD95E94004F8658 /* Account.swift */; };
-		4A163E312BD9628F004F8658 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A163D542BD95E94004F8658 /* Session.swift */; };
+		4A163E312BD9628F004F8658 /* CobrowseSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A163D542BD95E94004F8658 /* CobrowseSession.swift */; };
 		4A163E332BD962B5004F8658 /* RawRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A163D432BD95E94004F8658 /* RawRepresentable.swift */; };
 		4A163E342BD962B5004F8658 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A163D3B2BD95E94004F8658 /* Array.swift */; };
 		4A163E352BD962B5004F8658 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A163D3C2BD95E94004F8658 /* Character.swift */; };
@@ -269,7 +269,7 @@
 		4A163D502BD95E94004F8658 /* SheetPresentationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SheetPresentationDelegate.swift; sourceTree = "<group>"; };
 		4A163D512BD95E94004F8658 /* UserDefault.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
 		4A163D532BD95E94004F8658 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
-		4A163D542BD95E94004F8658 /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		4A163D542BD95E94004F8658 /* CobrowseSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CobrowseSession.swift; sourceTree = "<group>"; };
 		4A163D552BD95E94004F8658 /* Session+UIKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Session+UIKit.swift"; sourceTree = "<group>"; };
 		4A163D562BD95E94004F8658 /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		4A163D572BD95E94004F8658 /* Transaction+SwiftUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Transaction+SwiftUI.swift"; sourceTree = "<group>"; };
@@ -437,7 +437,7 @@
 			isa = PBXGroup;
 			children = (
 				4A163D532BD95E94004F8658 /* Account.swift */,
-				4A163D542BD95E94004F8658 /* Session.swift */,
+				4A163D542BD95E94004F8658 /* CobrowseSession.swift */,
 				4A163D552BD95E94004F8658 /* Session+UIKit.swift */,
 				4A163D562BD95E94004F8658 /* Transaction.swift */,
 				4A163D572BD95E94004F8658 /* Transaction+SwiftUI.swift */,
@@ -892,7 +892,7 @@
 				4A163E142BD95FA8004F8658 /* Dictionary.swift in Sources */,
 				4A163E152BD95FA8004F8658 /* Formatters.swift in Sources */,
 				4A5FD16A2C6E42D600D03DC1 /* SessionControlView.swift in Sources */,
-				4A163E162BD95FA8004F8658 /* Session.swift in Sources */,
+				4A163E162BD95FA8004F8658 /* CobrowseSession.swift in Sources */,
 				4A163E182BD95FA8004F8658 /* Array.swift in Sources */,
 				4A163E192BD95FA8004F8658 /* UITableView.swift in Sources */,
 				4A163E1A2BD95FA8004F8658 /* DispatchQueue.swift in Sources */,
@@ -913,7 +913,7 @@
 				4A163DD02BD95EFE004F8658 /* Transaction+Detent.swift in Sources */,
 				4A5FD1A52C6E465F00D03DC1 /* AppDelegate.swift in Sources */,
 				4A163E302BD9628F004F8658 /* Account.swift in Sources */,
-				4A163E312BD9628F004F8658 /* Session.swift in Sources */,
+				4A163E312BD9628F004F8658 /* CobrowseSession.swift in Sources */,
 				4A5FD1962C6E45EE00D03DC1 /* CodeInput.swift in Sources */,
 				4A163DAD2BD95EE5004F8658 /* Locale.Currency+SwiftUI.swift in Sources */,
 				4A5FD1A12C6E45EE00D03DC1 /* Transaction+List+Item.swift in Sources */,
@@ -1003,7 +1003,7 @@
 				4A163D982BD95E94004F8658 /* SignInViewController.swift in Sources */,
 				4A163D772BD95E94004F8658 /* Character.swift in Sources */,
 				4A163D972BD95E94004F8658 /* SettingsViewController.swift in Sources */,
-				4A163D8D2BD95E94004F8658 /* Session.swift in Sources */,
+				4A163D8D2BD95E94004F8658 /* CobrowseSession.swift in Sources */,
 				4A163D9B2BD95E94004F8658 /* CodeTextField.swift in Sources */,
 				4A5E9EBC2DBF9DB000CB4BD1 /* SceneDelegate.swift in Sources */,
 				4A163D852BD95E94004F8658 /* UIViewController.swift in Sources */,

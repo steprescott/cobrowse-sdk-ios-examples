@@ -6,7 +6,7 @@
 import SwiftUI
 import CobrowseSDK
 
-let session = Session()
+let cobrowseSession = CobrowseSession()
 let account = Account()
 
 @main
@@ -34,11 +34,11 @@ struct Cobrowse: App {
                         "#map"
                     ]
                     
-                    cobrowse.delegate = session
+                    cobrowse.delegate = cobrowseSession
                     
                     cobrowse.start()
                 }
-                .environmentObject(session)
+                .environmentObject(cobrowseSession)
                 .environmentObject(account)
         }
     }

@@ -31,7 +31,7 @@ class WebViewController: UIViewController {
     }
 
     @IBAction func sessionButtonWasTapped(_ sender: Any) {
-        session.current?.end()
+        cobrowseSession.current?.end()
     }
 }
 
@@ -77,7 +77,7 @@ extension WebViewController: WKNavigationDelegate {
 extension WebViewController: CobrowseIOUnredacted {
     func unredactedViews() -> [UIView] {
         
-        guard session.isRedactionByDefaultEnabled
+        guard cobrowseSession.isRedactionByDefaultEnabled
             else { return [] }
         
         return [

@@ -36,7 +36,7 @@ class TransactionTableViewController: UITableViewController {
     }
 
     @IBAction func sessionButtonWasTapped(_ sender: Any) {
-        session.current?.end()
+        cobrowseSession.current?.end()
     }
 }
 

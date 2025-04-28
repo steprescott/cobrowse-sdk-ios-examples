@@ -41,12 +41,12 @@ class ConsentPromptViewController: UIViewController {
     }
     
     @IBAction func didTapDenyButton(_ sender: Any) {
-        onDeny?(session.current)
+        onDeny?(cobrowseSession.current)
         dismiss(animated: true)
     }
     
     @IBAction func didTapAllowButton(_ sender: Any) {
-        onAllow?(session.current)
+        onAllow?(cobrowseSession.current)
         dismiss(animated: true)
     }
 }
@@ -57,7 +57,7 @@ extension ConsentPromptViewController {
     
     private func subscribeToSession() {
         
-        session.$current.sink { [weak self] session in
+        cobrowseSession.$current.sink { [weak self] session in
             
             guard let self = self, session == nil
                 else { return }

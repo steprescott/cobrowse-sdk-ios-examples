@@ -5,11 +5,11 @@
 
 import SwiftUI
 
-extension Session.Control {
+extension CobrowseSession.Control {
 
     struct View: SwiftUI.View {
         
-        @EnvironmentObject var session: Session
+        @EnvironmentObject var session: CobrowseSession
         
         var body: some SwiftUI.View {
             

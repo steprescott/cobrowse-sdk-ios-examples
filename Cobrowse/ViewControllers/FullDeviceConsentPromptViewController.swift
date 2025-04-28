@@ -25,7 +25,7 @@ class FullDeviceConsentPromptViewController: UIViewController {
     }
 
     @IBAction func denyButtonWasTapped(_ sender: Any) {
-        session.current?.setFullDevice(.rejected)
+        cobrowseSession.current?.setFullDevice(.rejected)
         dismiss(animated: true)
     }
 }
@@ -36,7 +36,7 @@ extension FullDeviceConsentPromptViewController {
     
     private func subscribeToSession() {
         
-        session.$current.sink { [weak self] session in
+        cobrowseSession.$current.sink { [weak self] session in
             
             guard
                 let self = self,

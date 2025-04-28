@@ -38,7 +38,7 @@ class AgentPresentViewController: UIViewController {
     }
     
     @IBAction func sessionButtonWasTapped(_ sender: Any) {
-        session.current?.end()
+        cobrowseSession.current?.end()
     }
     
     @IBAction func closeButtonWasTapped(_ sender: Any) {
@@ -127,7 +127,7 @@ extension AgentPresentViewController {
     
     private func subscribeToSession() {
         
-        session.$current.sink { [weak self] session in
+        cobrowseSession.$current.sink { [weak self] session in
             
             guard let self = self else { return }
 

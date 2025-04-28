@@ -6,7 +6,7 @@
 import UIKit
 import CobrowseSDK
 
-extension Session {
+extension CobrowseSession {
 
     func cobrowseRedactedViews(for vc: UIViewController) -> [UIView] {
         
@@ -20,7 +20,7 @@ extension Session {
 
 // MARK: - Custom consent prompts
 
-extension Session {
+extension CobrowseSession {
     
     func cobrowseHandleSessionRequest(_ session: CBIOSession) {
         
