@@ -125,6 +125,7 @@ extension AccountView.Heading {
                     .font(.title2)
                     .foregroundStyle(Color("Text"))
                     .accessibilityIdentifier("ACCOUNT_EMAIL")
+                    .cobrowseRedacted()
             }
         }
     }

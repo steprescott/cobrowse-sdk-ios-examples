@@ -91,7 +91,6 @@ extension Dashboard {
                 Text("Balance")
                     .font(.title3)
                     .foregroundStyle(Color("Text"))
-                    .cobrowseRedacted()
                 
                 if let accountBalance = account.balance.currencyString {
                     Text(accountBalance)

@@ -26,11 +26,13 @@ extension Transaction.List {
                             .font(.body)
                             .foregroundStyle(Color("Text"))
                             .accessibilityIdentifier("TRANSACTION_TITLE")
+                            .cobrowseRedacted()
                         
                         Text(transaction.subtitle)
                             .font(.caption2)
                             .foregroundStyle(Color("Text"))
                             .accessibilityIdentifier("TRANSACTION_SUBTITLE")
+                            .cobrowseRedacted()
                     }
                     Spacer()
                     if let amount = transaction.amount.currencyString {
@@ -38,6 +40,7 @@ extension Transaction.List {
                             .fontWeight(.bold)
                             .foregroundStyle(Color("CBPrimary"))
                             .accessibilityIdentifier("TRANSACTION_AMOUNT")
+                            .cobrowseRedacted()
                     }
                 }
             }
