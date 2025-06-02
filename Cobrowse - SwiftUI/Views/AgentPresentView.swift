@@ -11,8 +11,6 @@ struct AgentPresentView: View {
     
     @EnvironmentObject private var cobrowseSession: CobrowseSession
     
-    @Binding var isPresented: Bool
-    
     @State var code: String?
     @State var shouldShake = false
     
@@ -21,18 +19,18 @@ struct AgentPresentView: View {
                 if let session = cobrowseSession.current, session.isActive() {
                     Text("You are now presenting")
                         .font(.title2)
-                        .foregroundStyle(Color("Text"))
+                        .foregroundStyle(Color.text)
                     
                     Image(systemName: "rectangle.inset.filled.and.person.filled")
                         .font(.system(size: 120, weight: .thin))
-                        .foregroundColor(Color("CBPrimary"))
+                        .foregroundColor(Color.cbPrimary)
                     
-                    Color("Background")
+                    Color.background
                 } else {
                     VStack(spacing: 16) {
                         Text("Please enter your present code")
                             .font(.title2)
-                            .foregroundStyle(Color("Text"))
+                            .foregroundStyle(Color.text)
                         
                         CodeInput(code: $code)
                             .shake($shouldShake) {
@@ -54,24 +52,16 @@ struct AgentPresentView: View {
                                 }
                             })
                         
-                        Color("Background")
+                        Color.background
                     }
                 }
             }
-            .padding(.top, 30)
-            .background { Color("Background").ignoresSafeArea() }
+            .padding(30)
+            .background { Color.background.ignoresSafeArea() }
             .navigationTitle("Agent Present")
             .navigationBarTitleDisplayMode(.inline)
-            .toolbar {                
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button { isPresented = false }
-                    label: {
-                        Image(systemName: "xmark")
-                    }
-                    .tint(Color("CBPrimary"))
-                    .accessibilityIdentifier("CLOSE_BUTTON")
-                }
-            }
+            .closeModelToolBar()
             .sessionToolbar()
+            .cobrowseRedacted(if: cobrowseSession.privateByDefault)
         }
 }

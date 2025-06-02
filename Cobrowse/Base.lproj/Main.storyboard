@@ -169,7 +169,7 @@
                                 <rect key="frame" x="0.0" y="162" width="393" height="622"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9eo-GI-4PU">
-                                        <rect key="frame" x="16" y="-2.6666666666666643" width="361" height="125.33333333333331"/>
+                                        <rect key="frame" x="16" y="-2.6666666666666714" width="361" height="125.33333333333333"/>
                                         <color key="tintColor" name="CBPrimary"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="120" id="8IQ-Br-Kas"/>
@@ -257,10 +257,10 @@
                         <viewLayoutGuide key="safeArea" id="kAq-4h-4AD"/>
                         <color key="backgroundColor" name="Background"/>
                         <constraints>
-                            <constraint firstItem="qjP-jT-wYo" firstAttribute="centerX" secondItem="kAq-4h-4AD" secondAttribute="centerX" id="3LA-EO-uBf"/>
-                            <constraint firstItem="qjP-jT-wYo" firstAttribute="centerY" secondItem="kAq-4h-4AD" secondAttribute="centerY" id="Tmk-i1-oQ6"/>
-                            <constraint firstItem="qjP-jT-wYo" firstAttribute="width" secondItem="kAq-4h-4AD" secondAttribute="width" id="iYw-dg-7el"/>
-                            <constraint firstItem="qjP-jT-wYo" firstAttribute="height" secondItem="kAq-4h-4AD" secondAttribute="height" id="wM8-Np-5SL"/>
+                            <constraint firstItem="qjP-jT-wYo" firstAttribute="height" secondItem="kAq-4h-4AD" secondAttribute="height" id="IRI-g4-QNX"/>
+                            <constraint firstItem="qjP-jT-wYo" firstAttribute="centerX" secondItem="kAq-4h-4AD" secondAttribute="centerX" id="jdD-M8-fxN"/>
+                            <constraint firstItem="qjP-jT-wYo" firstAttribute="centerY" secondItem="kAq-4h-4AD" secondAttribute="centerY" id="uav-zO-QhS"/>
+                            <constraint firstItem="qjP-jT-wYo" firstAttribute="width" secondItem="kAq-4h-4AD" secondAttribute="width" id="y8O-Xi-VUY"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Account" id="qK8-LJ-afw">
@@ -780,7 +780,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="rnr-cj-lv7">
-                                <rect key="frame" x="0.0" y="162" width="393" height="622"/>
+                                <rect key="frame" x="0.0" y="162" width="393" height="570.66666666666663"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9mZ-I3-PFC">
                                         <rect key="frame" x="10" y="10" width="373" height="24"/>
@@ -795,25 +795,36 @@
                                                 <rect key="frame" x="324" y="0.0" width="51" height="24"/>
                                                 <color key="onTintColor" name="CBPrimary"/>
                                                 <connections>
-                                                    <action selector="redactionByDefaultSwitchDidChange:" destination="BfR-S6-nvG" eventType="valueChanged" id="3cI-QK-fCJ"/>
+                                                    <action selector="privateByDefaultSwitchDidChange:" destination="BfR-S6-nvG" eventType="valueChanged" id="3cI-QK-fCJ"/>
                                                 </connections>
                                             </switch>
                                         </subviews>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HdH-n1-bha">
-                                        <rect key="frame" x="10" y="34" width="373" height="578"/>
+                                        <rect key="frame" x="10" y="34" width="373" height="526.66666666666663"/>
                                     </view>
                                 </subviews>
                                 <edgeInsets key="layoutMargins" top="10" left="10" bottom="10" right="10"/>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eXB-tt-0pb">
+                                <rect key="frame" x="132" y="742.66666666666663" width="129.33333333333337" height="21.333333333333371"/>
+                                <color key="tintColor" name="CBPrimary"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Privacy Policy"/>
+                                <connections>
+                                    <action selector="privacyPolicyButtonWasTapped:" destination="BfR-S6-nvG" eventType="touchUpInside" id="G3B-5Z-F9h"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="yqC-3G-SUL"/>
                         <color key="backgroundColor" name="Background"/>
                         <constraints>
+                            <constraint firstItem="rnr-cj-lv7" firstAttribute="top" secondItem="yqC-3G-SUL" secondAttribute="top" id="O1T-hJ-Jgk"/>
+                            <constraint firstItem="eXB-tt-0pb" firstAttribute="top" secondItem="rnr-cj-lv7" secondAttribute="bottom" constant="10" id="clf-YH-AdZ"/>
                             <constraint firstItem="rnr-cj-lv7" firstAttribute="width" secondItem="yqC-3G-SUL" secondAttribute="width" id="dDq-xw-f8F"/>
                             <constraint firstItem="rnr-cj-lv7" firstAttribute="centerX" secondItem="yqC-3G-SUL" secondAttribute="centerX" id="efv-P8-lRd"/>
-                            <constraint firstItem="rnr-cj-lv7" firstAttribute="height" secondItem="yqC-3G-SUL" secondAttribute="height" id="yzp-TJ-0Cm"/>
-                            <constraint firstItem="rnr-cj-lv7" firstAttribute="centerY" secondItem="yqC-3G-SUL" secondAttribute="centerY" id="zZ0-X2-cip"/>
+                            <constraint firstItem="yqC-3G-SUL" firstAttribute="bottom" secondItem="eXB-tt-0pb" secondAttribute="bottom" constant="20" id="ejf-rC-jzZ"/>
+                            <constraint firstItem="eXB-tt-0pb" firstAttribute="centerX" secondItem="yqC-3G-SUL" secondAttribute="centerX" id="h7P-eb-IAu"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="NY9-rg-h4a">
@@ -833,7 +844,7 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
-                        <outlet property="redactionByDefaultSwitch" destination="aLV-XI-mwz" id="a2u-FX-Iap"/>
+                        <outlet property="privateByDefaultSwitch" destination="aLV-XI-mwz" id="a2u-FX-Iap"/>
                         <outlet property="sessionButton" destination="IoN-Eo-hrc" id="fEF-c5-dMe"/>
                     </connections>
                 </viewController>

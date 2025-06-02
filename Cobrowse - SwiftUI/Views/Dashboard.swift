@@ -10,10 +10,9 @@ struct Dashboard: View {
     @State var shouldPresentTransactionsSheet: Bool
     @State private var transactionDetent = Transaction.Detent.State(.collapsed)
     
-    @State private var isPresentingAccountSheet = false
+    @State private var isPresenting = false
     
     @EnvironmentObject private var account: Account
-    
     
     private let offset = 65.0
     
@@ -38,41 +37,41 @@ struct Dashboard: View {
                     Spacer()
                     
                     if shouldPresentTransactionsSheet {
-                        Color("Background")
+                        Color.background
                             .sheet(isPresented: $shouldPresentTransactionsSheet) {
                                 
                                 Transaction.List(transactions: account.transactions)
-                                .presentationDetents([.fraction(0.40), .large])
-                                .presentationBackgroundInteraction(.enabled(upThrough: .fraction(0.40)))
-                                .interactiveDismissDisabled()
-                                .onHeightChange { height in
-                                    let fractionHeight = (geometry.size.height - offset) * 0.9
-                                    transactionDetent.current = height > fractionHeight ? .large : .fraction
-                                }
-                                .sheet(isPresented: $isPresentingAccountSheet) {
-                                    AccountView(isPresented: $isPresentingAccountSheet)
-                                }
+                                    .presentationDetents([.fraction(0.40), .large])
+                                    .presentationBackgroundInteraction(.enabled(upThrough: .fraction(0.40)))
+                                    .interactiveDismissDisabled()
+                                    .onHeightChange { height in
+                                        let fractionHeight = (geometry.size.height - offset) * 0.9
+                                        transactionDetent.current = height > fractionHeight ? .large : .fraction
+                                    }
+                                    .sheet(isPresented: $isPresenting) {
+                                        AccountView(isPresented: $isPresenting)
+                                    }
                             }
                     } else {
-                        Color("Background")
-                            .sheet(isPresented: $isPresentingAccountSheet) {
-                                AccountView(isPresented: $isPresentingAccountSheet)
+                        Color.background
+                            .sheet(isPresented: $isPresenting) {
+                                AccountView(isPresented: $isPresenting)
                             }
                     }
                 }
                 .background {
-                    Color("Background")
+                    Color.background
                 }
             }
             .ignoresSafeArea()
         }
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
-                Button { isPresentingAccountSheet = true }
+                Button { isPresenting = true }
                 label: {
                     Image(systemName: "person.crop.circle")
                 }
-                .tint(Color("CBPrimary"))
+                .tint(Color.cbPrimary)
                 .accessibilityIdentifier("ACCOUNT_BUTTON")
             }
         }
@@ -90,12 +89,12 @@ extension Dashboard {
             VStack(spacing: 6) {
                 Text("Balance")
                     .font(.title3)
-                    .foregroundStyle(Color("Text"))
+                    .foregroundStyle(Color.text)
                 
                 if let accountBalance = account.balance.currencyString {
                     Text(accountBalance)
                         .font(.title)
-                        .foregroundStyle(Color("CBPrimary"))
+                        .foregroundStyle(Color.cbPrimary)
                         .accessibilityIdentifier("ACCOUNT_BALANCE")
                         .cobrowseRedacted()
                 }

@@ -32,7 +32,7 @@ class ChartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        chartView.holeColor = UIColor(named: "Background")
+        chartView.holeColor = UIColor.background
         balanceLabel.text = account.balance.currencyString
         profileButton.isHidden = true
         stackView.alpha = 0.0
@@ -72,7 +72,7 @@ extension ChartViewController: CobrowseIOUnredacted {
     
     func unredactedViews() -> [UIView] {
         
-        guard cobrowseSession.isRedactionByDefaultEnabled
+        guard cobrowseSession.privateByDefault
             else { return [] }
         
         return [

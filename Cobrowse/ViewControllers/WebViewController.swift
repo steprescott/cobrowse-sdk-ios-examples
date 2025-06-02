@@ -77,7 +77,7 @@ extension WebViewController: WKNavigationDelegate {
 extension WebViewController: CobrowseIOUnredacted {
     func unredactedViews() -> [UIView] {
         
-        guard cobrowseSession.isRedactionByDefaultEnabled
+        guard cobrowseSession.privateByDefault
             else { return [] }
         
         return [

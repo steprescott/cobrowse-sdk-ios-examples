@@ -24,13 +24,13 @@ extension Transaction.List {
                     VStack(alignment:.leading, spacing: 2) {
                         Text(transaction.title)
                             .font(.body)
-                            .foregroundStyle(Color("Text"))
+                            .foregroundStyle(Color.text)
                             .accessibilityIdentifier("TRANSACTION_TITLE")
                             .cobrowseRedacted()
                         
                         Text(transaction.subtitle)
                             .font(.caption2)
-                            .foregroundStyle(Color("Text"))
+                            .foregroundStyle(Color.text)
                             .accessibilityIdentifier("TRANSACTION_SUBTITLE")
                             .cobrowseRedacted()
                     }
@@ -38,7 +38,7 @@ extension Transaction.List {
                     if let amount = transaction.amount.currencyString {
                         Text(amount)
                             .fontWeight(.bold)
-                            .foregroundStyle(Color("CBPrimary"))
+                            .foregroundStyle(Color.cbPrimary)
                             .accessibilityIdentifier("TRANSACTION_AMOUNT")
                             .cobrowseRedacted()
                     }

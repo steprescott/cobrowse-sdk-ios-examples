@@ -34,11 +34,11 @@ struct SignIn: View {
                         .aspectRatio(1, contentMode: .fit)
                         .frame(maxWidth: 200)
                         .padding()
-                        .foregroundColor(Color("CBPrimary"))
+                        .foregroundColor(Color.cbPrimary)
                 }
                 
                 Text("Please enter your details")
-                    .foregroundStyle(Color("Text"))
+                    .foregroundStyle(Color.text)
                 
                 VStack(spacing: 4) {
                     TextField("Username", text: $username)
@@ -75,7 +75,7 @@ struct SignIn: View {
                 
                 Spacer()
             }
-            .background { Color("Background").ignoresSafeArea() }
+            .background { Color.background.ignoresSafeArea() }
             .sessionToolbar()
         }
 

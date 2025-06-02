@@ -4,21 +4,22 @@
 
 import Foundation
 
+import SwiftUI
 import CobrowseSDK
 
 struct Demo {
     
-    @UserDefault(key: "demo_id", defaultValue: nil)
-    var id: String?
+    @AppStorage("demo_id")
+    var id: String = ""
     
-    @UserDefault(key: "license", defaultValue: "trial")
-    var license: String
+    @AppStorage("license")
+    var license = "trial"
     
-    @UserDefault(key: "api", defaultValue: "https://cobrowse.io")
-    var api: String
+    @AppStorage("api")
+    var api = "https://cobrowse.io"
     
-    @UserDefault(key: "device_name", defaultValue: "Trial iOS Device")
-    var deviceName: String
+    @AppStorage("device_name")
+    var deviceName = "Trial iOS Device"
     
     private static let demo = Demo()
     private init() { }
@@ -26,7 +27,7 @@ struct Demo {
     @discardableResult
     static func setup() -> Bool {
         
-        guard let demoID = demo.id
+        guard !demo.id.isEmpty
             else { return false }
         
         let cobrowse = CobrowseIO.instance()
@@ -37,7 +38,7 @@ struct Demo {
         
         cobrowse.customData = [
             CBIODeviceNameKey: demo.deviceName,
-            "demo_id": demoID
+            "demo_id": demo.id
         ]
         
         account.isSignedIn = true

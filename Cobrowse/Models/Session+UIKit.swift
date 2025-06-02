@@ -10,7 +10,7 @@ extension CobrowseSession {
 
     func cobrowseRedactedViews(for vc: UIViewController) -> [UIView] {
         
-        guard isRedactionByDefaultEnabled,
+        guard privateByDefault,
               let keyWindow = UIWindow.keyWindow
             else { return [] }
         

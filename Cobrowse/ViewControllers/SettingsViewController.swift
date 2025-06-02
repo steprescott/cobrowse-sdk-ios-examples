@@ -5,6 +5,7 @@
 
 import UIKit
 import Combine
+import SafariServices
 
 import CobrowseSDK
 
@@ -12,7 +13,7 @@ class SettingsViewController: UIViewController {
     
     @IBOutlet weak var sessionButton: UIBarButtonItem!
     
-    @IBOutlet weak var redactionByDefaultSwitch: UISwitch!
+    @IBOutlet weak var privateByDefaultSwitch: UISwitch!
     
     private var bag = Set<AnyCancellable>()
     
@@ -21,7 +22,7 @@ class SettingsViewController: UIViewController {
         
         subscribeToSession()
         
-        redactionByDefaultSwitch.isOn = cobrowseSession.isRedactionByDefaultEnabled
+        privateByDefaultSwitch.isOn = cobrowseSession.privateByDefault
     }
     
     @IBAction func sessionButtonWasTapped(_ sender: Any) {
@@ -32,8 +33,16 @@ class SettingsViewController: UIViewController {
         dismiss(animated: true)
     }
     
-    @IBAction func redactionByDefaultSwitchDidChange(_ sender: Any) {
-        cobrowseSession.isRedactionByDefaultEnabled = redactionByDefaultSwitch.isOn
+    @IBAction func privateByDefaultSwitchDidChange(_ sender: Any) {
+        cobrowseSession.privateByDefault = privateByDefaultSwitch.isOn
+    }
+    
+    @IBAction func privacyPolicyButtonWasTapped(_ sender: Any) {
+        let url = URL(string: "https://cobrowse.io/privacy")!
+        let vc = SFSafariViewController(url: url)
+        vc.preferredControlTintColor = UIColor.cbPrimary
+        vc.modalPresentationStyle = .formSheet
+        present(vc, animated: true)
     }
 }
 
