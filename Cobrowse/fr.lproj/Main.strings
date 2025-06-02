@@ -1,0 +1,146 @@
+/* Class = "UITextField"; placeholder = "3"; ObjectID = "2Dz-mv-tmx"; */
+"2Dz-mv-tmx.placeholder" = "3";
+
+/* Class = "UIButton"; configuration.title = "Deny"; ObjectID = "5ij-Wl-Bss"; */
+"5ij-Wl-Bss.configuration.title" = "Refuser";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "5ij-Wl-Bss"; */
+"5ij-Wl-Bss.normalTitle" = "Bouton";
+
+/* Class = "UILabel"; text = "Spent"; ObjectID = "7GP-98-8Mz"; */
+"7GP-98-8Mz.text" = "Dépensé";
+
+/* Class = "UILabel"; text = "Please enter your details"; ObjectID = "84h-OX-JO1"; */
+"84h-OX-JO1.text" = "Veuillez entrer vos informations";
+
+/* Class = "UITextField"; placeholder = "1"; ObjectID = "BSp-OG-mpl"; */
+"BSp-OG-mpl.placeholder" = "1";
+
+/* Class = "UITextField"; placeholder = "4"; ObjectID = "CvW-8l-sSd"; */
+"CvW-8l-sSd.placeholder" = "4";
+
+/* Class = "UITextField"; placeholder = "5"; ObjectID = "GcW-5P-SS6"; */
+"GcW-5P-SS6.placeholder" = "5";
+
+/* Class = "UILabel"; text = "Frank Spencer"; ObjectID = "HTm-LL-vTG"; */
+"HTm-LL-vTG.text" = "Frank Spencer";
+
+/* Class = "UIButton"; configuration.title = "Log out"; ObjectID = "Haz-Pc-rrW"; */
+"Haz-Pc-rrW.configuration.title" = "Se déconnecter";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Haz-Pc-rrW"; */
+"Haz-Pc-rrW.normalTitle" = "Bouton";
+
+/* Class = "UILabel"; text = "By proceeding, you consent to share your screen. You agree to our Terms and Conditions and understand our Privacy Policy applies, including data use and protection measures.   You have the option to end the session at any time. \n\nAccepting this initiates the screen sharing and confirms your agreement to these terms."; ObjectID = "JmA-OU-Saf"; */
+"JmA-OU-Saf.text" = "En poursuivant, vous consentez à partager votre écran. Vous acceptez nos Conditions Générales et comprenez que notre Politique de Confidentialité s'applique, y compris les mesures d'utilisation et de protection des données.   Vous avez la possibilité de mettre fin à la session à tout moment. \n\nAccepter lance le partage d'écran et confirme votre accord avec ces conditions.";
+
+/* Class = "UIButton"; configuration.title = "Agent Present Mode"; ObjectID = "JtZ-oR-3If"; */
+"JtZ-oR-3If.configuration.title" = "Mode présentation agent";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "JtZ-oR-3If"; */
+"JtZ-oR-3If.normalTitle" = "Bouton";
+
+/* Class = "UILabel"; text = "Balance"; ObjectID = "MIW-MT-Sev"; */
+"MIW-MT-Sev.text" = "Solde";
+
+/* Class = "UIButton"; configuration.title = "Deny"; ObjectID = "MPK-kO-xf2"; */
+"MPK-kO-xf2.configuration.title" = "Refuser";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "MPK-kO-xf2"; */
+"MPK-kO-xf2.normalTitle" = "Bouton";
+
+/* Class = "UINavigationItem"; title = "Settings"; ObjectID = "NY9-rg-h4a"; */
+"NY9-rg-h4a.title" = "Paramètres";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "PXW-VT-o6F"; */
+"PXW-VT-o6F.title" = "Élément";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "Q4D-YJ-AmH"; */
+"Q4D-YJ-AmH.title" = "Élément";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "QNt-jT-qRU"; */
+"QNt-jT-qRU.text" = "Étiquette";
+
+/* Class = "UINavigationItem"; title = "Agent Present"; ObjectID = "Sfk-Xk-7O2"; */
+"Sfk-Xk-7O2.title" = "Agent en présentation";
+
+/* Class = "UIButton"; configuration.title = "Get session code"; ObjectID = "TUr-CW-XnG"; */
+"TUr-CW-XnG.configuration.title" = "Obtenir le code de session";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "TUr-CW-XnG"; */
+"TUr-CW-XnG.normalTitle" = "Bouton";
+
+/* Class = "UILabel"; text = "Full device"; ObjectID = "Ukk-Rj-Jgl"; */
+"Ukk-Rj-Jgl.text" = "Appareil complet";
+
+/* Class = "UINavigationItem"; title = "Transaction"; ObjectID = "ZCo-58-S1U"; */
+"ZCo-58-S1U.title" = "Transaction";
+
+/* Class = "UILabel"; text = "$2,495.34"; ObjectID = "bCM-vP-jCs"; */
+"bCM-vP-jCs.text" = "$2,495.34";
+
+/* Class = "UITextField"; placeholder = "Username"; ObjectID = "bOi-ng-wPu"; */
+"bOi-ng-wPu.placeholder" = "Nom d'utilisateur";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "bpl-2O-dKo"; */
+"bpl-2O-dKo.text" = "Étiquette";
+
+/* Class = "UINavigationItem"; title = "Transactions"; ObjectID = "cAf-JG-J1M"; */
+"cAf-JG-J1M.title" = "Transactions";
+
+/* Class = "UILabel"; text = "Redaction by default"; ObjectID = "dhM-uS-E7b"; */
+"dhM-uS-E7b.text" = "Rédaction par défaut";
+
+/* Class = "UIButton"; configuration.title = "Privacy Policy"; ObjectID = "eXB-tt-0pb"; */
+"eXB-tt-0pb.configuration.title" = "Politique de confidentialité";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "eXB-tt-0pb"; */
+"eXB-tt-0pb.normalTitle" = "Bouton";
+
+/* Class = "UIButton"; configuration.title = "Sign in"; ObjectID = "fOf-FW-zL3"; */
+"fOf-FW-zL3.configuration.title" = "Se connecter";
+
+/* Class = "UIButton"; normalTitle = "Sign in"; ObjectID = "fOf-FW-zL3"; */
+"fOf-FW-zL3.normalTitle" = "Se connecter";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "gVn-LG-1me"; */
+"gVn-LG-1me.placeholder" = "Mot de passe";
+
+/* Class = "UITextField"; placeholder = "2"; ObjectID = "mcD-O3-iRY"; */
+"mcD-O3-iRY.placeholder" = "2";
+
+/* Class = "UITextField"; placeholder = "6"; ObjectID = "nUJ-1i-dB2"; */
+"nUJ-1i-dB2.placeholder" = "6";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "o4B-KX-0JC"; */
+"o4B-KX-0JC.title" = "Élément";
+
+/* Class = "UIButton"; configuration.title = "Allow"; ObjectID = "oFy-tC-mJW"; */
+"oFy-tC-mJW.configuration.title" = "Autoriser";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "oFy-tC-mJW"; */
+"oFy-tC-mJW.normalTitle" = "Bouton";
+
+/* Class = "UINavigationItem"; title = "Account"; ObjectID = "qK8-LJ-afw"; */
+"qK8-LJ-afw.title" = "Compte";
+
+/* Class = "UILabel"; text = "$221.86"; ObjectID = "qZQ-Gi-lWH"; */
+"qZQ-Gi-lWH.text" = "$221.86";
+
+/* Class = "UILabel"; text = "By enabling full device mode, you allow your agent to view content beyond the initial app, including other apps and information on your device. Ensure to navigate only to apps and data you are comfortable sharing. \n\nAcceptance signifies your consent to these terms and understanding of the broader access granted.  To start please tap the circle button below and start the broadcast."; ObjectID = "sen-hF-q3i"; */
+"sen-hF-q3i.text" = "En activant le mode appareil complet, vous permettez à votre agent de voir le contenu au-delà de l'application initiale, y compris d'autres applications et informations sur votre appareil. Assurez-vous de naviguer uniquement vers des applications et données que vous êtes à l'aise de partager. \n\nL'acceptation signifie votre consentement à ces conditions et votre compréhension de l'accès étendu accordé.  Pour commencer, veuillez appuyer sur le bouton circulaire ci-dessous et démarrer la diffusion.";
+
+/* Class = "UILabel"; text = "this month"; ObjectID = "vB2-Yh-pjP"; */
+"vB2-Yh-pjP.text" = "ce mois-ci";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "vLE-mZ-GCs"; */
+"vLE-mZ-GCs.text" = "Étiquette";
+
+/* Class = "UILabel"; text = "Co-browse session"; ObjectID = "veK-fk-VZI"; */
+"veK-fk-VZI.text" = "Session de co-navigation";
+
+/* Class = "UILabel"; text = "Please enter your present code"; ObjectID = "yKP-Qe-UQL"; */
+"yKP-Qe-UQL.text" = "Veuillez entrer votre code de présentation";
+
+/* Class = "UILabel"; text = "f.spencer@example.com"; ObjectID = "yl1-iq-j7P"; */
+"yl1-iq-j7P.text" = "f.spencer@example.com";
