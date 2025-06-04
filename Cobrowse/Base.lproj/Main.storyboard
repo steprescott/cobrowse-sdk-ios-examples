@@ -210,7 +210,7 @@
                                                         </constraints>
                                                         <color key="tintColor" name="CBPrimary"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="filled" title="Get session code">
+                                                        <buttonConfiguration key="configuration" style="filled" title="Get session code" titleAlignment="center">
                                                             <color key="baseForegroundColor" name="CBSecondary"/>
                                                         </buttonConfiguration>
                                                         <connections>
@@ -224,7 +224,7 @@
                                                         </constraints>
                                                         <color key="tintColor" name="CBSecondary"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="filled" title="Agent Present Mode">
+                                                        <buttonConfiguration key="configuration" style="filled" title="Agent Present Mode" titleAlignment="center">
                                                             <color key="baseForegroundColor" name="CBPrimary"/>
                                                         </buttonConfiguration>
                                                         <connections>
