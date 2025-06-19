@@ -168,28 +168,34 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="qjP-jT-wYo">
                                 <rect key="frame" x="0.0" y="162" width="393" height="622"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9eo-GI-4PU">
-                                        <rect key="frame" x="16" y="-2.6666666666666714" width="361" height="125.33333333333333"/>
-                                        <color key="tintColor" name="CBPrimary"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="120" id="8IQ-Br-Kas"/>
-                                        </constraints>
-                                        <imageReference key="image" image="person.crop.circle.fill" catalog="system" symbolScale="large"/>
-                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="FHV-El-V7l">
+                                        <rect key="frame" x="16" y="0.0" width="361" height="140"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9eo-GI-4PU">
+                                                <rect key="frame" x="110.66666666666669" y="-2.6666666666666714" width="140" height="145.33333333333337"/>
+                                                <color key="tintColor" name="CBPrimary"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="140" id="TDt-54-Jbd"/>
+                                                    <constraint firstAttribute="width" secondItem="9eo-GI-4PU" secondAttribute="height" id="lwe-M9-xH8"/>
+                                                </constraints>
+                                                <imageReference key="image" image="person.crop.circle.fill" catalog="system" symbolScale="large"/>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Frank Spencer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HTm-LL-vTG">
-                                        <rect key="frame" x="16" y="124.00000000000001" width="361" height="40.666666666666671"/>
+                                        <rect key="frame" x="16" y="144" width="361" height="40.666666666666657"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                         <color key="textColor" name="Text"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="f.spencer@example.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yl1-iq-j7P">
-                                        <rect key="frame" x="16" y="168.66666666666669" width="361" height="26.333333333333343"/>
+                                        <rect key="frame" x="16" y="188.66666666666669" width="361" height="26.333333333333343"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                         <color key="textColor" name="Text"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="uK7-rv-9St">
-                                        <rect key="frame" x="16" y="199" width="361" height="226"/>
+                                        <rect key="frame" x="16" y="219" width="361" height="206"/>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hWO-mm-VV5">
                                         <rect key="frame" x="16" y="429" width="361" height="177"/>
@@ -288,14 +294,16 @@
                     <connections>
                         <outlet property="codeLabel" destination="zC4-aL-ED3" id="PHQ-R0-Vqn"/>
                         <outlet property="codeStackView" destination="sV1-kZ-BpR" id="Mku-H6-Wlc"/>
+                        <outlet property="profileImageView" destination="9eo-GI-4PU" id="afs-fM-WH0"/>
                         <outlet property="sessionButton" destination="PfT-kx-ifg" id="DY2-67-d2N"/>
                         <outletCollection property="redactedLabels" destination="HTm-LL-vTG" collectionClass="NSMutableArray" id="Dg8-vP-h5q"/>
                         <outletCollection property="redactedLabels" destination="yl1-iq-j7P" collectionClass="NSMutableArray" id="558-UM-EgL"/>
+                        <segue destination="uEb-em-jEa" kind="presentation" identifier="ShowCamera" modalPresentationStyle="fullScreen" id="0jc-Pc-80K"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zPI-GI-jIf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1824" y="-982"/>
+            <point key="canvasLocation" x="1824" y="-1473"/>
         </scene>
         <!--Agent Present-->
         <scene sceneID="fjP-Ad-77T">
@@ -441,7 +449,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sEs-J7-an6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2653" y="-1321"/>
+            <point key="canvasLocation" x="2653" y="-1473"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wfR-9q-QxI">
@@ -459,7 +467,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gBA-vp-bDp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="949" y="-982"/>
+            <point key="canvasLocation" x="949" y="-1473"/>
         </scene>
         <!--Transactions-->
         <scene sceneID="B1l-Uc-ofF">
@@ -850,7 +858,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1cC-Ni-gy3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2653" y="-642"/>
+            <point key="canvasLocation" x="1824" y="-708"/>
         </scene>
         <!--Consent Prompt View Controller-->
         <scene sceneID="zBN-tr-oem">
@@ -1004,9 +1012,111 @@ Acceptance signifies your consent to these terms and understanding of the broade
             </objects>
             <point key="canvasLocation" x="-1656" y="770"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="5cc-GU-Y0O">
+            <objects>
+                <navigationController id="uEb-em-jEa" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="iSI-DK-YEX">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="xkJ-0j-kt5" kind="relationship" relationship="rootViewController" id="ftZ-XD-UnB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oMg-Qh-QFL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2653" y="-2170"/>
+        </scene>
+        <!--Camera-->
+        <scene sceneID="6GF-CL-SCF">
+            <objects>
+                <viewController id="xkJ-0j-kt5" customClass="CameraViewController" customModule="Cobrowse" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AbL-si-KPx">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1pT-I1-52I" customClass="CameraView" customModule="Cobrowse" customModuleProvider="target">
+                                <rect key="frame" x="39.333333333333343" y="203.33333333333334" width="314.33333333333326" height="314.33333333333326"/>
+                                <color key="backgroundColor" name="CBSecondary"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="1pT-I1-52I" secondAttribute="height" multiplier="1:1" id="bKv-bw-b4d"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="FAR-7i-CwP">
+                                <rect key="frame" x="39.333333333333343" y="537.66666666666663" width="314.33333333333326" height="55.666666666666629"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2XN-tn-MD8">
+                                        <rect key="frame" x="0.0" y="0.0" width="248.66666666666666" height="55.666666666666664"/>
+                                        <color key="tintColor" name="CBPrimary"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" image="camera.fill" catalog="system">
+                                            <color key="baseForegroundColor" name="CBSecondary"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="takePhotoButtonWasTapped:" destination="xkJ-0j-kt5" eventType="touchUpInside" id="G5b-Qz-V9O"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ro4-Vh-EM5">
+                                        <rect key="frame" x="258.66666666666669" y="0.0" width="55.666666666666686" height="55.666666666666664"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Ro4-Vh-EM5" secondAttribute="height" id="hOr-Bz-NU7"/>
+                                        </constraints>
+                                        <color key="tintColor" name="CBSecondary"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" image="camera.rotate.fill" catalog="system">
+                                            <color key="baseForegroundColor" name="CBPrimary"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="switchCameraButtonWasTapped:" destination="xkJ-0j-kt5" eventType="touchUpInside" id="B0k-Lz-9zR"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="L5D-OF-rzB"/>
+                        <color key="backgroundColor" name="Background"/>
+                        <constraints>
+                            <constraint firstItem="1pT-I1-52I" firstAttribute="centerX" secondItem="L5D-OF-rzB" secondAttribute="centerX" id="6b7-YQ-AGL"/>
+                            <constraint firstItem="FAR-7i-CwP" firstAttribute="centerX" secondItem="1pT-I1-52I" secondAttribute="centerX" id="DJ3-54-4V9"/>
+                            <constraint firstItem="1pT-I1-52I" firstAttribute="width" secondItem="AbL-si-KPx" secondAttribute="width" multiplier="0.8" id="LqI-TN-RsA"/>
+                            <constraint firstItem="1pT-I1-52I" firstAttribute="centerY" secondItem="L5D-OF-rzB" secondAttribute="centerY" constant="-100" placeholder="YES" id="UEV-dx-pg0"/>
+                            <constraint firstItem="FAR-7i-CwP" firstAttribute="width" secondItem="1pT-I1-52I" secondAttribute="width" id="fVq-55-L4z"/>
+                            <constraint firstItem="FAR-7i-CwP" firstAttribute="top" secondItem="1pT-I1-52I" secondAttribute="bottom" constant="19.999999999999886" id="lGS-yv-cy7"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Camera" id="NhM-BU-0bj">
+                        <rightBarButtonItems>
+                            <barButtonItem title="Item" image="xmark" catalog="system" id="ize-sW-3bS">
+                                <color key="tintColor" name="CBPrimary"/>
+                                <connections>
+                                    <action selector="closeButtonWasTapped:" destination="xkJ-0j-kt5" id="WaO-EB-uem"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="rectangle.badge.xmark" catalog="system" style="done" id="cgu-TX-EPN">
+                                <color key="tintColor" name="CBPrimary"/>
+                                <connections>
+                                    <action selector="sessionButtonWasTapped:" destination="xkJ-0j-kt5" id="6fL-JZ-H57"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="cameraView" destination="1pT-I1-52I" id="7Kf-dJ-DUl"/>
+                        <outlet property="sessionButton" destination="cgu-TX-EPN" id="vZ7-v2-Ygl"/>
+                        <outlet property="switchCameraButton" destination="Ro4-Vh-EM5" id="dpD-fl-tU1"/>
+                        <outlet property="takePhotoButton" destination="2XN-tn-MD8" id="IXs-Jc-EYP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YEm-NQ-yYH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3515" y="-2170"/>
+        </scene>
     </scenes>
     <resources>
         <image name="basket.fill" catalog="system" width="128" height="108"/>
+        <image name="camera.fill" catalog="system" width="128" height="93"/>
+        <image name="camera.rotate.fill" catalog="system" width="128" height="93"/>
         <image name="gearshape" catalog="system" width="128" height="123"/>
         <image name="person.crop.circle" catalog="system" width="128" height="123"/>
         <image name="person.crop.circle.fill" catalog="system" width="128" height="123"/>
@@ -1030,7 +1140,7 @@ Acceptance signifies your consent to these terms and understanding of the broade
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

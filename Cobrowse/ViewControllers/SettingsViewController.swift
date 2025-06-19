@@ -1,7 +1,3 @@
-//
-//  SettingsViewController.swift
-//  Cobrowse
-//
 
 import UIKit
 import Combine

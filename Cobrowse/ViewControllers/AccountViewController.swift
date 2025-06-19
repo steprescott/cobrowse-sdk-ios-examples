@@ -12,6 +12,8 @@ class AccountViewController: UIViewController {
 
     @IBOutlet weak var sessionButton: UIBarButtonItem!
     
+    @IBOutlet weak var profileImageView: UIImageView!
+    
     @IBOutlet var redactedLabels: [UILabel]!
     
     @IBOutlet weak var codeStackView: UIStackView!
@@ -22,7 +24,21 @@ class AccountViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let tap = UITapGestureRecognizer(target: self, action: #selector(profileImageWasTapped))
+        profileImageView.addGestureRecognizer(tap)
+        
         subscribeToSession()
+        subscribeToProfileImage()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        profileImageView.layer.cornerRadius = profileImageView.bounds.width * 0.5
+    }
+    
+    @objc func profileImageWasTapped() {
+        performSegue(to: .showCamera)
     }
     
     @IBAction func sessionButtonWasTapped(_ sender: Any) {
@@ -76,6 +92,16 @@ extension AccountViewController {
             if session == nil {
                 codeLabel.text = nil
             }
+        }
+        .store(in: &bag)
+    }
+    
+    private func subscribeToProfileImage() {
+        account.$profileImage.sink { [weak self] image in
+            guard let self = self, let image
+                else { return }
+            
+            profileImageView.image = image
         }
         .store(in: &bag)
     }

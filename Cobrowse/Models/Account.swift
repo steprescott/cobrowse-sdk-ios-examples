@@ -5,6 +5,7 @@
 
 import Combine
 import Foundation
+import UIKit
 
 class Account: ObservableObject {
     
@@ -12,6 +13,7 @@ class Account: ObservableObject {
     
     @Published var isSignedIn = true
     @Published var transactions: [Transaction] = []
+    @Published var profileImage: UIImage?
     
     init() {
         loadData()

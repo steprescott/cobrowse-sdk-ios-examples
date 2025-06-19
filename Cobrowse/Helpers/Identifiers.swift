@@ -11,6 +11,7 @@ enum Segue: String {
     case transaction = "Transaction"
     case transactions = "Transactions"
     case signIn = "SignIn"
+    case showCamera = "ShowCamera"
 }
 
 enum Cells: String {

@@ -154,6 +154,10 @@
 		4AC85E0F2C19D491001338EF /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 4AC85E0E2C19D491001338EF /* DGCharts */; };
 		4AE2BAAC2C9D1D0200FF6ED0 /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AC7E51B29F94CEF00722B29 /* ReplayKit.framework */; };
 		4AF1CD5C29FA61B200261E25 /* Broadcast Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 4AC7E51929F94CEF00722B29 /* Broadcast Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		6053155B2E04083500C79B5B /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6053155A2E04083500C79B5B /* CameraViewController.swift */; };
+		6053155C2E04083500C79B5B /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6053155A2E04083500C79B5B /* CameraViewController.swift */; };
+		6053155E2E0432FD00C79B5B /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6053155D2E0432FD00C79B5B /* CameraView.swift */; };
+		6053155F2E0432FD00C79B5B /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6053155D2E0432FD00C79B5B /* CameraView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -344,6 +348,8 @@
 		4AC7E51929F94CEF00722B29 /* Broadcast Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Broadcast Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AC7E51B29F94CEF00722B29 /* ReplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReplayKit.framework; path = System/Library/Frameworks/ReplayKit.framework; sourceTree = SDKROOT; };
 		4AEEDB3329DF0743009B7208 /* Cobrowse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cobrowse.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6053155A2E04083500C79B5B /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		6053155D2E0432FD00C79B5B /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -459,6 +465,7 @@
 				4A163D602BD95E94004F8658 /* SignInViewController.swift */,
 				4A163D612BD95E94004F8658 /* TransactionTableViewController.swift */,
 				4A163D622BD95E94004F8658 /* WebViewController.swift */,
+				6053155A2E04083500C79B5B /* CameraViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -469,6 +476,7 @@
 				4A163D642BD95E94004F8658 /* CodeTextField.swift */,
 				4A5FD1682C6E42D100D03DC1 /* SessionControlView.swift */,
 				4A163D652BD95E94004F8658 /* TransactionTableViewCell.swift */,
+				6053155D2E0432FD00C79B5B /* CameraView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -880,6 +888,7 @@
 				4A163E202BD95FB5004F8658 /* ConsentPromptViewController.swift in Sources */,
 				4A163E212BD95FB5004F8658 /* SignInViewController.swift in Sources */,
 				4A163E222BD95FB5004F8658 /* SettingsViewController.swift in Sources */,
+				6053155E2E0432FD00C79B5B /* CameraView.swift in Sources */,
 				4A163E232BD95FB5004F8658 /* FullDeviceConsentPromptViewController.swift in Sources */,
 				4A163E242BD95FB5004F8658 /* AgentPresentViewController.swift in Sources */,
 				4A163E252BD95FB5004F8658 /* TransactionTableViewController.swift in Sources */,
@@ -888,6 +897,7 @@
 				4A163E282BD95FB5004F8658 /* TransactionTableViewCell.swift in Sources */,
 				4A163E292BD95FB5004F8658 /* AccountViewController.swift in Sources */,
 				4A163E0E2BD95FA8004F8658 /* Session+UIKit.swift in Sources */,
+				6053155C2E04083500C79B5B /* CameraViewController.swift in Sources */,
 				4A163E0F2BD95FA8004F8658 /* Transaction.swift in Sources */,
 				4A163E102BD95FA8004F8658 /* UITextField.swift in Sources */,
 				4A163E112BD95FA8004F8658 /* Publisher.swift in Sources */,
@@ -989,6 +999,7 @@
 				4A163D872BD95E94004F8658 /* DeepLiker.swift in Sources */,
 				4A163D8C2BD95E94004F8658 /* Account.swift in Sources */,
 				4A163D7C2BD95E94004F8658 /* Locale.Currency+UIKit.swift in Sources */,
+				6053155F2E0432FD00C79B5B /* CameraView.swift in Sources */,
 				4A163D792BD95E94004F8658 /* Dictionary.swift in Sources */,
 				4A163D782BD95E94004F8658 /* Date.swift in Sources */,
 				4A163D9C2BD95E94004F8658 /* TransactionTableViewCell.swift in Sources */,
@@ -997,6 +1008,7 @@
 				4A15849C2C6E4C9D003B773A /* UIWindow.swift in Sources */,
 				4A163D8E2BD95E94004F8658 /* Session+UIKit.swift in Sources */,
 				4A163D842BD95E94004F8658 /* UIView.swift in Sources */,
+				6053155B2E04083500C79B5B /* CameraViewController.swift in Sources */,
 				4A163D912BD95E94004F8658 /* Transaction+UIKit.swift in Sources */,
 				4A163D882BD95E94004F8658 /* Formatters.swift in Sources */,
 				4A163D922BD95E94004F8658 /* AccountViewController.swift in Sources */,
@@ -1442,7 +1454,9 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cobrowse/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Cobrowse;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSCameraUsageDescription = "To update your profile image.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -1477,7 +1491,9 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cobrowse/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Cobrowse;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSCameraUsageDescription = "To update your profile image.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
