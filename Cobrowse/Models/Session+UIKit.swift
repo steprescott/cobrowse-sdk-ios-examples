@@ -32,6 +32,13 @@ extension CobrowseSession {
         consentPrompt.onDeny = { session in session?.end() }
         consentPrompt.onAllow = { session in session?.activate() }
         
+        consentPrompt.onUpdate = { session in
+            guard session == nil
+                else { return }
+            
+            consentPrompt.dismiss(animated: true)
+        }
+        
         consentPrompt.configureSheet()
         
         UIWindow.present(consentPrompt)
@@ -54,6 +61,13 @@ extension CobrowseSession {
         
         consentPrompt.onDeny = { session in session?.setRemoteControl(.rejected) }
         consentPrompt.onAllow = { session in session?.setRemoteControl(.on) }
+        
+        consentPrompt.onUpdate = { session in
+            guard let session, session.remoteControl() != .requested
+                    else { return }
+            
+            consentPrompt.dismiss(animated: true)
+        }
         
         consentPrompt.configureSheet()
         

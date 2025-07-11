@@ -20,6 +20,7 @@ class ConsentPromptViewController: UIViewController {
     var heading: String?
     var body: NSAttributedString?
     
+    var onUpdate: ((_ session: CBIOSession?) -> ())?
     var onDeny: ((_ session: CBIOSession?) -> ())?
     var onAllow: ((_ session: CBIOSession?) -> ())?
     
@@ -58,11 +59,10 @@ extension ConsentPromptViewController {
     private func subscribeToSession() {
         
         cobrowseSession.$current.sink { [weak self] session in
-            
-            guard let self = self, session == nil
+            guard let self
                 else { return }
             
-            dismiss(animated: true)
+            self.onUpdate?(session)
         }
         .store(in: &bag)
     }
