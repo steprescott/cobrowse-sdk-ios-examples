@@ -16,7 +16,12 @@ struct SettingsView: View {
                 Toggle(setting.title, isOn: setting.binding)
                     .tint(Color.cbPrimary)
             }
-            .padding(.horizontal, 20)
+            
+            HStack {
+                Text("Session status")
+                Spacer()
+                SessionLatencyView()
+            }
             
             Spacer()
             
@@ -25,6 +30,7 @@ struct SettingsView: View {
             }
             .accessibilityIdentifier("PRIVACY_POLICY_BUTTON")
         }
+        .padding(.horizontal, 20)
         .frame(maxWidth: .infinity)
         .background { Color.background.ignoresSafeArea() }
         .navigationTitle("Settings")

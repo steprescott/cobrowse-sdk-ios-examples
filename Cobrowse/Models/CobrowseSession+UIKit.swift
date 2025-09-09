@@ -18,6 +18,20 @@ extension CobrowseSession {
     }
 }
 
+// MARK: - Latency
+
+extension CobrowseSession.Latency {
+    
+    var color: UIColor {
+        switch self {
+            case .low: return .systemGreen
+            case .medium: return .systemYellow
+            case .high: return .systemRed
+            case .unknown: return .darkGray
+        }
+    }
+}
+
 // MARK: - Custom consent prompts
 
 extension CobrowseSession {

@@ -11,11 +11,13 @@ enum Segue: String {
     case transaction = "Transaction"
     case transactions = "Transactions"
     case signIn = "SignIn"
+    case sessionMetrics = "SessionMetrics"
 }
 
 enum Cells: String {
     
     case transaction = "TransactionTableViewCell"
+    case rightDetail = "RightDetailTableViewCell"
 }
 
 enum VC: String {

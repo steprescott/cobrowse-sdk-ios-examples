@@ -6,6 +6,17 @@
 import Foundation
 
 extension Date {
+
+    private static let formatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .medium
+        return formatter
+    }()
+    
+    var formatted: String {
+        return Date.formatter.string(from: self)
+    }
     
     var startOfMonth: Date {
         var calendar = Calendar(identifier: .gregorian)

@@ -59,3 +59,26 @@ extension SettingsViewController {
         .store(in: &bag)
     }
 }
+
+// MARK: - SessionMetrics Segue (Popover)
+
+extension SettingsViewController: UIPopoverPresentationControllerDelegate {
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard let presentationController = segue.destination.popoverPresentationController,
+              let identifier = segue.identifier,
+              identifier == .sessionMetrics
+        else { return }
+        
+        presentationController.delegate = self
+        segue.destination.preferredContentSize = CGSize(width: .zero, height: 100)
+    }
+    
+    func adaptivePresentationStyle(for controller: UIPresentationController,
+                                   traitCollection: UITraitCollection) -> UIModalPresentationStyle {
+        return .none
+    }
+}
+
+

@@ -29,7 +29,7 @@
 		4A163D8A2BD95E94004F8658 /* SheetPresentationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A163D502BD95E94004F8658 /* SheetPresentationDelegate.swift */; };
 		4A163D8C2BD95E94004F8658 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A163D532BD95E94004F8658 /* Account.swift */; };
 		4A163D8D2BD95E94004F8658 /* CobrowseSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A163D542BD95E94004F8658 /* CobrowseSession.swift */; };
-		4A163D8E2BD95E94004F8658 /* Session+UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A163D552BD95E94004F8658 /* Session+UIKit.swift */; };
+		4A163D8E2BD95E94004F8658 /* CobrowseSession+UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A163D552BD95E94004F8658 /* CobrowseSession+UIKit.swift */; };
 		4A163D8F2BD95E94004F8658 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A163D562BD95E94004F8658 /* Transaction.swift */; };
 		4A163D912BD95E94004F8658 /* Transaction+UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A163D582BD95E94004F8658 /* Transaction+UIKit.swift */; };
 		4A163D922BD95E94004F8658 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A163D5A2BD95E94004F8658 /* AccountViewController.swift */; };
@@ -73,7 +73,7 @@
 		4A163E0B2BD95FA8004F8658 /* Locale.Currency+UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A163D412BD95E94004F8658 /* Locale.Currency+UIKit.swift */; };
 		4A163E0C2BD95FA8004F8658 /* DeepLiker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A163D4D2BD95E94004F8658 /* DeepLiker.swift */; };
 		4A163E0D2BD95FA8004F8658 /* SheetPresentationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A163D502BD95E94004F8658 /* SheetPresentationDelegate.swift */; };
-		4A163E0E2BD95FA8004F8658 /* Session+UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A163D552BD95E94004F8658 /* Session+UIKit.swift */; };
+		4A163E0E2BD95FA8004F8658 /* CobrowseSession+UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A163D552BD95E94004F8658 /* CobrowseSession+UIKit.swift */; };
 		4A163E0F2BD95FA8004F8658 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A163D562BD95E94004F8658 /* Transaction.swift */; };
 		4A163E102BD95FA8004F8658 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A163D482BD95E94004F8658 /* UITextField.swift */; };
 		4A163E112BD95FA8004F8658 /* Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A163D422BD95E94004F8658 /* Publisher.swift */; };
@@ -150,10 +150,22 @@
 		4A77B5D32C52F1F00059D87F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A163D712BD95E94004F8658 /* LaunchScreen.storyboard */; };
 		4A886DBB2DA68E59000C7063 /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A886DBA2DA68E59000C7063 /* UINavigationController.swift */; };
 		4A886DBC2DA68E59000C7063 /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A886DBA2DA68E59000C7063 /* UINavigationController.swift */; };
+		4AB597712E69CC4F008D1FFB /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3FDCC2E68885900B26F09 /* Double.swift */; };
+		4AB597732E69D382008D1FFB /* SessionLatencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB597722E69D382008D1FFB /* SessionLatencyView.swift */; };
+		4AB597752E69D39A008D1FFB /* SessionMetricsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB597742E69D39A008D1FFB /* SessionMetricsView.swift */; };
+		4AB597772E69D3B8008D1FFB /* Latency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB597762E69D3B8008D1FFB /* Latency.swift */; };
 		4AC7E51C29F94CEF00722B29 /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AC7E51B29F94CEF00722B29 /* ReplayKit.framework */; };
 		4AC85E0F2C19D491001338EF /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 4AC85E0E2C19D491001338EF /* DGCharts */; };
 		4AE2BAAC2C9D1D0200FF6ED0 /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AC7E51B29F94CEF00722B29 /* ReplayKit.framework */; };
 		4AF1CD5C29FA61B200261E25 /* Broadcast Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 4AC7E51929F94CEF00722B29 /* Broadcast Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		60C3FDC12E685E8D00B26F09 /* SessionMetricsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3FDC02E685E8D00B26F09 /* SessionMetricsButton.swift */; };
+		60C3FDC22E685E8D00B26F09 /* SessionMetricsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3FDC02E685E8D00B26F09 /* SessionMetricsButton.swift */; };
+		60C3FDC72E68845600B26F09 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3FDC62E68845600B26F09 /* String.swift */; };
+		60C3FDC82E68845600B26F09 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3FDC62E68845600B26F09 /* String.swift */; };
+		60C3FDCA2E6884AF00B26F09 /* SessionMetricsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3FDC92E6884AF00B26F09 /* SessionMetricsTableViewController.swift */; };
+		60C3FDCB2E6884AF00B26F09 /* SessionMetricsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3FDC92E6884AF00B26F09 /* SessionMetricsTableViewController.swift */; };
+		60C3FDCD2E68886000B26F09 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3FDCC2E68885900B26F09 /* Double.swift */; };
+		60C3FDCE2E68886000B26F09 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3FDCC2E68885900B26F09 /* Double.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -269,7 +281,7 @@
 		4A163D502BD95E94004F8658 /* SheetPresentationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SheetPresentationDelegate.swift; sourceTree = "<group>"; };
 		4A163D532BD95E94004F8658 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		4A163D542BD95E94004F8658 /* CobrowseSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CobrowseSession.swift; sourceTree = "<group>"; };
-		4A163D552BD95E94004F8658 /* Session+UIKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Session+UIKit.swift"; sourceTree = "<group>"; };
+		4A163D552BD95E94004F8658 /* CobrowseSession+UIKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CobrowseSession+UIKit.swift"; sourceTree = "<group>"; };
 		4A163D562BD95E94004F8658 /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		4A163D572BD95E94004F8658 /* Transaction+SwiftUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Transaction+SwiftUI.swift"; sourceTree = "<group>"; };
 		4A163D582BD95E94004F8658 /* Transaction+UIKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Transaction+UIKit.swift"; sourceTree = "<group>"; };
@@ -341,9 +353,16 @@
 		4A8187192ABDFD5A00C90B9E /* DispatchQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueue.swift; sourceTree = "<group>"; };
 		4A84E1592B2222E300C2789A /* UIWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindow.swift; sourceTree = "<group>"; };
 		4A886DBA2DA68E59000C7063 /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
+		4AB597722E69D382008D1FFB /* SessionLatencyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionLatencyView.swift; sourceTree = "<group>"; };
+		4AB597742E69D39A008D1FFB /* SessionMetricsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionMetricsView.swift; sourceTree = "<group>"; };
+		4AB597762E69D3B8008D1FFB /* Latency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Latency.swift; sourceTree = "<group>"; };
 		4AC7E51929F94CEF00722B29 /* Broadcast Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Broadcast Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AC7E51B29F94CEF00722B29 /* ReplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReplayKit.framework; path = System/Library/Frameworks/ReplayKit.framework; sourceTree = SDKROOT; };
 		4AEEDB3329DF0743009B7208 /* Cobrowse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cobrowse.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		60C3FDC02E685E8D00B26F09 /* SessionMetricsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionMetricsButton.swift; sourceTree = "<group>"; };
+		60C3FDC62E68845600B26F09 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		60C3FDC92E6884AF00B26F09 /* SessionMetricsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionMetricsTableViewController.swift; sourceTree = "<group>"; };
+		60C3FDCC2E68885900B26F09 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -397,6 +416,8 @@
 		4A163D4C2BD95E94004F8658 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				60C3FDCC2E68885900B26F09 /* Double.swift */,
+				60C3FDC62E68845600B26F09 /* String.swift */,
 				4A8187192ABDFD5A00C90B9E /* DispatchQueue.swift */,
 				4A163D3B2BD95E94004F8658 /* Array.swift */,
 				4A163D3C2BD95E94004F8658 /* Character.swift */,
@@ -439,7 +460,7 @@
 			children = (
 				4A163D532BD95E94004F8658 /* Account.swift */,
 				4A163D542BD95E94004F8658 /* CobrowseSession.swift */,
-				4A163D552BD95E94004F8658 /* Session+UIKit.swift */,
+				4A163D552BD95E94004F8658 /* CobrowseSession+UIKit.swift */,
 				4A163D562BD95E94004F8658 /* Transaction.swift */,
 				4A163D572BD95E94004F8658 /* Transaction+SwiftUI.swift */,
 				4A163D582BD95E94004F8658 /* Transaction+UIKit.swift */,
@@ -459,6 +480,7 @@
 				4A163D602BD95E94004F8658 /* SignInViewController.swift */,
 				4A163D612BD95E94004F8658 /* TransactionTableViewController.swift */,
 				4A163D622BD95E94004F8658 /* WebViewController.swift */,
+				60C3FDC92E6884AF00B26F09 /* SessionMetricsTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -469,6 +491,7 @@
 				4A163D642BD95E94004F8658 /* CodeTextField.swift */,
 				4A5FD1682C6E42D100D03DC1 /* SessionControlView.swift */,
 				4A163D652BD95E94004F8658 /* TransactionTableViewCell.swift */,
+				60C3FDC02E685E8D00B26F09 /* SessionMetricsButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -518,6 +541,7 @@
 		4A163DB22BD95EFE004F8658 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				4AB597762E69D3B8008D1FFB /* Latency.swift */,
 				4A163DAF2BD95EFE004F8658 /* CBIOSession.swift */,
 				4A163DB02BD95EFE004F8658 /* CobrowseIO.swift */,
 			);
@@ -579,7 +603,9 @@
 		4A5FD1932C6E45EE00D03DC1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4AB597722E69D382008D1FFB /* SessionLatencyView.swift */,
 				4A56DF302DCE0AC30057847F /* SettingsView.swift */,
+				4AB597742E69D39A008D1FFB /* SessionMetricsView.swift */,
 				4A56DF342DCE48CF0057847F /* SFSafariView.swift */,
 				4A5FD1842C6E45EE00D03DC1 /* AccountView.swift */,
 				4A5FD1852C6E45EE00D03DC1 /* AgentPresentView.swift */,
@@ -872,12 +898,14 @@
 				4A163E072BD95FA8004F8658 /* UIWindow.swift in Sources */,
 				4A163E082BD95FA8004F8658 /* Transaction+UIKit.swift in Sources */,
 				4A163E092BD95FA8004F8658 /* UIStoryboard.swift in Sources */,
+				60C3FDCB2E6884AF00B26F09 /* SessionMetricsTableViewController.swift in Sources */,
 				4A163E0A2BD95FA8004F8658 /* UIViewController.swift in Sources */,
 				4A163E0B2BD95FA8004F8658 /* Locale.Currency+UIKit.swift in Sources */,
 				4A163E0C2BD95FA8004F8658 /* DeepLiker.swift in Sources */,
 				4A163E0D2BD95FA8004F8658 /* SheetPresentationDelegate.swift in Sources */,
 				4A163E1F2BD95FB5004F8658 /* ChartViewController.swift in Sources */,
 				4A163E202BD95FB5004F8658 /* ConsentPromptViewController.swift in Sources */,
+				60C3FDC22E685E8D00B26F09 /* SessionMetricsButton.swift in Sources */,
 				4A163E212BD95FB5004F8658 /* SignInViewController.swift in Sources */,
 				4A163E222BD95FB5004F8658 /* SettingsViewController.swift in Sources */,
 				4A163E232BD95FB5004F8658 /* FullDeviceConsentPromptViewController.swift in Sources */,
@@ -887,7 +915,7 @@
 				4A163E272BD95FB5004F8658 /* CodeTextField.swift in Sources */,
 				4A163E282BD95FB5004F8658 /* TransactionTableViewCell.swift in Sources */,
 				4A163E292BD95FB5004F8658 /* AccountViewController.swift in Sources */,
-				4A163E0E2BD95FA8004F8658 /* Session+UIKit.swift in Sources */,
+				4A163E0E2BD95FA8004F8658 /* CobrowseSession+UIKit.swift in Sources */,
 				4A163E0F2BD95FA8004F8658 /* Transaction.swift in Sources */,
 				4A163E102BD95FA8004F8658 /* UITextField.swift in Sources */,
 				4A163E112BD95FA8004F8658 /* Publisher.swift in Sources */,
@@ -900,10 +928,12 @@
 				4A163E182BD95FA8004F8658 /* Array.swift in Sources */,
 				4A163E192BD95FA8004F8658 /* UITableView.swift in Sources */,
 				4A163E1A2BD95FA8004F8658 /* DispatchQueue.swift in Sources */,
+				60C3FDC72E68845600B26F09 /* String.swift in Sources */,
 				4A163E1B2BD95FA8004F8658 /* RawRepresentable.swift in Sources */,
 				4A5E9EBB2DBF9DB000CB4BD1 /* SceneDelegate.swift in Sources */,
 				4A163E1C2BD95FA8004F8658 /* Account.swift in Sources */,
 				4A5FD1702C6E431600D03DC1 /* Demo.swift in Sources */,
+				60C3FDCE2E68886000B26F09 /* Double.swift in Sources */,
 				4A163E1E2BD95FA8004F8658 /* Character.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -917,6 +947,7 @@
 				4A5FD1A52C6E465F00D03DC1 /* AppDelegate.swift in Sources */,
 				4A163E302BD9628F004F8658 /* Account.swift in Sources */,
 				4A163E312BD9628F004F8658 /* CobrowseSession.swift in Sources */,
+				4AB597752E69D39A008D1FFB /* SessionMetricsView.swift in Sources */,
 				4A5FD1962C6E45EE00D03DC1 /* CodeInput.swift in Sources */,
 				4A163DAD2BD95EE5004F8658 /* Locale.Currency+SwiftUI.swift in Sources */,
 				4A56DF352DCE48CF0057847F /* SFSafariView.swift in Sources */,
@@ -928,8 +959,10 @@
 				4A163E332BD962B5004F8658 /* RawRepresentable.swift in Sources */,
 				4A163E342BD962B5004F8658 /* Array.swift in Sources */,
 				4A5FD1942C6E45EE00D03DC1 /* AccountView.swift in Sources */,
+				4AB597732E69D382008D1FFB /* SessionLatencyView.swift in Sources */,
 				4A163E352BD962B5004F8658 /* Character.swift in Sources */,
 				4A56DF332DCE3AC80057847F /* CloseModelToolBar.swift in Sources */,
+				4AB597712E69CC4F008D1FFB /* Double.swift in Sources */,
 				4A163E362BD962B5004F8658 /* Date.swift in Sources */,
 				4A56DF312DCE0AC50057847F /* SettingsView.swift in Sources */,
 				4A163E372BD962B5004F8658 /* DispatchQueue.swift in Sources */,
@@ -946,6 +979,7 @@
 				4A5FD1952C6E45EE00D03DC1 /* AgentPresentView.swift in Sources */,
 				4A5FD1A02C6E45EE00D03DC1 /* Transaction+List.swift in Sources */,
 				4A5FD19C2C6E45EE00D03DC1 /* Shake.swift in Sources */,
+				4AB597772E69D3B8008D1FFB /* Latency.swift in Sources */,
 				4A163DCD2BD95EFE004F8658 /* CobrowseIO.swift in Sources */,
 				4A163DE12BD95EFE004F8658 /* Cobrowse.swift in Sources */,
 				4A5FD19F2C6E45EE00D03DC1 /* Transaction+Detail.swift in Sources */,
@@ -981,12 +1015,14 @@
 				4A163D942BD95E94004F8658 /* ChartViewController.swift in Sources */,
 				4A163D952BD95E94004F8658 /* ConsentPromptViewController.swift in Sources */,
 				4A163D932BD95E94004F8658 /* AgentPresentViewController.swift in Sources */,
+				60C3FDCA2E6884AF00B26F09 /* SessionMetricsTableViewController.swift in Sources */,
 				4A163DA12BD95E94004F8658 /* AppDelegate.swift in Sources */,
 				4A163D762BD95E94004F8658 /* Array.swift in Sources */,
 				4A163D992BD95E94004F8658 /* TransactionTableViewController.swift in Sources */,
 				4A163D7E2BD95E94004F8658 /* RawRepresentable.swift in Sources */,
 				4A163D962BD95E94004F8658 /* FullDeviceConsentPromptViewController.swift in Sources */,
 				4A163D872BD95E94004F8658 /* DeepLiker.swift in Sources */,
+				60C3FDC12E685E8D00B26F09 /* SessionMetricsButton.swift in Sources */,
 				4A163D8C2BD95E94004F8658 /* Account.swift in Sources */,
 				4A163D7C2BD95E94004F8658 /* Locale.Currency+UIKit.swift in Sources */,
 				4A163D792BD95E94004F8658 /* Dictionary.swift in Sources */,
@@ -995,7 +1031,7 @@
 				4A163D8A2BD95E94004F8658 /* SheetPresentationDelegate.swift in Sources */,
 				4A163D832BD95E94004F8658 /* UITextField.swift in Sources */,
 				4A15849C2C6E4C9D003B773A /* UIWindow.swift in Sources */,
-				4A163D8E2BD95E94004F8658 /* Session+UIKit.swift in Sources */,
+				4A163D8E2BD95E94004F8658 /* CobrowseSession+UIKit.swift in Sources */,
 				4A163D842BD95E94004F8658 /* UIView.swift in Sources */,
 				4A163D912BD95E94004F8658 /* Transaction+UIKit.swift in Sources */,
 				4A163D882BD95E94004F8658 /* Formatters.swift in Sources */,
@@ -1009,10 +1045,12 @@
 				4A163D972BD95E94004F8658 /* SettingsViewController.swift in Sources */,
 				4A163D8D2BD95E94004F8658 /* CobrowseSession.swift in Sources */,
 				4A163D9B2BD95E94004F8658 /* CodeTextField.swift in Sources */,
+				60C3FDC82E68845600B26F09 /* String.swift in Sources */,
 				4A5E9EBC2DBF9DB000CB4BD1 /* SceneDelegate.swift in Sources */,
 				4A163D852BD95E94004F8658 /* UIViewController.swift in Sources */,
 				4A163D892BD95E94004F8658 /* Identifiers.swift in Sources */,
 				4A5FD16F2C6E431600D03DC1 /* Demo.swift in Sources */,
+				60C3FDCD2E68886000B26F09 /* Double.swift in Sources */,
 				4A163D802BD95E94004F8658 /* UISheetPresentationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
