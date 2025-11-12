@@ -1,19 +1,17 @@
 
 import UIKit
-import Combine
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
-    private var sessionControlView = SessionControlView()
-    private var bag = Set<AnyCancellable>()
+    var sessionControlWindow: SessionControlWindow?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        
+        guard let windowScene = scene as? UIWindowScene
+            else { return }
 
-        if let window = window {
-            window.subscribe(to: cobrowseSession, using: &bag, for: sessionControlView)
-        }
+        sessionControlWindow = SessionControlWindow(for: windowScene, session: cobrowseSession)
     }
     
     func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {

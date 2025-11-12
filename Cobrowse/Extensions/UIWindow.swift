@@ -45,32 +45,3 @@ extension UIWindow {
         }
     }
 }
-
-extension UIWindow {
-    
-    func subscribe(to session: CobrowseSession, using bag: inout Set<AnyCancellable>, for view: SessionControlView) {
-        
-        guard let height = windowScene?.statusBarManager?.statusBarFrame.height
-            else { return }
-
-        addSubview(view)
-        bringSubviewToFront(view)
-
-        NSLayoutConstraint.activate([
-            view.topAnchor.constraint(equalTo: topAnchor),
-            view.leadingAnchor.constraint(equalTo: leadingAnchor),
-            view.trailingAnchor.constraint(equalTo: trailingAnchor),
-            view.heightAnchor.constraint(equalToConstant: height)
-        ])
-        
-        session.$controlState
-            .removeDuplicates()
-            .sink { [unowned self] controlState in
-                
-                self.bringSubviewToFront(view)
-                
-                view.isHidden = controlState == .hidden
-            }
-            .store(in: &bag)
-    }
-}

@@ -117,7 +117,7 @@
                                     <segue destination="SbR-n9-CXf" kind="show" identifier="Account" id="4PT-LA-Kkm"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem image="rectangle.badge.xmark" catalog="system" style="done" id="l2X-jg-LO1">
+                            <barButtonItem image="rectangle.badge.xmark" catalog="system" id="l2X-jg-LO1">
                                 <color key="tintColor" name="CBPrimary"/>
                                 <connections>
                                     <action selector="sessionButtonWasTapped:" destination="BYZ-38-t0r" id="6ug-pH-zUY"/>
@@ -264,7 +264,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Account" id="qK8-LJ-afw">
-                        <barButtonItem key="leftBarButtonItem" image="gearshape" catalog="system" style="done" id="IV7-ZH-ofd">
+                        <barButtonItem key="leftBarButtonItem" image="gearshape" catalog="system" id="IV7-ZH-ofd">
                             <color key="tintColor" name="CBPrimary"/>
                             <connections>
                                 <segue destination="BfR-S6-nvG" kind="show" id="eKI-H0-d5z"/>
@@ -277,7 +277,7 @@
                                     <action selector="closeButtonWasTapped:" destination="T11-az-flw" id="hjg-gt-XJ0"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem image="rectangle.badge.xmark" catalog="system" style="done" id="PfT-kx-ifg">
+                            <barButtonItem image="rectangle.badge.xmark" catalog="system" id="PfT-kx-ifg">
                                 <color key="tintColor" name="CBPrimary"/>
                                 <connections>
                                     <action selector="sessionButtonWasTapped:" destination="T11-az-flw" id="MCG-aG-fBr"/>
@@ -418,7 +418,7 @@
                                     <action selector="closeButtonWasTapped:" destination="zVX-OE-CaK" id="AdM-wJ-AQQ"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem image="rectangle.badge.xmark" catalog="system" style="done" id="AEN-eq-qof">
+                            <barButtonItem image="rectangle.badge.xmark" catalog="system" id="AEN-eq-qof">
                                 <color key="tintColor" name="CBPrimary"/>
                                 <connections>
                                     <action selector="sessionButtonWasTapped:" destination="zVX-OE-CaK" id="517-BR-oqL"/>
@@ -541,6 +541,7 @@
                                             <edgeInsets key="layoutMargins" top="8" left="16" bottom="8" right="16"/>
                                         </stackView>
                                     </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="ngt-tE-wFS" firstAttribute="centerY" secondItem="gzJ-bR-dYo" secondAttribute="centerY" id="98Q-AM-GFR"/>
                                         <constraint firstItem="ngt-tE-wFS" firstAttribute="height" secondItem="gzJ-bR-dYo" secondAttribute="height" id="DJg-3p-PHv"/>
@@ -562,7 +563,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Transactions" id="cAf-JG-J1M">
-                        <barButtonItem key="rightBarButtonItem" image="rectangle.badge.xmark" catalog="system" style="done" id="qgy-rg-ADh">
+                        <barButtonItem key="rightBarButtonItem" image="rectangle.badge.xmark" catalog="system" id="qgy-rg-ADh">
                             <color key="tintColor" name="CBPrimary"/>
                             <connections>
                                 <action selector="sessionButtonWasTapped:" destination="krq-52-kp9" id="1Is-Ij-Anv"/>
@@ -605,7 +606,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Transaction" id="ZCo-58-S1U">
-                        <barButtonItem key="rightBarButtonItem" image="rectangle.badge.xmark" catalog="system" style="done" id="rjo-s6-nhL">
+                        <barButtonItem key="rightBarButtonItem" image="rectangle.badge.xmark" catalog="system" id="rjo-s6-nhL">
                             <color key="tintColor" name="CBPrimary"/>
                             <connections>
                                 <action selector="sessionButtonWasTapped:" destination="ewE-gz-tAp" id="Gld-Tb-gGd"/>
@@ -742,7 +743,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="mm5-Uo-Rfp">
-                        <barButtonItem key="rightBarButtonItem" image="rectangle.badge.xmark" catalog="system" style="done" id="Yrj-QU-ghb">
+                        <barButtonItem key="rightBarButtonItem" image="rectangle.badge.xmark" catalog="system" id="Yrj-QU-ghb">
                             <color key="tintColor" name="CBPrimary"/>
                             <connections>
                                 <action selector="sessionButtonWasTapped:" destination="HPi-ZU-KnN" id="6ns-TB-zbm"/>
@@ -870,7 +871,7 @@
                                     <action selector="closeButtonWasTapped:" destination="BfR-S6-nvG" id="xet-7o-xuX"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem image="rectangle.badge.xmark" catalog="system" style="done" id="IoN-Eo-hrc">
+                            <barButtonItem image="rectangle.badge.xmark" catalog="system" id="IoN-Eo-hrc">
                                 <color key="tintColor" name="CBPrimary"/>
                                 <connections>
                                     <action selector="sessionButtonWasTapped:" destination="BfR-S6-nvG" id="jvy-5x-xJy"/>
@@ -987,17 +988,14 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JmA-OU-Saf">
-                                        <rect key="frame" x="20" y="70.000000000000014" width="353" height="223.33333333333337"/>
-                                        <string key="text">By proceeding, you consent to share your screen. You agree to our Terms and Conditions and understand our Privacy Policy applies, including data use and protection measures.   You have the option to end the session at any time. 
-
-Accepting this initiates the screen sharing and confirms your agreement to these terms.</string>
+                                        <rect key="frame" x="20" y="70.000000000000014" width="353" height="162.33333333333337"/>
+                                        <string key="text">By proceeding, you consent to share your screen. You agree to our Terms and Conditions and understand our Privacy Policy applies, including data use and protection measures.   You have the option to end the session at any time.</string>
                                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                                         <color key="textColor" name="Text"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" verticalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="Cul-4O-uFx">
-                                        <rect key="frame" x="20" y="313.33333333333331" width="353" height="204.66666666666669"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <rect key="frame" x="20" y="252.33333333333329" width="353" height="265.66666666666674"/>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ij-Wl-Bss">
                                         <rect key="frame" x="20" y="538" width="353" height="44"/>
@@ -1030,7 +1028,7 @@ Accepting this initiates the screen sharing and confirms your agreement to these
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7g1-SJ-m3g"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="Background"/>
                         <constraints>
                             <constraint firstItem="TTI-gV-EIP" firstAttribute="centerY" secondItem="7g1-SJ-m3g" secondAttribute="centerY" id="BcW-8q-pBC"/>
                             <constraint firstItem="TTI-gV-EIP" firstAttribute="width" secondItem="7g1-SJ-m3g" secondAttribute="width" id="Oe2-aa-J45"/>
@@ -1067,21 +1065,18 @@ Accepting this initiates the screen sharing and confirms your agreement to these
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sen-hF-q3i">
-                                        <rect key="frame" x="20" y="69.999999999999986" width="353" height="243.66666666666663"/>
+                                        <rect key="frame" x="20" y="70.000000000000014" width="353" height="162.33333333333337"/>
                                         <string key="text">By enabling full device mode, you allow your agent to view content beyond the initial app, including other apps and information on your device. Ensure to navigate only to apps and data you are comfortable sharing. 
-
-Acceptance signifies your consent to these terms and understanding of the broader access granted.  To start please tap the circle button below and start the broadcast.</string>
+ To start please tap the circle button below and start the broadcast.</string>
                                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                                         <color key="textColor" name="Text"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" verticalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="DzA-EI-aec">
-                                        <rect key="frame" x="20" y="333.66666666666669" width="353" height="184.33333333333331"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <rect key="frame" x="20" y="252.33333333333329" width="353" height="265.66666666666674"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CaU-hE-foy" customClass="RPSystemBroadcastPickerView">
                                         <rect key="frame" x="20" y="538" width="353" height="44"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <color key="tintColor" red="0.34509804840000002" green="0.050980389119999997" blue="0.96078431610000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="Fby-G7-m3t"/>
@@ -1105,7 +1100,7 @@ Acceptance signifies your consent to these terms and understanding of the broade
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="DUB-T6-2GM"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="Background"/>
                         <constraints>
                             <constraint firstItem="lSh-f5-Pg5" firstAttribute="centerX" secondItem="DUB-T6-2GM" secondAttribute="centerX" id="MhD-3o-Z8o"/>
                             <constraint firstItem="lSh-f5-Pg5" firstAttribute="width" secondItem="DUB-T6-2GM" secondAttribute="width" id="TgH-jc-zz5"/>

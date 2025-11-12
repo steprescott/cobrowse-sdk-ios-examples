@@ -166,12 +166,14 @@
 		60C3FDCB2E6884AF00B26F09 /* SessionMetricsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3FDC92E6884AF00B26F09 /* SessionMetricsTableViewController.swift */; };
 		60C3FDCD2E68886000B26F09 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3FDCC2E68885900B26F09 /* Double.swift */; };
 		60C3FDCE2E68886000B26F09 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3FDCC2E68885900B26F09 /* Double.swift */; };
+		60F27D862EC4E74B00289DD3 /* SessionControlWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F27D852EC4E74B00289DD3 /* SessionControlWindow.swift */; };
+		60F27D872EC4E74B00289DD3 /* SessionControlWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F27D852EC4E74B00289DD3 /* SessionControlWindow.swift */; };
 		60F27D8A2EC4E8E100289DD3 /* CobrowseSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 60F27D892EC4E8E100289DD3 /* CobrowseSDK */; };
 		60F27D8C2EC4E8E700289DD3 /* CobrowseSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 60F27D8B2EC4E8E700289DD3 /* CobrowseSDK */; };
 		60F27D8E2EC4E8EE00289DD3 /* CobrowseSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 60F27D8D2EC4E8EE00289DD3 /* CobrowseSDK */; };
 		60F27D902EC4E8F300289DD3 /* CobrowseSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 60F27D8F2EC4E8F300289DD3 /* CobrowseSDK */; };
-		60F27D922EC4E8FA00289DD3 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 60F27D912EC4E8FA00289DD3 /* Lottie */; };
-		60F27D942EC4E8FA00289DD3 /* CobrowseSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 60F27D932EC4E8FA00289DD3 /* CobrowseSDK */; };
+		60F27D972EC4F79F00289DD3 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 60F27D912EC4E8FA00289DD3 /* Lottie */; };
+		60F27D982EC4F79F00289DD3 /* CobrowseSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 60F27D932EC4E8FA00289DD3 /* CobrowseSDK */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -340,6 +342,7 @@
 		60C3FDC62E68845600B26F09 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		60C3FDC92E6884AF00B26F09 /* SessionMetricsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionMetricsTableViewController.swift; sourceTree = "<group>"; };
 		60C3FDCC2E68885900B26F09 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
+		60F27D852EC4E74B00289DD3 /* SessionControlWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionControlWindow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -347,9 +350,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60F27D982EC4F79F00289DD3 /* CobrowseSDK in Frameworks */,
+				60F27D972EC4F79F00289DD3 /* Lottie in Frameworks */,
 				4A163E2B2BD95FE6004F8658 /* DGCharts in Frameworks */,
-				60F27D922EC4E8FA00289DD3 /* Lottie in Frameworks */,
-				60F27D942EC4E8FA00289DD3 /* CobrowseSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,28 +399,28 @@
 		4A163D4C2BD95E94004F8658 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				60C3FDCC2E68885900B26F09 /* Double.swift */,
-				60C3FDC62E68845600B26F09 /* String.swift */,
-				4A8187192ABDFD5A00C90B9E /* DispatchQueue.swift */,
 				4A163D3B2BD95E94004F8658 /* Array.swift */,
 				4A163D3C2BD95E94004F8658 /* Character.swift */,
 				4A163D3D2BD95E94004F8658 /* Date.swift */,
 				4A163D3E2BD95E94004F8658 /* Dictionary.swift */,
+				4A8187192ABDFD5A00C90B9E /* DispatchQueue.swift */,
 				4A163D3F2BD95E94004F8658 /* DispatchQueue.swift */,
+				60C3FDCC2E68885900B26F09 /* Double.swift */,
 				4A163D402BD95E94004F8658 /* Locale.Currency+SwiftUI.swift */,
-				4A1D471F2A03BFBF00109053 /* Publisher.swift */,
 				4A163D412BD95E94004F8658 /* Locale.Currency+UIKit.swift */,
+				4A1D471F2A03BFBF00109053 /* Publisher.swift */,
 				4A163D422BD95E94004F8658 /* Publisher.swift */,
 				4A163D432BD95E94004F8658 /* RawRepresentable.swift */,
-				4A1D47212A03BFDF00109053 /* UITextField.swift */,
-				4A84E1592B2222E300C2789A /* UIWindow.swift */,
+				60C3FDC62E68845600B26F09 /* String.swift */,
 				4A886DBA2DA68E59000C7063 /* UINavigationController.swift */,
 				4A163D452BD95E94004F8658 /* UISheetPresentationController.swift */,
 				4A163D462BD95E94004F8658 /* UIStoryboard.swift */,
 				4A163D472BD95E94004F8658 /* UITableView.swift */,
+				4A1D47212A03BFDF00109053 /* UITextField.swift */,
 				4A163D482BD95E94004F8658 /* UITextField.swift */,
 				4A163D492BD95E94004F8658 /* UIView.swift */,
 				4A163D4A2BD95E94004F8658 /* UIViewController.swift */,
+				4A84E1592B2222E300C2789A /* UIWindow.swift */,
 				4A163D4B2BD95E94004F8658 /* UIWindow.swift */,
 			);
 			path = Extensions;
@@ -456,11 +459,11 @@
 				4A163D5C2BD95E94004F8658 /* ChartViewController.swift */,
 				4A163D5D2BD95E94004F8658 /* ConsentPromptViewController.swift */,
 				4A163D5E2BD95E94004F8658 /* FullDeviceConsentPromptViewController.swift */,
+				60C3FDC92E6884AF00B26F09 /* SessionMetricsTableViewController.swift */,
 				4A163D5F2BD95E94004F8658 /* SettingsViewController.swift */,
 				4A163D602BD95E94004F8658 /* SignInViewController.swift */,
 				4A163D612BD95E94004F8658 /* TransactionTableViewController.swift */,
 				4A163D622BD95E94004F8658 /* WebViewController.swift */,
-				60C3FDC92E6884AF00B26F09 /* SessionMetricsTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -470,8 +473,9 @@
 			children = (
 				4A163D642BD95E94004F8658 /* CodeTextField.swift */,
 				4A5FD1682C6E42D100D03DC1 /* SessionControlView.swift */,
-				4A163D652BD95E94004F8658 /* TransactionTableViewCell.swift */,
+				60F27D852EC4E74B00289DD3 /* SessionControlWindow.swift */,
 				60C3FDC02E685E8D00B26F09 /* SessionMetricsButton.swift */,
+				4A163D652BD95E94004F8658 /* TransactionTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -522,9 +526,9 @@
 		4A163DB22BD95EFE004F8658 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				4AB597762E69D3B8008D1FFB /* Latency.swift */,
 				4A163DAF2BD95EFE004F8658 /* CBIOSession.swift */,
 				4A163DB02BD95EFE004F8658 /* CobrowseIO.swift */,
+				4AB597762E69D3B8008D1FFB /* Latency.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -584,10 +588,6 @@
 		4A5FD1932C6E45EE00D03DC1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				4AB597722E69D382008D1FFB /* SessionLatencyView.swift */,
-				4A56DF302DCE0AC30057847F /* SettingsView.swift */,
-				4AB597742E69D39A008D1FFB /* SessionMetricsView.swift */,
-				4A56DF342DCE48CF0057847F /* SFSafariView.swift */,
 				4A5FD1842C6E45EE00D03DC1 /* AccountView.swift */,
 				4A5FD1852C6E45EE00D03DC1 /* AgentPresentView.swift */,
 				4A5FD1862C6E45EE00D03DC1 /* CodeInput.swift */,
@@ -596,6 +596,10 @@
 				4A5FD1892C6E45EE00D03DC1 /* PieChart.swift */,
 				4A5FD18A2C6E45EE00D03DC1 /* RootView.swift */,
 				4A5FD18B2C6E45EE00D03DC1 /* SessionControlView.swift */,
+				4AB597722E69D382008D1FFB /* SessionLatencyView.swift */,
+				4AB597742E69D39A008D1FFB /* SessionMetricsView.swift */,
+				4A56DF302DCE0AC30057847F /* SettingsView.swift */,
+				4A56DF342DCE48CF0057847F /* SFSafariView.swift */,
 				4A5FD18C2C6E45EE00D03DC1 /* Shake.swift */,
 				4A5FD18D2C6E45EE00D03DC1 /* SignIn.swift */,
 				4A5FD18F2C6E45EE00D03DC1 /* Transaction+Detail.swift */,
@@ -911,6 +915,7 @@
 				4A163E222BD95FB5004F8658 /* SettingsViewController.swift in Sources */,
 				4A163E232BD95FB5004F8658 /* FullDeviceConsentPromptViewController.swift in Sources */,
 				4A163E242BD95FB5004F8658 /* AgentPresentViewController.swift in Sources */,
+				60F27D872EC4E74B00289DD3 /* SessionControlWindow.swift in Sources */,
 				4A163E252BD95FB5004F8658 /* TransactionTableViewController.swift in Sources */,
 				4A163E262BD95FB5004F8658 /* WebViewController.swift in Sources */,
 				4A163E272BD95FB5004F8658 /* CodeTextField.swift in Sources */,
@@ -1028,6 +1033,7 @@
 				4A163D7C2BD95E94004F8658 /* Locale.Currency+UIKit.swift in Sources */,
 				4A163D792BD95E94004F8658 /* Dictionary.swift in Sources */,
 				4A163D782BD95E94004F8658 /* Date.swift in Sources */,
+				60F27D862EC4E74B00289DD3 /* SessionControlWindow.swift in Sources */,
 				4A163D9C2BD95E94004F8658 /* TransactionTableViewCell.swift in Sources */,
 				4A163D8A2BD95E94004F8658 /* SheetPresentationDelegate.swift in Sources */,
 				4A163D832BD95E94004F8658 /* UITextField.swift in Sources */,

@@ -68,7 +68,7 @@ extension CobrowseSession {
         consentPrompt.heading = "Remote Control"
         consentPrompt.body = .init(string:
             """
-            By activating the remote control feature, you authorize your agent to perform actions on your behalf on your device. This includes navigating apps, changing settings, and entering information as directed by you. Please ensure you only request actions you're comfortable with.
+            By activating the remote control feature, you authorize your agent to perform actions on your behalf on your device. This includes navigating and entering information as directed by you.
             
             Your acceptance confirms your consent to these terms and the permissions granted for remote actions.
             """)

@@ -29,6 +29,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, ObservableObject {
         
         let controlWindow = PassThroughWindow(windowScene: windowScene)
         controlWindow.rootViewController = controlViewController
+        controlWindow.windowLevel = .alert + 1
         controlWindow.isHidden = false
         
         self.controlWindow = controlWindow
