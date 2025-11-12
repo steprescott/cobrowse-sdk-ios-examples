@@ -7,6 +7,7 @@ import UIKit
 import Combine
 
 import CobrowseSDK
+import Lottie
 
 class SignInViewController: UIViewController {
     
@@ -18,6 +19,8 @@ class SignInViewController: UIViewController {
     
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    
+    @IBOutlet weak var lottieView: LottieAnimationView!
     
     @Published var username = ""
     @Published var password = ""
@@ -36,7 +39,14 @@ class SignInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let tripleTap = UITapGestureRecognizer(target: self, action: #selector(imageViewWasTapped))
+        tripleTap.numberOfTapsRequired = 3
+        
+        imageView.addGestureRecognizer(tripleTap)
         imageView.image = Locale.current.currency?.icon
+        
+        lottieView.animation = LottieAnimation.named("money")
+        lottieView.animationSpeed = 0.7
         
         subscribeToFormUpdates()
         subscribeToSession()
@@ -49,6 +59,11 @@ class SignInViewController: UIViewController {
     @IBAction func signInButtonWasTapped(_ sender: Any) {
         account.isSignedIn = true
     }
+    
+    @objc
+    func imageViewWasTapped() {
+        lottieView.play()
+   }
 }
 
 // MARK: - CobrowseIORedacted

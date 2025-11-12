@@ -139,12 +139,7 @@
 		4A5FD1A52C6E465F00D03DC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5FD1A32C6E465F00D03DC1 /* AppDelegate.swift */; };
 		4A5FD1A62C6E465F00D03DC1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5FD1A42C6E465F00D03DC1 /* SceneDelegate.swift */; };
 		4A6DD5012B10F2190083EE2C /* Broadcast Extension - SwiftUI.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 4A6DD4F92B10F2190083EE2C /* Broadcast Extension - SwiftUI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		4A75B84E2D5522EA009CD9DF /* CobrowseSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 4A75B84D2D5522EA009CD9DF /* CobrowseSDK */; };
-		4A75B8502D5522F0009CD9DF /* CobrowseSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 4A75B84F2D5522F0009CD9DF /* CobrowseSDK */; };
 		4A75B8512D5522F6009CD9DF /* Cobrowse.app in Resources */ = {isa = PBXBuildFile; fileRef = 4AEEDB3329DF0743009B7208 /* Cobrowse.app */; };
-		4A75B8552D5522FB009CD9DF /* CobrowseSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 4A75B8542D5522FB009CD9DF /* CobrowseSDK */; };
-		4A75B8572D552308009CD9DF /* CobrowseSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 4A75B8562D552308009CD9DF /* CobrowseSDK */; };
-		4A75B8592D55230D009CD9DF /* CobrowseSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 4A75B8582D55230D009CD9DF /* CobrowseSDK */; };
 		4A77B5C92C52EE5B0059D87F /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 4A163D742BD95E94004F8658 /* PrivacyInfo.xcprivacy */; };
 		4A77B5D22C52F1650059D87F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A163D6D2BD95E94004F8658 /* Assets.xcassets */; };
 		4A77B5D32C52F1F00059D87F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A163D712BD95E94004F8658 /* LaunchScreen.storyboard */; };
@@ -158,6 +153,11 @@
 		4AC85E0F2C19D491001338EF /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 4AC85E0E2C19D491001338EF /* DGCharts */; };
 		4AE2BAAC2C9D1D0200FF6ED0 /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AC7E51B29F94CEF00722B29 /* ReplayKit.framework */; };
 		4AF1CD5C29FA61B200261E25 /* Broadcast Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 4AC7E51929F94CEF00722B29 /* Broadcast Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		6020FCE02EC4C4F8005FF143 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 6020FCDF2EC4C4F8005FF143 /* Lottie */; };
+		6020FCE72EC4C8FC005FF143 /* money.json in Resources */ = {isa = PBXBuildFile; fileRef = 6020FCE62EC4C8FC005FF143 /* money.json */; };
+		6020FCE82EC4C8FC005FF143 /* money.json in Resources */ = {isa = PBXBuildFile; fileRef = 6020FCE62EC4C8FC005FF143 /* money.json */; };
+		6020FCFB2EC4D056005FF143 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 6020FCFA2EC4D056005FF143 /* Lottie */; };
+		6020FCFC2EC4D068005FF143 /* money.json in Resources */ = {isa = PBXBuildFile; fileRef = 6020FCE62EC4C8FC005FF143 /* money.json */; };
 		60C3FDC12E685E8D00B26F09 /* SessionMetricsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3FDC02E685E8D00B26F09 /* SessionMetricsButton.swift */; };
 		60C3FDC22E685E8D00B26F09 /* SessionMetricsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3FDC02E685E8D00B26F09 /* SessionMetricsButton.swift */; };
 		60C3FDC72E68845600B26F09 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3FDC62E68845600B26F09 /* String.swift */; };
@@ -166,6 +166,12 @@
 		60C3FDCB2E6884AF00B26F09 /* SessionMetricsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3FDC92E6884AF00B26F09 /* SessionMetricsTableViewController.swift */; };
 		60C3FDCD2E68886000B26F09 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3FDCC2E68885900B26F09 /* Double.swift */; };
 		60C3FDCE2E68886000B26F09 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3FDCC2E68885900B26F09 /* Double.swift */; };
+		60F27D8A2EC4E8E100289DD3 /* CobrowseSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 60F27D892EC4E8E100289DD3 /* CobrowseSDK */; };
+		60F27D8C2EC4E8E700289DD3 /* CobrowseSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 60F27D8B2EC4E8E700289DD3 /* CobrowseSDK */; };
+		60F27D8E2EC4E8EE00289DD3 /* CobrowseSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 60F27D8D2EC4E8EE00289DD3 /* CobrowseSDK */; };
+		60F27D902EC4E8F300289DD3 /* CobrowseSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 60F27D8F2EC4E8F300289DD3 /* CobrowseSDK */; };
+		60F27D922EC4E8FA00289DD3 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 60F27D912EC4E8FA00289DD3 /* Lottie */; };
+		60F27D942EC4E8FA00289DD3 /* CobrowseSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 60F27D932EC4E8FA00289DD3 /* CobrowseSDK */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -204,16 +210,6 @@
 			name = "Embed App Clips";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4A3513F02CD507EB00B7FE21 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		4A6DD4F32B10DCD10083EE2C /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -223,26 +219,6 @@
 				4A6DD5012B10F2190083EE2C /* Broadcast Extension - SwiftUI.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4A75B8432D498A21009CD9DF /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4AD30CCB2CF5EAB7002DD63E /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-			);
-			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		4AF1CD5F29FA61B300261E25 /* Embed Foundation Extensions */ = {
@@ -359,6 +335,7 @@
 		4AC7E51929F94CEF00722B29 /* Broadcast Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Broadcast Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AC7E51B29F94CEF00722B29 /* ReplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReplayKit.framework; path = System/Library/Frameworks/ReplayKit.framework; sourceTree = SDKROOT; };
 		4AEEDB3329DF0743009B7208 /* Cobrowse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cobrowse.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6020FCE62EC4C8FC005FF143 /* money.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = money.json; sourceTree = "<group>"; };
 		60C3FDC02E685E8D00B26F09 /* SessionMetricsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionMetricsButton.swift; sourceTree = "<group>"; };
 		60C3FDC62E68845600B26F09 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		60C3FDC92E6884AF00B26F09 /* SessionMetricsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionMetricsTableViewController.swift; sourceTree = "<group>"; };
@@ -371,7 +348,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A163E2B2BD95FE6004F8658 /* DGCharts in Frameworks */,
-				4A75B8592D55230D009CD9DF /* CobrowseSDK in Frameworks */,
+				60F27D922EC4E8FA00289DD3 /* Lottie in Frameworks */,
+				60F27D942EC4E8FA00289DD3 /* CobrowseSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,7 +357,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A75B8552D5522FB009CD9DF /* CobrowseSDK in Frameworks */,
+				6020FCFB2EC4D056005FF143 /* Lottie in Frameworks */,
+				60F27D8E2EC4E8EE00289DD3 /* CobrowseSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,7 +367,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AE2BAAC2C9D1D0200FF6ED0 /* ReplayKit.framework in Frameworks */,
-				4A75B8572D552308009CD9DF /* CobrowseSDK in Frameworks */,
+				60F27D902EC4E8F300289DD3 /* CobrowseSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,7 +376,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AC7E51C29F94CEF00722B29 /* ReplayKit.framework in Frameworks */,
-				4A75B8502D5522F0009CD9DF /* CobrowseSDK in Frameworks */,
+				60F27D8C2EC4E8E700289DD3 /* CobrowseSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,7 +385,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AC85E0F2C19D491001338EF /* DGCharts in Frameworks */,
-				4A75B84E2D5522EA009CD9DF /* CobrowseSDK in Frameworks */,
+				6020FCE02EC4C4F8005FF143 /* Lottie in Frameworks */,
+				60F27D8A2EC4E8E100289DD3 /* CobrowseSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -518,6 +498,7 @@
 				4A163D632BD95E94004F8658 /* ViewControllers */,
 				4A163D662BD95E94004F8658 /* Views */,
 				4A163D6B2BD95E94004F8658 /* WebContent */,
+				6020FCE12EC4C513005FF143 /* Recources */,
 				4A163D712BD95E94004F8658 /* LaunchScreen.storyboard */,
 				4A163D732BD95E94004F8658 /* Main.storyboard */,
 				4A163D6F2BD95E94004F8658 /* Info.plist */,
@@ -667,6 +648,22 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		6020FCE12EC4C513005FF143 /* Recources */ = {
+			isa = PBXGroup;
+			children = (
+				6020FCE22EC4C524005FF143 /* Lottie */,
+			);
+			path = Recources;
+			sourceTree = "<group>";
+		};
+		6020FCE22EC4C524005FF143 /* Lottie */ = {
+			isa = PBXGroup;
+			children = (
+				6020FCE62EC4C8FC005FF143 /* money.json */,
+			);
+			path = Lottie;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -677,7 +674,6 @@
 				4A163DE72BD95F67004F8658 /* Sources */,
 				4A163DE82BD95F67004F8658 /* Frameworks */,
 				4A163DE92BD95F67004F8658 /* Resources */,
-				4A3513F02CD507EB00B7FE21 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -686,7 +682,8 @@
 			name = "Cobrowse App Clip";
 			packageProductDependencies = (
 				4A163E2A2BD95FE6004F8658 /* DGCharts */,
-				4A75B8582D55230D009CD9DF /* CobrowseSDK */,
+				60F27D912EC4E8FA00289DD3 /* Lottie */,
+				60F27D932EC4E8FA00289DD3 /* CobrowseSDK */,
 			);
 			productName = "Cobrowse App Clip";
 			productReference = 4A163DEB2BD95F67004F8658 /* Cobrowse App Clip.app */;
@@ -709,7 +706,8 @@
 			);
 			name = "Cobrowse - SwiftUI";
 			packageProductDependencies = (
-				4A75B8542D5522FB009CD9DF /* CobrowseSDK */,
+				6020FCFA2EC4D056005FF143 /* Lottie */,
+				60F27D8D2EC4E8EE00289DD3 /* CobrowseSDK */,
 			);
 			productName = "Cobrowse - SwiftUI";
 			productReference = 4A4CEC0D2B067954004BD263 /* Cobrowse - SwiftUI.app */;
@@ -729,7 +727,7 @@
 			);
 			name = "Broadcast Extension - SwiftUI";
 			packageProductDependencies = (
-				4A75B8562D552308009CD9DF /* CobrowseSDK */,
+				60F27D8F2EC4E8F300289DD3 /* CobrowseSDK */,
 			);
 			productName = "Broadcast Extension - SwiftUI";
 			productReference = 4A6DD4F92B10F2190083EE2C /* Broadcast Extension - SwiftUI.appex */;
@@ -742,7 +740,6 @@
 				4AC7E51529F94CEF00722B29 /* Sources */,
 				4AC7E51629F94CEF00722B29 /* Frameworks */,
 				4AC7E51729F94CEF00722B29 /* Resources */,
-				4A75B8432D498A21009CD9DF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -750,7 +747,7 @@
 			);
 			name = "Broadcast Extension";
 			packageProductDependencies = (
-				4A75B84F2D5522F0009CD9DF /* CobrowseSDK */,
+				60F27D8B2EC4E8E700289DD3 /* CobrowseSDK */,
 			);
 			productName = "Broadcast Extension";
 			productReference = 4AC7E51929F94CEF00722B29 /* Broadcast Extension.appex */;
@@ -765,7 +762,6 @@
 				4AEEDB3129DF0743009B7208 /* Resources */,
 				4AF1CD5F29FA61B300261E25 /* Embed Foundation Extensions */,
 				4A163E032BD95F68004F8658 /* Embed App Clips */,
-				4AD30CCB2CF5EAB7002DD63E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -775,7 +771,8 @@
 			name = Cobrowse;
 			packageProductDependencies = (
 				4AC85E0E2C19D491001338EF /* DGCharts */,
-				4A75B84D2D5522EA009CD9DF /* CobrowseSDK */,
+				6020FCDF2EC4C4F8005FF143 /* Lottie */,
+				60F27D892EC4E8E100289DD3 /* CobrowseSDK */,
 			);
 			productName = Cobrowse;
 			productReference = 4AEEDB3329DF0743009B7208 /* Cobrowse.app */;
@@ -819,7 +816,8 @@
 			mainGroup = 4AEEDB2A29DF0743009B7208;
 			packageReferences = (
 				4AF1CD6829FA68A700261E25 /* XCRemoteSwiftPackageReference "Charts" */,
-				4A75B84C2D5522EA009CD9DF /* XCRemoteSwiftPackageReference "cobrowse-sdk-ios-binary" */,
+				6020FCDE2EC4C4F8005FF143 /* XCRemoteSwiftPackageReference "lottie-spm" */,
+				60F27D882EC4E8E100289DD3 /* XCRemoteSwiftPackageReference "cobrowse-sdk-ios-binary" */,
 			);
 			productRefGroup = 4AEEDB3429DF0743009B7208 /* Products */;
 			projectDirPath = "";
@@ -841,6 +839,7 @@
 			files = (
 				4A77B5D32C52F1F00059D87F /* LaunchScreen.storyboard in Resources */,
 				4A77B5D22C52F1650059D87F /* Assets.xcassets in Resources */,
+				6020FCE72EC4C8FC005FF143 /* money.json in Resources */,
 				4A163E2E2BD96106004F8658 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -851,6 +850,7 @@
 			files = (
 				4A77B5C92C52EE5B0059D87F /* PrivacyInfo.xcprivacy in Resources */,
 				4A15849F2C6E4E30003B773A /* Assets.xcassets in Resources */,
+				6020FCFC2EC4D068005FF143 /* money.json in Resources */,
 				4A163DD12BD95EFE004F8658 /* Preview Assets.xcassets in Resources */,
 				4A75B8512D5522F6009CD9DF /* Cobrowse.app in Resources */,
 			);
@@ -878,6 +878,7 @@
 				4A163DA02BD95E94004F8658 /* index.html in Resources */,
 				4A163DA62BD95E94004F8658 /* PrivacyInfo.xcprivacy in Resources */,
 				4A163DA52BD95E94004F8658 /* Main.storyboard in Resources */,
+				6020FCE82EC4C8FC005FF143 /* money.json in Resources */,
 				4A163DA42BD95E94004F8658 /* LaunchScreen.storyboard in Resources */,
 				4A163D9F2BD95E94004F8658 /* fraud.html in Resources */,
 				4A163DA22BD95E94004F8658 /* Assets.xcassets in Resources */,
@@ -1597,20 +1598,28 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		4A75B84C2D5522EA009CD9DF /* XCRemoteSwiftPackageReference "cobrowse-sdk-ios-binary" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/cobrowseio/cobrowse-sdk-ios-binary";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.0;
-			};
-		};
 		4AF1CD6829FA68A700261E25 /* XCRemoteSwiftPackageReference "Charts" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/danielgindi/Charts.git";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 5.0.0;
+			};
+		};
+		6020FCDE2EC4C4F8005FF143 /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.5.2;
+			};
+		};
+		60F27D882EC4E8E100289DD3 /* XCRemoteSwiftPackageReference "cobrowse-sdk-ios-binary" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/cobrowseio/cobrowse-sdk-ios-binary.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.13.3;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -1621,35 +1630,50 @@
 			package = 4AF1CD6829FA68A700261E25 /* XCRemoteSwiftPackageReference "Charts" */;
 			productName = DGCharts;
 		};
-		4A75B84D2D5522EA009CD9DF /* CobrowseSDK */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4A75B84C2D5522EA009CD9DF /* XCRemoteSwiftPackageReference "cobrowse-sdk-ios-binary" */;
-			productName = CobrowseSDK;
-		};
-		4A75B84F2D5522F0009CD9DF /* CobrowseSDK */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4A75B84C2D5522EA009CD9DF /* XCRemoteSwiftPackageReference "cobrowse-sdk-ios-binary" */;
-			productName = CobrowseSDK;
-		};
-		4A75B8542D5522FB009CD9DF /* CobrowseSDK */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4A75B84C2D5522EA009CD9DF /* XCRemoteSwiftPackageReference "cobrowse-sdk-ios-binary" */;
-			productName = CobrowseSDK;
-		};
-		4A75B8562D552308009CD9DF /* CobrowseSDK */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4A75B84C2D5522EA009CD9DF /* XCRemoteSwiftPackageReference "cobrowse-sdk-ios-binary" */;
-			productName = CobrowseSDK;
-		};
-		4A75B8582D55230D009CD9DF /* CobrowseSDK */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4A75B84C2D5522EA009CD9DF /* XCRemoteSwiftPackageReference "cobrowse-sdk-ios-binary" */;
-			productName = CobrowseSDK;
-		};
 		4AC85E0E2C19D491001338EF /* DGCharts */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 4AF1CD6829FA68A700261E25 /* XCRemoteSwiftPackageReference "Charts" */;
 			productName = DGCharts;
+		};
+		6020FCDF2EC4C4F8005FF143 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6020FCDE2EC4C4F8005FF143 /* XCRemoteSwiftPackageReference "lottie-spm" */;
+			productName = Lottie;
+		};
+		6020FCFA2EC4D056005FF143 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6020FCDE2EC4C4F8005FF143 /* XCRemoteSwiftPackageReference "lottie-spm" */;
+			productName = Lottie;
+		};
+		60F27D892EC4E8E100289DD3 /* CobrowseSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 60F27D882EC4E8E100289DD3 /* XCRemoteSwiftPackageReference "cobrowse-sdk-ios-binary" */;
+			productName = CobrowseSDK;
+		};
+		60F27D8B2EC4E8E700289DD3 /* CobrowseSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 60F27D882EC4E8E100289DD3 /* XCRemoteSwiftPackageReference "cobrowse-sdk-ios-binary" */;
+			productName = CobrowseSDK;
+		};
+		60F27D8D2EC4E8EE00289DD3 /* CobrowseSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 60F27D882EC4E8E100289DD3 /* XCRemoteSwiftPackageReference "cobrowse-sdk-ios-binary" */;
+			productName = CobrowseSDK;
+		};
+		60F27D8F2EC4E8F300289DD3 /* CobrowseSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 60F27D882EC4E8E100289DD3 /* XCRemoteSwiftPackageReference "cobrowse-sdk-ios-binary" */;
+			productName = CobrowseSDK;
+		};
+		60F27D912EC4E8FA00289DD3 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6020FCDE2EC4C4F8005FF143 /* XCRemoteSwiftPackageReference "lottie-spm" */;
+			productName = Lottie;
+		};
+		60F27D932EC4E8FA00289DD3 /* CobrowseSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 60F27D882EC4E8E100289DD3 /* XCRemoteSwiftPackageReference "cobrowse-sdk-ios-binary" */;
+			productName = CobrowseSDK;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
