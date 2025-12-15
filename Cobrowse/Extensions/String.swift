@@ -2,8 +2,10 @@
 import Foundation
 
 extension String {
-    
-    static func == (lhs: String, rhs: Segue) -> Bool {
-        return lhs == rhs.rawValue as String
+
+    var accessibilityIdentifier: String {
+        replacingOccurrences(of: " ", with: "_")
+            .replacingOccurrences(of: "#", with: "")
+            .uppercased()
     }
 }

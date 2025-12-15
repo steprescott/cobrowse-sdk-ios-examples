@@ -19,7 +19,6 @@ struct AccountView: View {
         NavigationStack {
             VStack {
                 Heading()
-                    .cobrowseSelector(tag: "Heading")
 
                 Spacer()
                 
@@ -110,7 +109,6 @@ extension AccountView.Heading {
                     .accessibilityIdentifier("ACCOUNT_EMAIL")
                     .cobrowseRedacted()
             }
-            .cobrowseSelector(tag: "VStack")
         }
     }
 }

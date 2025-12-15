@@ -15,6 +15,7 @@ struct SettingsView: View {
             ForEach(settings) { setting in
                 Toggle(setting.title, isOn: setting.binding)
                     .tint(Color.cbPrimary)
+                    .accessibilityIdentifier(setting.title.accessibilityIdentifier)
             }
             
             HStack {

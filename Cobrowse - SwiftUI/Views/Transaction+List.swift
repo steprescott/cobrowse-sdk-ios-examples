@@ -25,9 +25,9 @@ extension Transaction {
                 SwiftUI.List {
                     ForEach(transactionsByMonth, id: \.key) { (date, transactions) in
                         Section(header: Text(date.string!)) {
-                            ForEach(transactions) { transaction in
+                            ForEach(transactions) { index, transaction in
                                 Item(for: transaction)
-                                    .cobrowseSelector(tag: "Item")
+                                    .accessibilityIdentifier("TRANSACTION_\(index + 1)")
                             }
                         }
                     }
