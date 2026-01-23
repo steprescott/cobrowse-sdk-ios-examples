@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24412" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8pv-yA-Iqa">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8pv-yA-Iqa">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24405"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24504"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -188,8 +188,23 @@
                                         <color key="textColor" name="Text"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <view contentMode="scaleToFill" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="Szc-0N-v5o">
+                                        <rect key="frame" x="16" y="199" width="361" height="10"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="10" id="3xD-dN-U8v"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EYD-Dl-WJL">
+                                        <rect key="frame" x="16" y="213" width="361" height="34.333333333333343"/>
+                                        <color key="tintColor" name="CBPrimary"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Account summary"/>
+                                        <connections>
+                                            <segue destination="dKZ-kf-mcv" kind="show" id="T84-kL-pW1"/>
+                                        </connections>
+                                    </button>
                                     <view contentMode="scaleToFill" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="uK7-rv-9St">
-                                        <rect key="frame" x="16" y="199" width="361" height="216"/>
+                                        <rect key="frame" x="16" y="251.33333333333331" width="361" height="163.66666666666669"/>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hWO-mm-VV5">
                                         <rect key="frame" x="16" y="419" width="361" height="177"/>
@@ -295,7 +310,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zPI-GI-jIf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1824" y="-982"/>
+            <point key="canvasLocation" x="1824" y="-1381"/>
+        </scene>
+        <!--Account summary-->
+        <scene sceneID="ZjK-5z-dTW">
+            <objects>
+                <viewController id="dKZ-kf-mcv" customClass="AccountSummaryViewController" customModule="Cobrowse" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zEI-xV-E27">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="RSP-X2-elr"/>
+                        <color key="backgroundColor" name="Background"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Account summary" id="SDi-nU-USg"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fD6-wr-eXk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2653" y="-2073"/>
         </scene>
         <!--Agent Present-->
         <scene sceneID="fjP-Ad-77T">
@@ -441,7 +472,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sEs-J7-an6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2653" y="-1321"/>
+            <point key="canvasLocation" x="2653" y="-1382"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wfR-9q-QxI">
@@ -459,7 +490,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gBA-vp-bDp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="949" y="-982"/>
+            <point key="canvasLocation" x="949" y="-1381"/>
         </scene>
         <!--Transactions-->
         <scene sceneID="B1l-Uc-ofF">
@@ -1118,14 +1149,14 @@
         </scene>
     </scenes>
     <resources>
-        <image name="basket.fill" catalog="system" width="128" height="108"/>
-        <image name="gearshape" catalog="system" width="128" height="123"/>
-        <image name="person.crop.circle" catalog="system" width="128" height="123"/>
-        <image name="person.crop.circle.fill" catalog="system" width="128" height="123"/>
-        <image name="rectangle.badge.xmark" catalog="system" width="128" height="97"/>
-        <image name="rectangle.inset.filled.and.person.filled" catalog="system" width="128" height="89"/>
-        <image name="sterlingsign.square" catalog="system" width="128" height="114"/>
-        <image name="xmark" catalog="system" width="128" height="113"/>
+        <image name="basket.fill" catalog="system" width="32" height="32"/>
+        <image name="gearshape" catalog="system" width="32" height="32"/>
+        <image name="person.crop.circle" catalog="system" width="32" height="32"/>
+        <image name="person.crop.circle.fill" catalog="system" width="32" height="32"/>
+        <image name="rectangle.badge.xmark" catalog="system" width="32" height="32"/>
+        <image name="rectangle.inset.filled.and.person.filled" catalog="system" width="32" height="32"/>
+        <image name="sterlingsign.square" catalog="system" width="32" height="32"/>
+        <image name="xmark" catalog="system" width="32" height="32"/>
         <namedColor name="Background">
             <color red="0.97299998998641968" green="0.96899998188018799" blue="0.99599999189376831" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

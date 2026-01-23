@@ -84,6 +84,15 @@ extension AccountView {
                     name: "Frank Spencer",
                     email: "f.spencer@example.com"
                 )
+
+                NavigationLink(destination: AccountSummaryView()
+                    .navigationTitle("Account summary")
+                ) {
+                    Text("Account summary")
+                        .foregroundColor(Color.cbPrimary)
+                }
+                .padding(.top, 10)
+                .accessibilityIdentifier("ACCOUNT_SUMMARY_BUTTON")
             }
         }
     }

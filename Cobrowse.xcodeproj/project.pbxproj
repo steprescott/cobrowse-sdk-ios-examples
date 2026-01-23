@@ -158,6 +158,15 @@
 		6020FCE82EC4C8FC005FF143 /* money.json in Resources */ = {isa = PBXBuildFile; fileRef = 6020FCE62EC4C8FC005FF143 /* money.json */; };
 		6020FCFB2EC4D056005FF143 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 6020FCFA2EC4D056005FF143 /* Lottie */; };
 		6020FCFC2EC4D068005FF143 /* money.json in Resources */ = {isa = PBXBuildFile; fileRef = 6020FCE62EC4C8FC005FF143 /* money.json */; };
+		609D89232F2380AF00EE3D0E /* AccountSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609D88B52F237C9F00EE3D0E /* AccountSummaryView.swift */; };
+		609D89242F2380C500EE3D0E /* AccountSummaryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609D88B72F237E6A00EE3D0E /* AccountSummaryDataSource.swift */; };
+		609D89252F2380C500EE3D0E /* AccountSummaryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609D88B72F237E6A00EE3D0E /* AccountSummaryDataSource.swift */; };
+		609D89262F2380C500EE3D0E /* AccountSummaryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609D88B72F237E6A00EE3D0E /* AccountSummaryDataSource.swift */; };
+		609D89272F2380CF00EE3D0E /* AccountSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609D88AF2F23781200EE3D0E /* AccountSummaryViewController.swift */; };
+		609D89282F2380CF00EE3D0E /* AccountSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609D88AF2F23781200EE3D0E /* AccountSummaryViewController.swift */; };
+		609D89292F2380E500EE3D0E /* account_summary.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 4A163D672BD95E94004F8658 /* account_summary.pdf */; };
+		609D892A2F2380E500EE3D0E /* account_summary.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 4A163D672BD95E94004F8658 /* account_summary.pdf */; };
+		609D892B2F2380E500EE3D0E /* account_summary.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 4A163D672BD95E94004F8658 /* account_summary.pdf */; };
 		60C3FDC12E685E8D00B26F09 /* SessionMetricsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3FDC02E685E8D00B26F09 /* SessionMetricsButton.swift */; };
 		60C3FDC22E685E8D00B26F09 /* SessionMetricsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3FDC02E685E8D00B26F09 /* SessionMetricsButton.swift */; };
 		60C3FDC72E68845600B26F09 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3FDC62E68845600B26F09 /* String.swift */; };
@@ -338,6 +347,9 @@
 		4AC7E51B29F94CEF00722B29 /* ReplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReplayKit.framework; path = System/Library/Frameworks/ReplayKit.framework; sourceTree = SDKROOT; };
 		4AEEDB3329DF0743009B7208 /* Cobrowse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cobrowse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6020FCE62EC4C8FC005FF143 /* money.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = money.json; sourceTree = "<group>"; };
+		609D88AF2F23781200EE3D0E /* AccountSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSummaryViewController.swift; sourceTree = "<group>"; };
+		609D88B52F237C9F00EE3D0E /* AccountSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSummaryView.swift; sourceTree = "<group>"; };
+		609D88B72F237E6A00EE3D0E /* AccountSummaryDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSummaryDataSource.swift; sourceTree = "<group>"; };
 		60C3FDC02E685E8D00B26F09 /* SessionMetricsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionMetricsButton.swift; sourceTree = "<group>"; };
 		60C3FDC62E68845600B26F09 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		60C3FDC92E6884AF00B26F09 /* SessionMetricsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionMetricsTableViewController.swift; sourceTree = "<group>"; };
@@ -429,6 +441,7 @@
 		4A163D522BD95E94004F8658 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				609D88B72F237E6A00EE3D0E /* AccountSummaryDataSource.swift */,
 				4A163D4D2BD95E94004F8658 /* DeepLiker.swift */,
 				4A5FD16E2C6E431600D03DC1 /* Demo.swift */,
 				4A163D4E2BD95E94004F8658 /* Formatters.swift */,
@@ -454,6 +467,7 @@
 		4A163D632BD95E94004F8658 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				609D88AF2F23781200EE3D0E /* AccountSummaryViewController.swift */,
 				4A163D5A2BD95E94004F8658 /* AccountViewController.swift */,
 				4A163D5B2BD95E94004F8658 /* AgentPresentViewController.swift */,
 				4A163D5C2BD95E94004F8658 /* ChartViewController.swift */,
@@ -588,6 +602,7 @@
 		4A5FD1932C6E45EE00D03DC1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				609D88B52F237C9F00EE3D0E /* AccountSummaryView.swift */,
 				4A5FD1842C6E45EE00D03DC1 /* AccountView.swift */,
 				4A5FD1852C6E45EE00D03DC1 /* AgentPresentView.swift */,
 				4A5FD1862C6E45EE00D03DC1 /* CodeInput.swift */,
@@ -843,6 +858,7 @@
 			files = (
 				4A77B5D32C52F1F00059D87F /* LaunchScreen.storyboard in Resources */,
 				4A77B5D22C52F1650059D87F /* Assets.xcassets in Resources */,
+				609D892B2F2380E500EE3D0E /* account_summary.pdf in Resources */,
 				6020FCE72EC4C8FC005FF143 /* money.json in Resources */,
 				4A163E2E2BD96106004F8658 /* Main.storyboard in Resources */,
 			);
@@ -853,6 +869,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A77B5C92C52EE5B0059D87F /* PrivacyInfo.xcprivacy in Resources */,
+				609D892A2F2380E500EE3D0E /* account_summary.pdf in Resources */,
 				4A15849F2C6E4E30003B773A /* Assets.xcassets in Resources */,
 				6020FCFC2EC4D068005FF143 /* money.json in Resources */,
 				4A163DD12BD95EFE004F8658 /* Preview Assets.xcassets in Resources */,
@@ -882,6 +899,7 @@
 				4A163DA02BD95E94004F8658 /* index.html in Resources */,
 				4A163DA62BD95E94004F8658 /* PrivacyInfo.xcprivacy in Resources */,
 				4A163DA52BD95E94004F8658 /* Main.storyboard in Resources */,
+				609D89292F2380E500EE3D0E /* account_summary.pdf in Resources */,
 				6020FCE82EC4C8FC005FF143 /* money.json in Resources */,
 				4A163DA42BD95E94004F8658 /* LaunchScreen.storyboard in Resources */,
 				4A163D9F2BD95E94004F8658 /* fraud.html in Resources */,
@@ -906,6 +924,7 @@
 				60C3FDCB2E6884AF00B26F09 /* SessionMetricsTableViewController.swift in Sources */,
 				4A163E0A2BD95FA8004F8658 /* UIViewController.swift in Sources */,
 				4A163E0B2BD95FA8004F8658 /* Locale.Currency+UIKit.swift in Sources */,
+				609D89282F2380CF00EE3D0E /* AccountSummaryViewController.swift in Sources */,
 				4A163E0C2BD95FA8004F8658 /* DeepLiker.swift in Sources */,
 				4A163E0D2BD95FA8004F8658 /* SheetPresentationDelegate.swift in Sources */,
 				4A163E1F2BD95FB5004F8658 /* ChartViewController.swift in Sources */,
@@ -923,6 +942,7 @@
 				4A163E292BD95FB5004F8658 /* AccountViewController.swift in Sources */,
 				4A163E0E2BD95FA8004F8658 /* CobrowseSession+UIKit.swift in Sources */,
 				4A163E0F2BD95FA8004F8658 /* Transaction.swift in Sources */,
+				609D89262F2380C500EE3D0E /* AccountSummaryDataSource.swift in Sources */,
 				4A163E102BD95FA8004F8658 /* UITextField.swift in Sources */,
 				4A163E112BD95FA8004F8658 /* Publisher.swift in Sources */,
 				4A163E122BD95FA8004F8658 /* Identifiers.swift in Sources */,
@@ -980,11 +1000,13 @@
 				4A163E3A2BD962F3004F8658 /* Formatters.swift in Sources */,
 				4A163DCC2BD95EFE004F8658 /* CBIOSession.swift in Sources */,
 				4A163DCF2BD95EFE004F8658 /* Navigation.swift in Sources */,
+				609D89252F2380C500EE3D0E /* AccountSummaryDataSource.swift in Sources */,
 				4A163E2F2BD96287004F8658 /* Transaction.swift in Sources */,
 				4A163DD32BD95EFE004F8658 /* SessionToolBar.swift in Sources */,
 				4A5FD1952C6E45EE00D03DC1 /* AgentPresentView.swift in Sources */,
 				4A5FD1A02C6E45EE00D03DC1 /* Transaction+List.swift in Sources */,
 				4A5FD19C2C6E45EE00D03DC1 /* Shake.swift in Sources */,
+				609D89232F2380AF00EE3D0E /* AccountSummaryView.swift in Sources */,
 				4AB597772E69D3B8008D1FFB /* Latency.swift in Sources */,
 				4A163DCD2BD95EFE004F8658 /* CobrowseIO.swift in Sources */,
 				4A163DE12BD95EFE004F8658 /* Cobrowse.swift in Sources */,
@@ -1024,6 +1046,7 @@
 				60C3FDCA2E6884AF00B26F09 /* SessionMetricsTableViewController.swift in Sources */,
 				4A163DA12BD95E94004F8658 /* AppDelegate.swift in Sources */,
 				4A163D762BD95E94004F8658 /* Array.swift in Sources */,
+				609D89272F2380CF00EE3D0E /* AccountSummaryViewController.swift in Sources */,
 				4A163D992BD95E94004F8658 /* TransactionTableViewController.swift in Sources */,
 				4A163D7E2BD95E94004F8658 /* RawRepresentable.swift in Sources */,
 				4A163D962BD95E94004F8658 /* FullDeviceConsentPromptViewController.swift in Sources */,
@@ -1041,6 +1064,7 @@
 				4A163D8E2BD95E94004F8658 /* CobrowseSession+UIKit.swift in Sources */,
 				4A163D842BD95E94004F8658 /* UIView.swift in Sources */,
 				4A163D912BD95E94004F8658 /* Transaction+UIKit.swift in Sources */,
+				609D89242F2380C500EE3D0E /* AccountSummaryDataSource.swift in Sources */,
 				4A163D882BD95E94004F8658 /* Formatters.swift in Sources */,
 				4A163D922BD95E94004F8658 /* AccountViewController.swift in Sources */,
 				4A163D8F2BD95E94004F8658 /* Transaction.swift in Sources */,
