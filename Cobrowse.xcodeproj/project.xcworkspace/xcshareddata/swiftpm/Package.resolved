@@ -1,5 +1,5 @@
 {
-  "originHash" : "1c46e4f1da7e659a9809414c9c1763726b7bf0ff9983c23ebff18d86fc02dfef",
+  "originHash" : "6dc5db792d4709ea2176dd5579fc61228c9779c7e0d1221635a388b6e27a921e",
   "pins" : [
     {
       "identity" : "charts",
@@ -13,10 +13,19 @@
     {
       "identity" : "cobrowse-sdk-ios-binary",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/cobrowseio/cobrowse-sdk-ios-binary",
+      "location" : "https://github.com/cobrowseio/cobrowse-sdk-ios-binary.git",
       "state" : {
-        "revision" : "c8390d5ea9ad38861caaee317b606cdad498fff3",
-        "version" : "3.9.0"
+        "revision" : "70daf0a751381bf073215fb484236bc755505bff",
+        "version" : "3.13.7"
+      }
+    },
+    {
+      "identity" : "lottie-spm",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/airbnb/lottie-spm.git",
+      "state" : {
+        "revision" : "69faaefa7721fba9e434a52c16adf4329c9084db",
+        "version" : "4.6.0"
       }
     }
   ],

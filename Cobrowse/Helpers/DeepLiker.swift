@@ -62,14 +62,20 @@ extension DeepLinker {
     @discardableResult
     private static func updateLicense(using components: URLComponents) -> Bool {
         
-        guard let license = components.path.split(separator: "/").last
+        guard let component = components.path.split(separator: "/").last
             else { return false }
         
-        let cobrowse = CobrowseIO.instance()
+        let license = String(component)
         
-        cobrowse.stop()
-        cobrowse.license = String(license)
-        cobrowse.start()
+        Task {
+            guard try await license.isKnown
+                else { return }
+            
+            let cobrowse = CobrowseIO.instance()
+            cobrowse.stop()
+            cobrowse.license = license
+            cobrowse.start()
+        }
         
         return true
     }
@@ -98,7 +104,7 @@ extension DeepLinker {
         } else if let code = components.path.split(separator: "/").last {
             return startSession(with: String(code))
         }
-            
+        
         return false
     }
     
@@ -133,7 +139,7 @@ extension DeepLinker {
             if let license = queryItems.pop("license") {
                 cobrowse.license = license
             }
-
+            
             var components = components
             components.queryItems = queryItems
             
@@ -141,7 +147,7 @@ extension DeepLinker {
             
             cobrowse.start()
         }
-
+        
         if !account.isSignedIn {
             account.isSignedIn = true
         }
@@ -164,4 +170,12 @@ extension DeepLinker {
         return true
     }
     #endif
+}
+
+fileprivate extension String {
+    var isKnown: Bool {
+        get async throws {
+            try await License.isKnown(self)
+        }
+    }
 }
