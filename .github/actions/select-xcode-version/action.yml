@@ -6,7 +6,7 @@ runs:
   steps:
     - name: Select Xcode version
       env:
-        XCODE_SELECTED_PATH: "/Applications/Xcode_16.0.app"
+        XCODE_SELECTED_PATH: "/Applications/Xcode_26.0.app"
       shell: bash
       run: |
         sudo xcode-select --switch ${XCODE_SELECTED_PATH}
