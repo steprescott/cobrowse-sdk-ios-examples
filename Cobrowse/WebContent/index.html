@@ -4,29 +4,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
     <title>Transaction</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <script src="cobrowse.js" type="text/javascript"></script>
 </head>
 
-<body class="min-h-screen">
-    <div id="receipt" class="w-full p-4 flex flex-col">
-        <div class="flex justify-between items-center mb-4">
-            <div class="flex flex-col">
-                <h1 id="title" class="redacted place-self-start text-xl font-bold text-gray-600 mb-1"><span class="icon">icon</span>Title</h1>
-                <h2 id="amount" class="redacted place-self-start text-lg text-purple-900 mb-1 "><span class="icon">icon</span>Amount</h2>
-                <div id="subtitle" class="redacted place-self-start text-sm text-gray-500 mb-1"><span class="icon">icon</span>Subtitle</div>
+<body>
+    <div id="receipt">
+        <div class="receipt-header">
+            <div class="receipt-info">
+                <h1 id="title" class="redacted"><span class="icon">icon</span>Title</h1>
+                <h2 id="amount" class="redacted"><span class="icon">icon</span>Amount</h2>
+                <div id="subtitle" class="redacted"><span class="icon">icon</span>Subtitle</div>
             </div>
-            <div id="category" class="flex items-center text-5xl text-blue-60"></div>
+            <div id="category"></div>
         </div>
-        <div id="map" class="redacted w-full p-4 h-96 mb-4 z-0 hidden"></div>
-        <div class="flex justify-center my-4">
-            <a href="fraud.html" class="bg-purple-700 hover:bg-purple-900 text-white font-bold py-2 px-4 rounded">
-                Don't recognise this?
-            </a>
+        <div id="map" class="redacted hidden"></div>
+        <div class="receipt-action">
+            <a href="fraud.html" class="btn-primary">Don't recognise this?</a>
         </div>
     </div>
 
@@ -50,10 +49,9 @@
         const category = categories[getQueryParameter("category")];
 
         const iconClass = category?.icon || 'fa-question';
-        const iconColor = category?.color || '#000';
         const iconElem = document.createElement('i');
         iconElem.className = `fas ${iconClass} icon-fill`;
-        iconElem.style.color = iconColor;
+        iconElem.style.color = category?.color;
 
         const categoryElem = document.getElementById('category');
         categoryElem.appendChild(iconElem);
@@ -62,17 +60,16 @@
         const lng = parseFloat(getQueryParameter("lng")) || 150.644;
 
         const initMap = (lat, lng) => {
-            const map = L.map
-                ('map', {
-                    center: [lat, lng],
-                    zoom: 14,
-                    dragging: false,
-                    touchZoom: false,
-                    doubleClickZoom: false,
-                    scrollWheelZoom: false,
-                    boxZoom: false,
-                    zoomControl: false,
-                });
+            const map = L.map('map', {
+                center: [lat, lng],
+                zoom: 14,
+                dragging: false,
+                touchZoom: false,
+                doubleClickZoom: false,
+                scrollWheelZoom: false,
+                boxZoom: false,
+                zoomControl: false,
+            });
 
             const marker = new L.Icon({
                 iconUrl: 'https://cdn.jsdelivr.net/gh/pointhi/leaflet-color-markers@master/img/marker-icon-2x-violet.png',

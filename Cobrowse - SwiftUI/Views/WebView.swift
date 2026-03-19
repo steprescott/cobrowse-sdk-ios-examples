@@ -15,6 +15,9 @@ struct WebView: UIViewRepresentable {
     
     func makeUIView(context: Context) -> WKWebView {
         
+        webView.isOpaque = false
+        webView.backgroundColor = .webViewBackground
+        
         webView.load(URLRequest(url: url))
         
         return webView

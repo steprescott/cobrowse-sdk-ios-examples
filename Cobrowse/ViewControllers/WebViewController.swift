@@ -23,7 +23,7 @@ class WebViewController: UIViewController {
         SheetPresentationDelegate.subscribe(for: sessionButton, store: &bag)
         
         webView.navigationDelegate = self
-        
+
         guard let url = url
             else { return }
         

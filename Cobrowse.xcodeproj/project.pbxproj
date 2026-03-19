@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -46,6 +46,7 @@
 		4A163D9E2BD95E94004F8658 /* cobrowse.js in Resources */ = {isa = PBXBuildFile; fileRef = 4A163D682BD95E94004F8658 /* cobrowse.js */; };
 		4A163D9F2BD95E94004F8658 /* fraud.html in Resources */ = {isa = PBXBuildFile; fileRef = 4A163D692BD95E94004F8658 /* fraud.html */; };
 		4A163DA02BD95E94004F8658 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 4A163D6A2BD95E94004F8658 /* index.html */; };
+		CB000001000000000000001 /* styles.css in Resources */ = {isa = PBXBuildFile; fileRef = CB000001000000000000000 /* styles.css */; };
 		4A163DA12BD95E94004F8658 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A163D6C2BD95E94004F8658 /* AppDelegate.swift */; };
 		4A163DA22BD95E94004F8658 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A163D6D2BD95E94004F8658 /* Assets.xcassets */; };
 		4A163DA42BD95E94004F8658 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A163D712BD95E94004F8658 /* LaunchScreen.storyboard */; };
@@ -289,6 +290,7 @@
 		4A163D652BD95E94004F8658 /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
 		4A163D672BD95E94004F8658 /* account_summary.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = account_summary.pdf; sourceTree = "<group>"; };
 		4A163D682BD95E94004F8658 /* cobrowse.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = cobrowse.js; sourceTree = "<group>"; };
+		CB000001000000000000000 /* styles.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = styles.css; sourceTree = "<group>"; };
 		4A163D692BD95E94004F8658 /* fraud.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = fraud.html; sourceTree = "<group>"; };
 		4A163D6A2BD95E94004F8658 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		4A163D6C2BD95E94004F8658 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -508,6 +510,7 @@
 				4A163D6A2BD95E94004F8658 /* index.html */,
 				4A163D682BD95E94004F8658 /* cobrowse.js */,
 				4A163D672BD95E94004F8658 /* account_summary.pdf */,
+				CB000001000000000000000 /* styles.css */,
 			);
 			path = WebContent;
 			sourceTree = "<group>";

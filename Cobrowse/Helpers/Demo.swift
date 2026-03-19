@@ -27,19 +27,23 @@ struct Demo {
     @discardableResult
     static func setup() -> Bool {
         
-        guard !demo.id.isEmpty
-            else { return false }
+        #if APPCLIP
+        demo.license = "rE6HC6EDX6g2_w"
+        demo.id = Int.random(in: 1000..<9999).description
+        demo.deviceName = "AppClip iOS Device (\(demo.id))"
+        #endif
         
         let cobrowse = CobrowseIO.instance()
         
         cobrowse.license = demo.license
         cobrowse.api = demo.api
-        cobrowse.capabilities = ["drawing", "keypress", "laser", "pointer"]
+        cobrowse.customData = [ CBIODeviceNameKey: demo.deviceName ]
         
-        cobrowse.customData = [
-            CBIODeviceNameKey: demo.deviceName,
-            "demo_id": demo.id
-        ]
+        guard !demo.id.isEmpty
+            else { return true }
+        
+        cobrowse.customData = [ "demo_id": demo.id ]
+        cobrowse.capabilities = ["arrows", "disappearing_ink", "drawing", "keypress", "laser", "pointer", "rectangles"]
         
         account.isSignedIn = true
         

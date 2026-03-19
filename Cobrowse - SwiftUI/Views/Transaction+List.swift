@@ -33,7 +33,6 @@ extension Transaction {
                     }
                 }
                 .listStyle(.plain)
-                .background(Color.white)
                 .navigationTitle("Transactions")
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationDestination(for: Transaction.self, destination: { transaction in
