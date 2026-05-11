@@ -161,6 +161,8 @@
 		609D89262F2380C500EE3D0E /* AccountSummaryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609D88B72F237E6A00EE3D0E /* AccountSummaryDataSource.swift */; };
 		609D89272F2380CF00EE3D0E /* AccountSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609D88AF2F23781200EE3D0E /* AccountSummaryViewController.swift */; };
 		609D89282F2380CF00EE3D0E /* AccountSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609D88AF2F23781200EE3D0E /* AccountSummaryViewController.swift */; };
+		60AA00112F2380CF00EE3D0E /* PDFPreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60AA000A2F23781200EE3D0E /* PDFPreviewController.swift */; };
+		60AA00122F2380CF00EE3D0E /* PDFPreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60AA000A2F23781200EE3D0E /* PDFPreviewController.swift */; };
 		609D89292F2380E500EE3D0E /* account_summary.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 4A163D672BD95E94004F8658 /* account_summary.pdf */; };
 		609D892A2F2380E500EE3D0E /* account_summary.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 4A163D672BD95E94004F8658 /* account_summary.pdf */; };
 		609D892B2F2380E500EE3D0E /* account_summary.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 4A163D672BD95E94004F8658 /* account_summary.pdf */; };
@@ -351,6 +353,7 @@
 		4AC7E51B29F94CEF00722B29 /* ReplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReplayKit.framework; path = System/Library/Frameworks/ReplayKit.framework; sourceTree = SDKROOT; };
 		4AEEDB3329DF0743009B7208 /* Cobrowse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cobrowse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		609D88AF2F23781200EE3D0E /* AccountSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSummaryViewController.swift; sourceTree = "<group>"; };
+		60AA000A2F23781200EE3D0E /* PDFPreviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFPreviewController.swift; sourceTree = "<group>"; };
 		609D88B52F237C9F00EE3D0E /* AccountSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSummaryView.swift; sourceTree = "<group>"; };
 		609D88B72F237E6A00EE3D0E /* AccountSummaryDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSummaryDataSource.swift; sourceTree = "<group>"; };
 		60A22A942F44D91E0081CD39 /* License.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = License.swift; sourceTree = "<group>"; };
@@ -476,6 +479,7 @@
 			isa = PBXGroup;
 			children = (
 				609D88AF2F23781200EE3D0E /* AccountSummaryViewController.swift */,
+				60AA000A2F23781200EE3D0E /* PDFPreviewController.swift */,
 				4A163D5A2BD95E94004F8658 /* AccountViewController.swift */,
 				4A163D5B2BD95E94004F8658 /* AgentPresentViewController.swift */,
 				4A163D5C2BD95E94004F8658 /* ChartViewController.swift */,
@@ -937,6 +941,7 @@
 				4A163E0A2BD95FA8004F8658 /* UIViewController.swift in Sources */,
 				4A163E0B2BD95FA8004F8658 /* Locale.Currency+UIKit.swift in Sources */,
 				609D89282F2380CF00EE3D0E /* AccountSummaryViewController.swift in Sources */,
+				60AA00122F2380CF00EE3D0E /* PDFPreviewController.swift in Sources */,
 				60A22A952F44D9200081CD39 /* License.swift in Sources */,
 				4A163E0C2BD95FA8004F8658 /* DeepLiker.swift in Sources */,
 				4A163E0D2BD95FA8004F8658 /* SheetPresentationDelegate.swift in Sources */,
@@ -1060,6 +1065,7 @@
 				4A163DA12BD95E94004F8658 /* AppDelegate.swift in Sources */,
 				4A163D762BD95E94004F8658 /* Array.swift in Sources */,
 				609D89272F2380CF00EE3D0E /* AccountSummaryViewController.swift in Sources */,
+				60AA00112F2380CF00EE3D0E /* PDFPreviewController.swift in Sources */,
 				60A22A962F44D9200081CD39 /* License.swift in Sources */,
 				4A163D992BD95E94004F8658 /* TransactionTableViewController.swift in Sources */,
 				4A163D7E2BD95E94004F8658 /* RawRepresentable.swift in Sources */,
