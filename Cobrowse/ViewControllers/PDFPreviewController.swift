@@ -16,6 +16,7 @@ class PDFPreviewController: UIViewController {
     // MARK: Public properties
 
     weak var dataSource: QLPreviewControllerDataSource?
+    weak var delegate: QLPreviewControllerDelegate?
 
     // MARK: Private properties
 
@@ -44,6 +45,8 @@ class PDFPreviewController: UIViewController {
         tools = Tools(for: pdfPreview)
 
         super.init(nibName: nil, bundle: nil)
+
+        pdfPreview.delegate = self
 
         NotificationCenter.default.addObserver(
             self, selector: #selector(pdfPageChanged),
@@ -111,6 +114,25 @@ class PDFPreviewController: UIViewController {
             else { return }
 
         pageIndicator.reload()
+    }
+}
+
+extension PDFPreviewController: PDFViewDelegate {
+    
+    func pdfViewWillClick(onLink sender: PDFView, with url: URL) {
+
+        guard let item = previewItem
+            else { return }
+
+        // Ask the QLPreviewControllerDelegate if we should open the link
+        let shouldOpen = delegate?.previewController?(previewController,
+                                                     shouldOpen: url,
+                                                     for: item) ?? true
+
+        guard shouldOpen
+            else { return }
+
+        UIApplication.shared.open(url)
     }
 }
 
@@ -324,7 +346,7 @@ private final class PDFPreviewView: PDFView {
 
     private func setupGestures() {
 
-        let singleTap = UITapGestureRecognizer(target: self, action: #selector(handleSingleTap))
+        let singleTap = UITapGestureRecognizer(target: self, action: #selector(handleSingleTap(_:)))
         let doubleTap = UITapGestureRecognizer(target: self, action: #selector(handleDoubleTap))
         doubleTap.numberOfTapsRequired = 2
 
@@ -338,7 +360,19 @@ private final class PDFPreviewView: PDFView {
         }
     }
 
-    @objc private func handleSingleTap() {
+    @objc private func handleSingleTap(_ gesture: UITapGestureRecognizer) {
+
+        // If the tap landed on a link annotation, let PDFView handle the navigation
+        // and don't toggle the floating chrome.
+        let viewPoint = gesture.location(in: self)
+
+        if let page = page(for: viewPoint, nearest: true) {
+            let pagePoint = convert(viewPoint, to: page)
+            if let annotation = page.annotation(at: pagePoint), annotation.type == "Link" {
+                return
+            }
+        }
+
         onSingleTap?()
     }
 
