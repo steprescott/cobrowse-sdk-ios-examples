@@ -27,6 +27,14 @@ class PDFPreviewController: UIViewController {
     private let pageIndicator: PageIndicatorView
     private let tools: Tools
 
+    private var previewItem: (any QLPreviewItem)? {
+
+        guard let dataSource, dataSource.numberOfPreviewItems(in: previewController) == 1
+            else { return nil }
+
+        return dataSource.previewController(previewController, previewItemAt: 0)
+    }
+    
     // MARK: Init
 
     init() {
@@ -78,9 +86,13 @@ class PDFPreviewController: UIViewController {
 
     func reloadData() {
 
-        guard let dataSource, dataSource.numberOfPreviewItems(in: previewController) == 1,
-              let url = dataSource.previewController(previewController, previewItemAt: 0).previewItemURL
-        else { return }
+        guard let item = previewItem, let url = item.previewItemURL
+            else { return }
+
+        // Update the title if it is provided by the item
+        if let itemTitle = item.previewItemTitle as? String, !itemTitle.isEmpty, let parent {
+            parent.title = itemTitle
+        }
 
         // Loading from a local file is synchronous.
         pdfPreview.load(from: url)
