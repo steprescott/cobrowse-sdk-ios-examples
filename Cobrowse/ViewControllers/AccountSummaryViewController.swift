@@ -1,7 +1,7 @@
 import UIKit
 import QuickLook
 
-class AccountSummaryViewController: UIViewController {
+class AccountSummaryViewController: UIViewController, QLPreviewControllerDelegate {
     
     private let dataSource = AccountSummaryDataSource()
     
@@ -11,6 +11,7 @@ class AccountSummaryViewController: UIViewController {
 //        let controller = QLPreviewController()
         let controller = PDFPreviewController()
         controller.dataSource = dataSource
+        controller.delegate = self
         
         addChild(controller)
         view.addSubview(controller.view)
@@ -24,5 +25,11 @@ class AccountSummaryViewController: UIViewController {
             controller.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             controller.view.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
+    }
+    
+    func previewController(_ controller: QLPreviewController,
+                           shouldOpen url: URL,
+                           for item: any QLPreviewItem) -> Bool {
+        true
     }
 }
