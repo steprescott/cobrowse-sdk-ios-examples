@@ -367,8 +367,10 @@ private final class PDFPreviewView: PDFView {
         let viewPoint = gesture.location(in: self)
 
         if let page = page(for: viewPoint, nearest: true) {
+            
             let pagePoint = convert(viewPoint, to: page)
-            if let annotation = page.annotation(at: pagePoint), annotation.type == "Link" {
+            
+            if let annotation = page.annotation(at: pagePoint), annotation.isLink {
                 return
             }
         }
@@ -390,9 +392,8 @@ private final class PDFPreviewView: PDFView {
             case .ended, .cancelled:
 
                 // Snap to fullWidthScale if the user released a pinch within 10% of it.
-                guard let target = fullWidthScale,
-                      abs(scaleFactor - target) < target * 0.1
-                else { return }
+                guard let target = fullWidthScale, abs(scaleFactor - target) < target * 0.1
+                    else { return }
 
                 UIView.animateRespectingReduceMotion(duration: 0.2) {
                     self.scaleFactor = target
@@ -1835,6 +1836,15 @@ private extension PDFSelection {
         return (0..<range.length).lazy
             .map { page.characterBounds(at: range.location + $0) }
             .first { !$0.isNull && !$0.isInfinite && pageRect.contains($0.center) }
+    }
+}
+
+// MARK: - PDFAnnotation
+
+private extension PDFAnnotation {
+    
+    var isLink: Bool {
+        type == "Link"
     }
 }
 
