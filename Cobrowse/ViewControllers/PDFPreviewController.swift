@@ -11,7 +11,7 @@ private let log = Logger(subsystem: Bundle.main.bundleIdentifier ?? "PDFPreview"
 
 /// Drop-in replacement for `QLPreviewController` backed by PDFKit's `PDFView`. Reuses
 /// `QLPreviewControllerDataSource` so existing data sources work unchanged.
-class PDFPreviewController: UIViewController {
+final class PDFPreviewController: UIViewController {
 
     // MARK: Public properties
 
@@ -83,6 +83,15 @@ class PDFPreviewController: UIViewController {
         coordinator.animate(alongsideTransition: nil) { _ in
             self.tools.thumbnails.scrollToCurrentPage(animated: false)
         }
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        // If the screen is leaving while markup is active, tear it down now — while the
+        // responder chain is still intact — so the PKToolPicker observer is removed and the
+        // host's nav-bar items are restored, rather than leaking on dismissal.
+        tools.endMarkup()
     }
 
     // MARK: Public methods
@@ -641,17 +650,11 @@ private final class PageIndicatorView: UIView {
     /// Updates the label to the current page and flashes the pill in (auto-fades out).
     func reload() {
 
-        guard let document = pdfPreview.document,
-              let current = pdfPreview.currentPage
-        else { label.text = nil; return }
-
-        let index = document.index(for: current)
-        
-        guard index != NSNotFound
-            else { return }
+        guard let document = pdfPreview.document, let index = pdfPreview.currentPageIndex
+            else { label.text = nil; return }
 
         label.text = Strings.pageOfPages(index + 1, of: document.pageCount)
-        
+
         flash()
     }
 
@@ -758,20 +761,6 @@ private final class Thumbnails: UIVisualEffectView {
 
     private var selectedPage: Int? {
         collectionView.indexPathsForSelectedItems?.first?.item
-    }
-
-    private var currentPageIndex: Int? {
-
-        guard let document = pdfPreview.document,
-              let current = pdfPreview.currentPage
-        else { return nil }
-
-        let index = document.index(for: current)
-        
-        guard index != NSNotFound
-            else { return nil }
-
-        return index
     }
 
     // MARK: Init
@@ -895,7 +884,7 @@ private final class Thumbnails: UIVisualEffectView {
     /// Sync the highlighted cell to PDFView's current page. No-op if already selected.
     func selectCurrentPage() {
 
-        guard let index = currentPageIndex, selectedPage != index
+        guard let index = pdfPreview.currentPageIndex, selectedPage != index
             else { return }
 
         collectionView.selectItem(at: IndexPath(item: index, section: 0),
@@ -904,7 +893,7 @@ private final class Thumbnails: UIVisualEffectView {
 
     func scrollToCurrentPage(animated: Bool) {
 
-        guard let index = currentPageIndex
+        guard let index = pdfPreview.currentPageIndex
             else { return }
 
         collectionView.scrollToItem(at: IndexPath(item: index, section: 0),
@@ -917,7 +906,7 @@ private final class Thumbnails: UIVisualEffectView {
         guard UIAccessibility.isVoiceOverRunning
             else { return }
 
-        let target: Any = currentPageIndex
+        let target: Any = pdfPreview.currentPageIndex
             .flatMap {
                 collectionView.cellForItem(at: IndexPath(item: $0, section: 0))
             } ?? self
@@ -1346,11 +1335,35 @@ private final class Tools: UIView {
     }
 
     /// Refreshes all chrome owned by `Tools` for a freshly-loaded document: resets any
-    /// active/in-flight search and reloads the page thumbnails.
+    /// active/in-flight search and markup, and reloads the page thumbnails.
     func reload() {
 
         resetSearch()
+        resetMarkup()
         thumbnails.reload()
+    }
+
+    /// Discards markup from the previous document so its stamps don't re-project onto the new
+    /// one. Clears the canvas first so exiting markup doesn't bake stale strokes onto the new
+    /// document.
+    private func resetMarkup() {
+
+        if current == .markup {
+            markup.canvas.drawing = PKDrawing()
+            setCurrentTool(to: .none)
+        }
+
+        clearAnnotations()
+    }
+
+    /// Exits markup if it's active, so the `PKToolPicker` observer is removed and the host's
+    /// nav-bar items are restored. Called when the screen disappears; safe when not in markup.
+    func endMarkup() {
+
+        guard current == .markup
+            else { return }
+
+        setCurrentTool(to: .none)
     }
 
     /// Resets transient search state
@@ -1560,10 +1573,17 @@ private final class Tools: UIView {
             let tempURL = document.writeToTempFile()
 
             DispatchQueue.main.async {
-                
+
                 // Bail early if there are newer exporting tasks
-                guard let self, self.shareGeneration == generation
-                    else { return }
+                guard let self, self.shareGeneration == generation else {
+                    
+                    // The temp file was already written, so delete it to ensure we clean up
+                    if let tempURL {
+                        try? FileManager.default.removeItem(at: tempURL)
+                    }
+                    
+                    return
+                }
 
                 self.isExporting = false
                 self.pdfPreview.hideActivityIndicator()
@@ -1878,6 +1898,13 @@ private final class Tools: UIView {
 
                 let pageIndex = displayed.index(for: displayedPage)
 
+                // `index(for:)` returns NSNotFound if the page isn't in `displayed`; never use
+                // that as an Int index.
+                guard pageIndex != NSNotFound else {
+                    log.warning("Dropping a markup stroke: its page is not in the displayed document.")
+                    continue
+                }
+
                 guard let modifiedPage = modified.page(at: pageIndex) else {
                     log.warning("Dropping a markup stroke: page \(pageIndex) missing from modified document copy.")
                     continue
@@ -2185,6 +2212,24 @@ private enum Transition {
     /// slower curve than the regular slide.
     var duration: TimeInterval {
         UIAccessibility.isReduceMotionEnabled ? 0.5 : 0.25
+    }
+}
+
+// MARK: - PDFView
+
+private extension PDFView {
+
+    /// Zero-based index of the current page, or `nil` if there's no document/current page or
+    /// the current page isn't in the document (`index(for:)` returns `NSNotFound`, which must
+    /// not be used as an `Int` index).
+    var currentPageIndex: Int? {
+
+        guard let document, let current = currentPage
+            else { return nil }
+
+        let index = document.index(for: current)
+
+        return index == NSNotFound ? nil : index
     }
 }
 
