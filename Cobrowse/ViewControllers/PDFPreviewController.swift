@@ -229,8 +229,7 @@ private final class PDFPreviewView: PDFView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-
-        autoScales = true
+        
         displayMode = .singlePageContinuous
         displayDirection = .vertical
         pageBreakMargins = UIEdgeInsets(top: 0, left: 0, bottom: 16, right: 0)
@@ -633,8 +632,13 @@ private final class PageIndicatorView: UIView {
               let current = pdfPreview.currentPage
         else { label.text = nil; return }
 
+        let index = document.index(for: current)
+        
+        guard index != NSNotFound
+            else { return }
+
         // TODO: Think about localisation of string
-        label.text = "\(document.index(for: current) + 1) of \(document.pageCount)"
+        label.text = "\(index + 1) of \(document.pageCount)"
 
         flash()
     }
@@ -720,17 +724,6 @@ private final class Thumbnails: UIVisualEffectView {
                       height: itemWidth * baseSize.height / baseSize.width)
     }
     
-    private var renderScale: CGFloat {
-
-        let traitScale = traitCollection.displayScale
-
-        if traitScale > 0 {
-            return traitScale
-        }
-
-        return window?.windowScene?.screen.scale ?? 2.0
-    }
-
     /// Centre if the cell fits the visible region, otherwise pin to the top so the
     /// user sees the start of the (clipped) cell.
     private var preferredScrollPosition: UICollectionView.ScrollPosition {
@@ -752,7 +745,12 @@ private final class Thumbnails: UIVisualEffectView {
               let current = pdfPreview.currentPage
         else { return nil }
 
-        return document.index(for: current)
+        let index = document.index(for: current)
+        
+        guard index != NSNotFound
+            else { return nil }
+
+        return index
     }
 
     // MARK: Init
@@ -1704,7 +1702,7 @@ private final class Tools: UIView {
 
                 // Rasterise with a small inset so anti-aliased edges aren't clipped.
                 let renderRect = stroke.renderBounds.insetBy(dx: -4, dy: -4)
-                let image = PKDrawing(strokes: [stroke]).image(from: renderRect, scale: UIScreen.main.scale)
+                let image = PKDrawing(strokes: [stroke]).image(from: renderRect, scale: pdfPreview.renderScale)
                 let pageBounds = pdfPreview.convert(renderRect, to: displayedPage)
                 modifiedPage.addAnnotation(Markup.Stamp.Annotation(image: image, bounds: pageBounds))
 
@@ -2099,6 +2097,22 @@ private extension CGRect {
 
     var center: CGPoint {
         CGPoint(x: midX, y: midY)
+    }
+}
+
+// MARK: - UIView render scale
+
+private extension UIView {
+    
+    var renderScale: CGFloat {
+
+        let traitScale = traitCollection.displayScale
+
+        if traitScale > 0 {
+            return traitScale
+        }
+
+        return window?.windowScene?.screen.scale ?? 2.0
     }
 }
 
