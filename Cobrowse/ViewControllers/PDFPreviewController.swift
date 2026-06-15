@@ -2490,9 +2490,9 @@ private enum Strings {
     /// Spoken summary of a finished search (VoiceOver).
     static func searchResultsAnnouncement(_ count: Int) -> String {
         switch count {                        // TODO: stringsdict plural when localised
-        case 0:  return noResults
-        case 1:  return "1 result"
-        default: return "\(count) results"
+            case 0:  return noResults
+            case 1:  return "1 result"
+            default: return "\(count) results"
         }
     }
 
