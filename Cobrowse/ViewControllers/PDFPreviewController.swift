@@ -96,13 +96,11 @@ class PDFPreviewController: UIViewController {
         if let itemTitle = item.previewItemTitle as? String, !itemTitle.isEmpty, let parent {
             parent.title = itemTitle
         }
-
-        // Loading from a local file is synchronous.
-        pdfPreview.load(from: url)
-
-        // Refresh chrome around the new document.
-        tools.thumbnails.reload()
-        pageIndicator.reload()
+        
+        pdfPreview.load(from: url) { [weak self] in
+            self?.tools.thumbnails.reload()
+            self?.pageIndicator.reload()
+        }
     }
 
     // MARK: Private methods
@@ -197,6 +195,25 @@ private final class PDFPreviewView: PDFView {
     /// The scale factor that fits the page to the available width.
     private var fullWidthScale: CGFloat?
 
+    /// Spinner shown (after a short grace delay) while a document is parsed off the main
+    /// thread. Centred over the view; `hidesWhenStopped` keeps it invisible otherwise.
+    private let loadingIndicator: UIActivityIndicatorView = {
+        
+        let indicator = UIActivityIndicatorView(style: .large)
+        
+        indicator.hidesWhenStopped = true
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        
+        return indicator
+    }()
+
+    /// Bumped on every `load(from:)` so a slow parse that finishes after a newer load was
+    /// requested can be discarded instead of clobbering the newer document.
+    private var loadGeneration = 0
+
+    /// True while a parse is in flight. The grace-delay spinner only starts if this is still set when the delay fires.
+    private var isParsing = false
+
     private var contentOffset: CGPoint {
         get { innerScrollView?.contentOffset ?? .zero }
         set { innerScrollView?.contentOffset = newValue }
@@ -275,34 +292,75 @@ private final class PDFPreviewView: PDFView {
     func install(in parent: UIView) {
 
         parent.addSubview(self)
+        addSubview(loadingIndicator)
 
         NSLayoutConstraint.activate([
             topAnchor.constraint(equalTo: parent.safeAreaLayoutGuide.topAnchor),
             leadingAnchor.constraint(equalTo: parent.leadingAnchor),
-            trailingAnchor.constraint(equalTo: parent.trailingAnchor)
+            trailingAnchor.constraint(equalTo: parent.trailingAnchor),
+
+            loadingIndicator.centerXAnchor.constraint(equalTo: centerXAnchor),
+            loadingIndicator.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
     }
 
-    func load(from url: URL) {
+    /// Parses the PDF off the main thread and assigns it on the main thread.
+    func load(from url: URL, completion: (() -> Void)? = nil) {
 
         // QLPreviewItem only supports local file URLs.
         guard url.isFileURL else {
             log.error("URL to PDF must be a local file URL: \(url, privacy: .public)")
+            completion?()
             return
         }
 
-        originalDocument = PDFDocument(url: url)
-        modifiedDocument = nil
-        document = originalDocument
+        loadGeneration += 1
+        let generation = loadGeneration
+        
+        isParsing = true
 
-        if originalDocument == nil {
-            log.error("PDFDocument failed to parse URL: \(url, privacy: .public)")
+        // Show the spinner only if the parse is still running after a short grace delay,
+        // so the fast local-file case doesn't flash it for a single frame.
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) { [weak self] in
+            
+            guard let self, self.loadGeneration == generation, self.isParsing
+                else { return }
+
+            self.loadingIndicator.startAnimating()
         }
 
-        pageWidth = document?.page(at: 0)?.bounds(for: displayBox).width
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
 
-        // Compute new fit-to-width scale on the next layoutSubviews.
-        fullWidthScale = nil
+            // Parsing is the expensive part and is safe off the main thread; assigning
+            // it to the PDFView is not, so that hops back to main below.
+            let parsed = PDFDocument(url: url)
+
+            DispatchQueue.main.async {
+
+                // Bail early if load was called again before this
+                guard let self, self.loadGeneration == generation
+                    else { return }
+
+                self.isParsing = false
+                self.loadingIndicator.stopAnimating()
+
+                if parsed == nil {
+                    log.error("PDFDocument failed to parse URL: \(url, privacy: .public)")
+                }
+
+                self.originalDocument = parsed
+                self.modifiedDocument = nil
+                self.document = parsed
+
+                self.pageWidth = parsed?.page(at: 0)?.bounds(for: self.displayBox).width
+                self.fullWidthScale = nil
+                
+                self.setNeedsLayout()
+                self.layoutIfNeeded()
+
+                completion?()
+            }
+        }
     }
 
     /// Scroll a search selection into the centre of the unobscured viewport. Used in
@@ -631,6 +689,19 @@ private final class Thumbnails: UIVisualEffectView {
     private let baseSize: CGSize
     private let padding: CGFloat
 
+    /// Rendered thumbnails keyed by page index. `NSCache` is thread-safe and evicts
+    /// itself under memory pressure. Fully cleared whenever the document or item size
+    /// changes (see `reload()` / `layoutSubviews`).
+    private let thumbnailCache = NSCache<NSNumber, UIImage>()
+
+    /// Concurrent queue for off-main thumbnail rendering.
+    private let renderQueue = DispatchQueue(label: "io.cobrowse.pdf.thumbnails",
+                                            qos: .userInitiated, attributes: .concurrent)
+
+    /// Bumped whenever the cache is invalidated (new document, new item size) so an
+    /// in-flight render sized for the old state is discarded instead of cached/displayed.
+    private var cacheGeneration = 0
+
     /// Active when the panel is visible: leading pinned 16pt inside the safe area.
     private var shownConstraint: NSLayoutConstraint!
 
@@ -642,11 +713,22 @@ private final class Thumbnails: UIVisualEffectView {
 
     /// Cell size derived from the bar's actual width so cells always fit inside.
     private var currentItemSize: CGSize {
-        
+
         let itemWidth = max(0, bounds.width - padding * 2)
-        
+
         return CGSize(width: itemWidth,
                       height: itemWidth * baseSize.height / baseSize.width)
+    }
+    
+    private var renderScale: CGFloat {
+
+        let traitScale = traitCollection.displayScale
+
+        if traitScale > 0 {
+            return traitScale
+        }
+
+        return window?.windowScene?.screen.scale ?? 2.0
     }
 
     /// Centre if the cell fits the visible region, otherwise pin to the top so the
@@ -747,9 +829,20 @@ private final class Thumbnails: UIVisualEffectView {
             flowLayout.itemSize = itemSize
             flowLayout.invalidateLayout()
 
+            // Cached images were rendered for the old size.
+            // Drop them so cells re-render at the new dimensions.
+            invalidateThumbnailCache()
+
             collectionView.reloadData()
             selectCurrentPage()
         }
+    }
+
+    /// Bumps the cache generation (discarding in-flight renders) and empties the cache.
+    private func invalidateThumbnailCache() {
+        
+        cacheGeneration += 1
+        thumbnailCache.removeAllObjects()
     }
 
     // MARK: Public methods
@@ -773,6 +866,9 @@ private final class Thumbnails: UIVisualEffectView {
     }
 
     func reload() {
+
+        // A new document may have loaded; drop thumbnails rendered from the previous one.
+        invalidateThumbnailCache()
         collectionView.reloadData()
     }
 
@@ -803,13 +899,51 @@ extension Thumbnails: UICollectionViewDataSource, UICollectionViewDelegate {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
+
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ThumbnailCell.reuseID, for: indexPath) as! ThumbnailCell
+
+        let index = indexPath.item
+        cell.representedIndex = index
+
+        let key = NSNumber(value: index)
         
-        if let page = pdfPreview.document?.page(at: indexPath.item) {
-            cell.configure(with: page, size: flowLayout.itemSize)
+        if let cached = thumbnailCache.object(forKey: key) {
+            cell.display(cached)
+            return cell
         }
+
+        cell.display(nil)
         
+        guard let page = pdfPreview.document?.page(at: index)
+            else { return cell }
+
+        let itemSize = flowLayout.itemSize
+        let scale = renderScale
+        let generation = cacheGeneration
+
+        renderQueue.async { [weak self] in
+
+            let image = page.thumbnail(
+                of: CGSize(width: itemSize.width * scale, height: itemSize.height * scale),
+                for: .cropBox
+            )
+
+            DispatchQueue.main.async {
+
+                // Bail early if the document or item size changed.
+                guard let self, self.cacheGeneration == generation
+                    else { return }
+
+                self.thumbnailCache.setObject(image, forKey: key)
+                
+                guard let liveCell = collectionView.cellForItem(at: indexPath) as? ThumbnailCell,
+                      liveCell.representedIndex == index
+                else { return }
+
+                liveCell.display(image)
+            }
+        }
+
         return cell
     }
 
@@ -834,6 +968,10 @@ private final class ThumbnailCell: UICollectionViewCell {
     // MARK: Public properties
 
     static let reuseID = "ThumbnailCell"
+
+    /// The page index this cell currently represents. Checked when an async thumbnail
+    /// render finishes so a slow render can't land in a cell that's been reused.
+    var representedIndex: Int?
 
     // MARK: Private properties
 
@@ -884,16 +1022,18 @@ private final class ThumbnailCell: UICollectionViewCell {
         didSet { overlay.isHidden = !isSelected }
     }
 
+    override func prepareForReuse() {
+        super.prepareForReuse()
+
+        representedIndex = nil
+        imageView.image = nil
+    }
+
     // MARK: Public methods
 
-    func configure(with page: PDFPage, size: CGSize) {
-
-        let scale = UIScreen.main.scale
-
-        imageView.image = page.thumbnail(
-            of: CGSize(width: size.width * scale, height: size.height * scale),
-            for: .cropBox
-        )
+    /// Sets the thumbnail image (or clears it while a render is pending).
+    func display(_ image: UIImage?) {
+        imageView.image = image
     }
 }
 
@@ -942,6 +1082,9 @@ private final class Tools: UIView {
     private let shareItem = UIBarButtonItem()
     private let searchItem = UIBarButtonItem()
     private let markupItem = UIBarButtonItem()
+
+    /// Serial queue for running `findString` off the main thread.
+    private let searchQueue = DispatchQueue(label: "PDFPreviewController.search", qos: .userInitiated)
 
     private var defaultItems: [UIBarButtonItem] {
         toolBarItems([shareItem, searchItem, markupItem])
@@ -1251,6 +1394,11 @@ private final class Tools: UIView {
                 search.bar.becomeFirstResponder()
             
             case .out:
+                // Cancel any pending/in-flight search first so a result can't land during
+                // teardown and repopulate the bar after it's been dismissed.
+                search.pendingSearch?.cancel()
+                search.searchGeneration += 1
+
                 search.bar.resignFirstResponder()
                 pdfPreview.highlightedSelections = nil
                 toolBar.items = defaultItems
@@ -1315,34 +1463,83 @@ private final class Tools: UIView {
         search.resultsItem.title = "\(search.index + 1) of \(search.results.count)"
     }
 
-    private func runSearch(_ text: String) {
-        
-        guard let document = pdfPreview.document
-            else { return }
-        
+    /// Debounce entry point for live-typed queries. Cancels any pending search, clears
+    /// immediately on an empty query, otherwise schedules `performSearch` after a short
+    /// delay so we don't kick off a find on every keystroke.
+    private func scheduleSearch(_ text: String) {
+
+        search.pendingSearch?.cancel()
+
         if text.isEmpty {
-            search.results = []
-            pdfPreview.highlightedSelections = nil
-            search.resultsItem.title = ""
-            toolBar.items = defaultItems
+            clearSearch()
             return
         }
-        
+
+        let workItem = DispatchWorkItem { [weak self] in
+            self?.performSearch(text)
+        }
+
+        search.pendingSearch = workItem
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25, execute: workItem)
+    }
+
+    /// Clears all search state and restores the default toolbar. Bumps the generation so
+    /// an in-flight background search from a prior query can't land and repopulate.
+    private func clearSearch() {
+
+        search.searchGeneration += 1
+
+        search.results = []
+        pdfPreview.highlightedSelections = nil
+        search.resultsItem.title = ""
+        toolBar.items = defaultItems
+    }
+
+    /// Runs `findString` off the main thread, then applies the results on the main thread
+    /// if this search hasn't been superseded by a newer one.
+    private func performSearch(_ text: String) {
+
+        guard let document = pdfPreview.document
+            else { return }
+
+        search.searchGeneration += 1
+        let generation = search.searchGeneration
+
+        searchQueue.async { [weak self] in
+
+            let matches = document.findString(text, withOptions: .caseInsensitive)
+
+            DispatchQueue.main.async {
+
+                guard let self, self.search.searchGeneration == generation else {
+                    // A newer search (or a teardown) superseded this one; discard.
+                    return
+                }
+
+                self.applyResults(matches)
+            }
+        }
+    }
+
+    /// Applies a finished search's results to the UI. Runs on the main thread.
+    private func applyResults(_ matches: [PDFSelection]) {
+
         search.index = 0
-        search.results = document.findString(text, withOptions: .caseInsensitive)
-        
-        pdfPreview.highlightedSelections = search.results
-        
-        if search.results.isEmpty {
+        search.results = matches
+
+        pdfPreview.highlightedSelections = matches
+
+        if matches.isEmpty {
             search.resultsItem.title = "No results" // TODO: Think about localisation
         } else {
             focusOnCurrentResult()  // also updates resultsItem.title
         }
-        
+
         toolBar.items = toolBarItems([search.prevButton, search.resultsItem, search.nextButton])
-        
-        search.prevButton.isEnabled = search.results.count > 1
-        search.nextButton.isEnabled = search.results.count > 1
+
+        search.prevButton.isEnabled = matches.count > 1
+        search.nextButton.isEnabled = matches.count > 1
     }
 
     // MARK: Markup behaviour
@@ -1576,7 +1773,7 @@ private final class Tools: UIView {
 extension Tools: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        runSearch(searchText)
+        scheduleSearch(searchText)
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -1607,6 +1804,13 @@ private final class Search: UIView {
 
     var results: [PDFSelection] = []
     var index = 0
+
+    /// Pending debounced search, cancelled when a new keystroke arrives or search closes.
+    var pendingSearch: DispatchWorkItem?
+
+    /// Bumped per search so a background `findString` finishing after a newer query (or
+    /// after the search tool closed) can be discarded instead of applied.
+    var searchGeneration = 0
 
     /// Drives the slide and fade. Wrap the assignment in `UIView.animate` to animate
     /// both. Setting to `false` also clears the bar text and result state. First-responder
