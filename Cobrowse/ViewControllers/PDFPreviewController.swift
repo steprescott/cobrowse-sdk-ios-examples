@@ -98,7 +98,8 @@ class PDFPreviewController: UIViewController {
         }
         
         pdfPreview.load(from: url) { [weak self] in
-            self?.tools.thumbnails.reload()
+
+            self?.tools.reload()
             self?.pageIndicator.reload()
         }
     }
@@ -200,10 +201,11 @@ private final class PDFPreviewView: PDFView {
     private let loadingIndicator: UIActivityIndicatorView = {
         
         let indicator = UIActivityIndicatorView(style: .large)
-        
+
         indicator.hidesWhenStopped = true
         indicator.translatesAutoresizingMaskIntoConstraints = false
-        
+        indicator.accessibilityLabel = Strings.loadingDocument
+
         return indicator
     }()
 
@@ -375,6 +377,14 @@ private final class PDFPreviewView: PDFView {
 
         scrollView.scrollIntoUnobscuredViewport(for: contentRect(of: pageBounds, on: page))
     }
+    
+    func showActivityIndicator() {
+        loadingIndicator.startAnimating()
+    }
+    
+    func hideActivityIndicator() {
+        loadingIndicator.stopAnimating()
+    }
 
     /// Drop any baked modifications and display the original. The next
     /// `applyModifications` call will copy from a clean slate.
@@ -540,6 +550,9 @@ private final class PageIndicatorView: UIView {
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = UIColor.systemBackground.withAlphaComponent(0.92)
 
+        // The pill is transient visual feedback that fades out so don't let VoiceOver chase it.
+        accessibilityElementsHidden = true
+
         layer.cornerCurve = .continuous
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOpacity = 0.12
@@ -637,9 +650,8 @@ private final class PageIndicatorView: UIView {
         guard index != NSNotFound
             else { return }
 
-        // TODO: Think about localisation of string
-        label.text = "\(index + 1) of \(document.pageCount)"
-
+        label.text = Strings.pageOfPages(index + 1, of: document.pageCount)
+        
         flash()
     }
 
@@ -672,6 +684,9 @@ private final class Thumbnails: UIVisualEffectView {
 
     // MARK: Public properties
 
+    /// Fired with the selected page index when the user picks a page from the panel.
+    var onPageSelected: ((Int) -> Void)?
+
     /// Toggle to slide the panel into view, or tuck it off the leading edge.
     /// Wrap the assignment in `UIView.animate` to animate the frame change.
     var isShown: Bool {
@@ -679,6 +694,8 @@ private final class Thumbnails: UIVisualEffectView {
         set {
             hiddenConstraint.isActive = !newValue
             shownConstraint.isActive = newValue
+            
+            accessibilityElementsHidden = !newValue
         }
     }
 
@@ -693,10 +710,14 @@ private final class Thumbnails: UIVisualEffectView {
     private let baseSize: CGSize
     private let padding: CGFloat
 
-    /// Rendered thumbnails keyed by page index. `NSCache` is thread-safe and evicts
-    /// itself under memory pressure. Fully cleared whenever the document or item size
-    /// changes (see `reload()` / `layoutSubviews`).
-    private let thumbnailCache = NSCache<NSNumber, UIImage>()
+    /// Rendered thumbnails keyed by page index.
+    private let thumbnailCache: NSCache<NSNumber, UIImage> = {
+        
+        let cache = NSCache<NSNumber, UIImage>()
+        cache.countLimit = 60
+        
+        return cache
+    }()
 
     /// Concurrent queue for off-main thumbnail rendering.
     private let renderQueue = DispatchQueue(label: "io.cobrowse.pdf.thumbnails",
@@ -790,6 +811,7 @@ private final class Thumbnails: UIVisualEffectView {
         layer.cornerCurve = .continuous
         clipsToBounds = true
         setContentHuggingPriority(.defaultHigh, for: .horizontal)
+        accessibilityElementsHidden = true
 
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -888,6 +910,20 @@ private final class Thumbnails: UIVisualEffectView {
         collectionView.scrollToItem(at: IndexPath(item: index, section: 0),
                                     at: preferredScrollPosition, animated: animated)
     }
+
+    /// Moves VoiceOver focus onto the current-page cell when the panel opens, so the user lands on the relevant thumbnail.
+    func moveAccessibilityFocusToCurrentPage() {
+
+        guard UIAccessibility.isVoiceOverRunning
+            else { return }
+
+        let target: Any = currentPageIndex
+            .flatMap {
+                collectionView.cellForItem(at: IndexPath(item: $0, section: 0))
+            } ?? self
+
+        UIAccessibility.post(notification: .layoutChanged, argument: target)
+    }
 }
 
 extension Thumbnails: UICollectionViewDataSource, UICollectionViewDelegate {
@@ -902,6 +938,7 @@ extension Thumbnails: UICollectionViewDataSource, UICollectionViewDelegate {
 
         let index = indexPath.item
         cell.representedIndex = index
+        cell.accessibilityLabel = Strings.pageNumber(index + 1)
 
         let key = NSNumber(value: index)
         
@@ -955,6 +992,8 @@ extension Thumbnails: UICollectionViewDataSource, UICollectionViewDelegate {
         collectionView.scrollToItem(at: indexPath, at: preferredScrollPosition, animated: true)
         
         pdfPreview.go(to: page)
+
+        onPageSelected?(indexPath.item)
     }
 }
 
@@ -1010,6 +1049,10 @@ private final class ThumbnailCell: UICollectionViewCell {
         layer.shadowOpacity = 0.15
         layer.shadowRadius = 4
         layer.shadowOffset = CGSize(width: 0, height: 2)
+
+        // Treat the whole cell as one VoiceOver element
+        isAccessibilityElement = true
+        accessibilityTraits = .button
     }
 
     required init?(coder: NSCoder) { fatalError() }
@@ -1017,7 +1060,10 @@ private final class ThumbnailCell: UICollectionViewCell {
     // MARK: Overrides
 
     override var isSelected: Bool {
-        didSet { overlay.isHidden = !isSelected }
+        didSet {
+            overlay.isHidden = !isSelected
+            accessibilityTraits = isSelected ? [.button, .selected] : .button
+        }
     }
 
     override func prepareForReuse() {
@@ -1025,6 +1071,9 @@ private final class ThumbnailCell: UICollectionViewCell {
 
         representedIndex = nil
         imageView.image = nil
+        
+        accessibilityLabel = nil
+        accessibilityTraits = .button
     }
 
     // MARK: Public methods
@@ -1084,6 +1133,15 @@ private final class Tools: UIView {
     /// Serial queue for running `findString` off the main thread.
     private let searchQueue = DispatchQueue(label: "PDFPreviewController.search", qos: .userInitiated)
 
+    /// Queue for serializing a modified document to disk off the main thread (share flow).
+    private let exportQueue = DispatchQueue(label: "PDFPreviewController.export", qos: .userInitiated)
+
+    /// True while an export (serialise + write) is in flight.
+    private var isExporting = false
+
+    /// Bumped per export so a serialization that finishes after teardown is discarded.
+    private var shareGeneration = 0
+
     private var defaultItems: [UIBarButtonItem] {
         toolBarItems([shareItem, searchItem, markupItem])
     }
@@ -1110,7 +1168,6 @@ private final class Tools: UIView {
 
         search.bar.delegate = self
         configureBarItemActions()
-        configureResultsItemFont()
 
         pdfPreview.onSingleTap = { [weak self] in
 
@@ -1126,6 +1183,21 @@ private final class Tools: UIView {
 
         pdfPreview.onInteraction = { [weak self] in
             self?.dismiss(.thumbnails)
+        }
+
+        // Under VoiceOver, picking a page from the panel dismisses it.
+        // Sighted users keep the panel open to flip between pages.
+        thumbnails.onPageSelected = { [weak self] pageIndex in
+
+            guard UIAccessibility.isVoiceOverRunning, let self
+                else { return }
+
+            self.dismiss(.thumbnails)
+            
+            let total = self.pdfPreview.document?.pageCount ?? 0
+            
+            UIAccessibility.post(notification: .screenChanged,
+                                 argument: [Strings.pageAnnouncement(pageIndex + 1, of: total), self.pdfPreview])
         }
 
         // Enabled state of every tool tracks whether a document has been loaded.
@@ -1267,10 +1339,29 @@ private final class Tools: UIView {
     /// Drops all annotations (committed + in-flight). Exposed for the markup nav-bar
     /// "Clear" button.
     func clearAnnotations() {
-        
+
         markup.canvas.drawing = PKDrawing()
         markup.stamps.removeAll()
         pdfPreview.clearModifications()
+    }
+
+    /// Refreshes all chrome owned by `Tools` for a freshly-loaded document: resets any
+    /// active/in-flight search and reloads the page thumbnails.
+    func reload() {
+
+        resetSearch()
+        thumbnails.reload()
+    }
+
+    /// Resets transient search state
+    private func resetSearch() {
+
+        if current == .search {
+            setCurrentTool(to: .none)
+        } else {
+            search.pendingSearch?.cancel()
+            search.searchGeneration += 1
+        }
     }
 
     // MARK: Setup
@@ -1279,10 +1370,12 @@ private final class Tools: UIView {
     /// at the current Dynamic Type size.
     private func configureBarItemActions() {
 
+        shareItem.accessibilityLabel = Strings.share
         shareItem.primaryAction = UIAction(image: Self.toolbarSymbol("square.and.arrow.up")) { [weak self] _ in
             self?.shareDocument()
         }
-
+        
+        searchItem.accessibilityLabel = Strings.search
         searchItem.primaryAction = UIAction(image: Self.toolbarSymbol("magnifyingglass")) { [weak self] _ in
             guard let self
                 else { return }
@@ -1300,23 +1393,20 @@ private final class Tools: UIView {
             }
         }
 
+        markupItem.accessibilityLabel = Strings.markup
         markupItem.primaryAction = UIAction(image: Self.toolbarSymbol("pencil.tip.crop.circle")) { [weak self] _ in
             self?.setCurrentTool(to: .markup)
         }
 
+        search.prevButton.accessibilityLabel = Strings.previousMatch
         search.prevButton.primaryAction = UIAction(image: Self.toolbarSymbol("chevron.up")) { [weak self] _ in
             self?.stepResult(by: -1)
         }
 
+        search.nextButton.accessibilityLabel = Strings.nextMatch
         search.nextButton.primaryAction = UIAction(image: Self.toolbarSymbol("chevron.down")) { [weak self] _ in
             self?.stepResult(by: +1)
         }
-    }
-
-    private func configureResultsItemFont() {
-        search.resultsItem.setTitleTextAttributes([
-            .font: UIFont.preferredFont(forTextStyle: .body)
-        ], for: .normal)
     }
 
     @objc private func updateToolsEnabledState() {
@@ -1329,9 +1419,8 @@ private final class Tools: UIView {
     }
 
     @objc private func contentSizeCategoryChanged() {
-        
+
         configureBarItemActions()
-        configureResultsItemFont()
         thumbnails.invalidateIntrinsicContentSize()
     }
 
@@ -1379,9 +1468,16 @@ private final class Tools: UIView {
             thumbnails.selectCurrentPage()
             thumbnails.scrollToCurrentPage(animated: false)
         }
-        
+
         UIView.animateRespectingReduceMotion(transition: transition, view: thumbnails, fade: false) {
             self.thumbnails.isShown = transition == .in
+        }
+
+        // Once the panel has slid in and settled, move VoiceOver focus to the current page.
+        if transition == .in {
+            DispatchQueue.main.asyncAfter(deadline: .now() + transition.duration) { [weak self] in
+                self?.thumbnails.moveAccessibilityFocusToCurrentPage()
+            }
         }
     }
 
@@ -1390,7 +1486,7 @@ private final class Tools: UIView {
         switch transition {
             case .in:
                 search.bar.becomeFirstResponder()
-            
+
             case .out:
                 // Cancel any pending/in-flight search first so a result can't land during
                 // teardown and repopulate the bar after it's been dismissed.
@@ -1413,17 +1509,76 @@ private final class Tools: UIView {
 
         current = .none
 
-        let tempURL = pdfPreview.hasModifications ? pdfPreview.document?.writeToTempFile() : nil
-
-        guard let url = tempURL ?? pdfPreview.document?.url else {
-            log.error("Cannot share: no document URL available.")
-            return
-        }
-        
         guard let host = toolBar.parentViewController else {
             log.error("Cannot share: toolbar has no host view controller to present from.")
             return
         }
+
+        // Fast path: No changes so share the original file URL immediately.
+        guard pdfPreview.hasModifications else {
+
+            guard let url = pdfPreview.document?.url else {
+                log.error("Cannot share: no document URL available.")
+                return
+            }
+
+            presentShareSheet(for: url, host: host, tempURL: nil)
+            return
+        }
+
+        // Slow path: serialise the modified document off the main thread
+
+        // Guard against tapping share multiple times
+        guard !isExporting
+            else { return }
+
+        guard let document = pdfPreview.document else {
+            log.error("Cannot share: no document available to export.")
+            return
+        }
+
+        isExporting = true
+        shareGeneration += 1
+        
+        let generation = shareGeneration
+        let fallbackURL = document.url
+
+        // Show the spinner only if the export is still running after a short grace delay,
+        // so a fast serialization doesn't flash.
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) { [weak self] in
+            
+            guard let self, self.isExporting, self.shareGeneration == generation
+                else { return }
+
+            self.pdfPreview.showActivityIndicator()
+        }
+
+        exportQueue.async { [weak self] in
+
+            // `dataRepresentation()` + the disk write are the expensive part and are safe
+            // off the main thread; presenting the share sheet is not, so that hops back.
+            let tempURL = document.writeToTempFile()
+
+            DispatchQueue.main.async {
+                
+                // Bail early if there are newer exporting tasks
+                guard let self, self.shareGeneration == generation
+                    else { return }
+
+                self.isExporting = false
+                self.pdfPreview.hideActivityIndicator()
+
+                guard let url = tempURL ?? fallbackURL else {
+                    log.error("Cannot share: export failed and no original URL available.")
+                    return
+                }
+
+                self.presentShareSheet(for: url, host: host, tempURL: tempURL)
+            }
+        }
+    }
+    
+    private func presentShareSheet(for url: URL, host: UIViewController, tempURL: URL?) {
 
         let activity = UIActivityViewController(activityItems: [url], applicationActivities: nil)
         activity.popoverPresentationController?.barButtonItem = shareItem
@@ -1458,7 +1613,11 @@ private final class Tools: UIView {
         pdfPreview.setCurrentSelection(selection, animate: true)
         pdfPreview.reveal(selection)
 
-        search.resultsItem.title = "\(search.index + 1) of \(search.results.count)"
+        search.resultsLabel.text = Strings.searchPosition(search.index + 1, of: search.results.count)
+        
+        let position = Strings.matchAnnouncement(search.index + 1, of: search.results.count)
+        search.prevButton.accessibilityValue = position
+        search.nextButton.accessibilityValue = position
     }
 
     /// Debounce entry point for live-typed queries. Cancels any pending search, clears
@@ -1487,10 +1646,14 @@ private final class Tools: UIView {
     private func clearSearch() {
 
         search.searchGeneration += 1
-
+        
         search.results = []
+        search.resultsLabel.text = ""
+        search.prevButton.accessibilityValue = nil
+        search.nextButton.accessibilityValue = nil
+        
         pdfPreview.highlightedSelections = nil
-        search.resultsItem.title = ""
+        
         toolBar.items = defaultItems
     }
 
@@ -1529,15 +1692,19 @@ private final class Tools: UIView {
         pdfPreview.highlightedSelections = matches
 
         if matches.isEmpty {
-            search.resultsItem.title = "No results" // TODO: Think about localisation
+            search.resultsLabel.text = Strings.noResults
+            search.prevButton.accessibilityValue = nil
+            search.nextButton.accessibilityValue = nil
         } else {
-            focusOnCurrentResult()  // also updates resultsItem.title
+            focusOnCurrentResult()
         }
 
         toolBar.items = toolBarItems([search.prevButton, search.resultsItem, search.nextButton])
 
         search.prevButton.isEnabled = matches.count > 1
         search.nextButton.isEnabled = matches.count > 1
+        
+        UIAccessibility.announce(Strings.searchResultsAnnouncement(matches.count))
     }
 
     // MARK: Markup behaviour
@@ -1581,7 +1748,11 @@ private final class Tools: UIView {
                 }
 
                 toolBar.isHidden = true
-                installMarkupNavItems()
+                let doneItem = installMarkupNavItems()
+            
+                if let doneItem {
+                    UIAccessibility.announce(Strings.markupModeEntered, thenFocus: doneItem)
+                }
 
             case .out:
 
@@ -1606,6 +1777,8 @@ private final class Tools: UIView {
                 } else {
                     hideMarkupToolPicker()
                 }
+
+                UIAccessibility.announce(Strings.markupModeClosed, thenFocus: markupItem)
         }
     }
 
@@ -1630,27 +1803,37 @@ private final class Tools: UIView {
     }
 
     /// Saves the host's current nav items into Markup state and replaces them with
-    /// Done/Clear that call back into this Tools instance.
-    private func installMarkupNavItems() {
+    /// Done/Clear that call back into this Tools instance. Returns the Done item so the
+    /// caller can move VoiceOver focus to it.
+    @discardableResult
+    private func installMarkupNavItems() -> UIBarButtonItem? {
 
         guard let target = navTarget else {
             log.warning("Entering markup but no nav target found — Done/Clear buttons won't be installed.")
-            return
+            return nil
         }
 
         markup.previousRightBarButton = target.navigationItem.rightBarButtonItem
         markup.previousLeftBarButton  = target.navigationItem.leftBarButtonItem
 
-        target.navigationItem.rightBarButtonItem = UIBarButtonItem(
+        let doneItem = UIBarButtonItem(
             systemItem: .done,
             primaryAction: UIAction { [weak self] _ in self?.setCurrentTool(to: .none) }
         )
+        
+        target.navigationItem.rightBarButtonItem = doneItem
 
-        target.navigationItem.leftBarButtonItem = UIBarButtonItem(
+        let clearItem = UIBarButtonItem(
             primaryAction: UIAction(image: UIImage(systemName: "trash")) { [weak self] _ in
                 self?.clearAnnotations()
             }
         )
+        
+        clearItem.accessibilityLabel = Strings.clearAnnotations
+
+        target.navigationItem.leftBarButtonItem = clearItem
+
+        return doneItem
     }
 
     private func restoreNavItems() {
@@ -1798,6 +1981,8 @@ private final class Search: UIView {
     let bar: UISearchBar
     let prevButton = UIBarButtonItem()
     let nextButton = UIBarButtonItem()
+    
+    let resultsLabel = UILabel()
     let resultsItem: UIBarButtonItem
 
     var results: [PDFSelection] = []
@@ -1842,7 +2027,7 @@ private final class Search: UIView {
     init() {
         
         let bar = UISearchBar()
-        bar.placeholder = "Search PDF" // TODO: Think about localisation of string
+        bar.placeholder = Strings.searchPlaceholder
         bar.showsCancelButton = true
 
         // iOS 26 Liquid Glass already provides background; on older versions keep the
@@ -1854,7 +2039,25 @@ private final class Search: UIView {
         bar.translatesAutoresizingMaskIntoConstraints = false
         self.bar = bar
 
-        resultsItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        resultsLabel.translatesAutoresizingMaskIntoConstraints = false
+        resultsLabel.font = .preferredFont(forTextStyle: .body)
+        resultsLabel.adjustsFontForContentSizeCategory = true
+        resultsLabel.textColor = .label
+
+        // Wrap the label in a container pinned with inset constraints for left/right padding.
+        // Autolayout derives the container's size from the label's intrinsic size plus the
+        // insets, so the toolbar item grows to fit the text as it changes.
+        let resultsContainer = UIView()
+        resultsContainer.addSubview(resultsLabel)
+        
+        NSLayoutConstraint.activate([
+            resultsLabel.topAnchor.constraint(equalTo: resultsContainer.topAnchor),
+            resultsLabel.bottomAnchor.constraint(equalTo: resultsContainer.bottomAnchor),
+            resultsLabel.leadingAnchor.constraint(equalTo: resultsContainer.leadingAnchor, constant: 8),
+            resultsLabel.trailingAnchor.constraint(equalTo: resultsContainer.trailingAnchor, constant: -8)
+        ])
+
+        resultsItem = UIBarButtonItem(customView: resultsContainer)
 
         super.init(frame: .zero)
 
@@ -2244,3 +2447,64 @@ private extension UIResponder {
     }
 }
 
+// MARK: - UIAccessibility
+
+private extension UIAccessibility {
+
+    /// Speaks `message` via VoiceOver, only when it's running.
+    static func announce(_ message: String, thenFocus element: Any? = nil) {
+
+        guard isVoiceOverRunning
+            else { return }
+
+        if let element {
+            post(notification: .layoutChanged, argument: [message, element])
+        } else {
+            post(notification: .announcement,
+                 argument: NSAttributedString(string: message,
+                                              attributes: [.accessibilitySpeechQueueAnnouncement: true]))
+        }
+    }
+}
+
+// MARK: - Strings
+
+/// Strings used across the PDFPreviewController.
+/// TODO: Think about localisation of strings.
+private enum Strings {
+
+    // Control accessibility labels
+    static let share = "Share"
+    static let search = "Search"
+    static let markup = "Markup"
+    static let previousMatch = "Previous match"
+    static let nextMatch = "Next match"
+    static let clearAnnotations = "Clear annotations"
+    static let loadingDocument = "Loading document"
+
+    // Search
+    static let searchPlaceholder = "Search PDF"
+    static let noResults = "No results"
+    static func searchPosition(_ index: Int, of count: Int) -> String { "\(index) of \(count)" }
+
+    /// Spoken summary of a finished search (VoiceOver).
+    static func searchResultsAnnouncement(_ count: Int) -> String {
+        switch count {                        // TODO: stringsdict plural when localised
+        case 0:  return noResults
+        case 1:  return "1 result"
+        default: return "\(count) results"
+        }
+    }
+
+    /// Spoken position when stepping between matches (VoiceOver).
+    static func matchAnnouncement(_ index: Int, of count: Int) -> String { "Match \(index) of \(count)" }
+
+    // Markup mode-change announcements (VoiceOver)
+    static let markupModeEntered = "Markup mode"
+    static let markupModeClosed = "Markup closed"
+
+    // Pages
+    static func pageNumber(_ page: Int) -> String { "Page \(page)" }
+    static func pageOfPages(_ page: Int, of total: Int) -> String { "\(page) of \(total)" }
+    static func pageAnnouncement(_ page: Int, of total: Int) -> String { "Page \(page) of \(total)" }
+}
